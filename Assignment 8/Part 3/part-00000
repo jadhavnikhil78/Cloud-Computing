@@ -1,0 +1,535 @@
+persons_4 & doors_5more & safety_high & lug_boot_big & buying_low & maint_vhigh ==> class_acc
+persons_4 & maint_low & safety_high & buying_high & lug_boot_big ==> class_acc
+doors_3 & persons_4 & lug_boot_small & safety_high & buying_low & maint_vhigh ==> class_acc
+persons_4 & buying_med & doors_5more & maint_med & safety_med ==> class_acc
+persons_4 & doors_5more & maint_low & safety_high & buying_high ==> class_acc
+doors_3 & maint_low & persons_more & lug_boot_small & safety_high & buying_high ==> class_acc
+maint_low & persons_more & safety_high & buying_high & lug_boot_big & doors_2 ==> class_acc
+persons_4 & safety_high & buying_low & doors_2 & lug_boot_med & maint_high ==> class_acc
+maint_med & persons_more & safety_high & buying_high & lug_boot_big & doors_4 ==> class_acc
+doors_3 & persons_4 & maint_med & safety_high & buying_vhigh ==> class_acc
+persons_4 & lug_boot_small & safety_high & buying_low & maint_high ==> class_acc
+persons_4 & maint_low & lug_boot_small & safety_high & doors_2 & buying_vhigh ==> class_acc
+doors_3 & persons_4 & buying_med & maint_med & safety_high & lug_boot_med ==> class_acc
+persons_4 & buying_med & doors_5more & lug_boot_big & safety_med & maint_vhigh ==> class_acc
+persons_4 & maint_med & lug_boot_small & safety_high & doors_2 & buying_vhigh ==> class_acc
+buying_high & maint_high & persons_4 & safety_high ==> class_acc
+persons_4 & lug_boot_small & buying_low & doors_4 & safety_med & maint_high ==> class_acc
+doors_3 & persons_4 & lug_boot_small & safety_high & buying_low & maint_high ==> class_acc
+doors_3 & buying_med & maint_med & persons_more & lug_boot_big & safety_med ==> class_acc
+buying_med & maint_low & persons_more & lug_boot_small & doors_4 & safety_med ==> class_acc
+persons_4 & maint_med & safety_high & buying_high & doors_2 ==> class_acc
+doors_3 & persons_4 & safety_high & buying_high & maint_high ==> class_acc
+persons_4 & maint_low & safety_high & lug_boot_big & doors_2 & buying_vhigh ==> class_acc
+persons_4 & safety_high & lug_boot_big & buying_low & doors_2 & maint_vhigh ==> class_acc
+doors_5more & persons_more & safety_high & buying_high & lug_boot_big & maint_high ==> class_acc
+persons_4 & buying_med & doors_5more & maint_low & lug_boot_small & safety_med ==> class_acc
+persons_4 & lug_boot_small & buying_low & doors_2 & safety_med & maint_high ==> class_acc
+doors_3 & persons_4 & buying_low & safety_med & maint_high ==> class_acc
+persons_4 & doors_5more & maint_low & buying_high & lug_boot_med & safety_med ==> class_acc
+maint_low & persons_more & buying_high & lug_boot_big & doors_2 & safety_med ==> class_acc
+maint_low & persons_more & safety_high & lug_boot_med & doors_4 & buying_vhigh ==> class_acc
+buying_med & doors_5more & persons_more & lug_boot_big & safety_med & maint_high ==> class_acc
+buying_med & persons_more & lug_boot_big & doors_2 & safety_med & maint_high ==> class_acc
+persons_more & safety_high & buying_high & doors_2 & lug_boot_med & maint_high ==> class_acc
+doors_3 & persons_more & safety_high & buying_low & lug_boot_med & maint_vhigh ==> class_acc
+persons_more & safety_high & lug_boot_big & buying_low & doors_4 & maint_vhigh ==> class_acc
+persons_more & buying_high & lug_boot_med & doors_4 & safety_med & maint_high ==> class_acc
+doors_5more & persons_more & lug_boot_small & safety_high & buying_low & maint_vhigh ==> class_acc
+doors_3 & persons_4 & maint_low & safety_high & lug_boot_big & buying_vhigh ==> class_acc
+persons_4 & doors_5more & buying_low & lug_boot_med & safety_med & maint_vhigh ==> class_acc
+maint_med & persons_more & buying_high & lug_boot_med & doors_4 & safety_med ==> class_acc
+persons_4 & buying_med & doors_5more & lug_boot_small & safety_high & maint_high ==> class_acc
+persons_4 & buying_high & lug_boot_big & doors_2 & safety_med & maint_high ==> class_acc
+buying_vhigh & maint_med & persons_4 & safety_high ==> class_acc
+maint_med & persons_more & safety_high & doors_4 & buying_vhigh ==> class_acc
+maint_med & persons_more & buying_high & lug_boot_big & doors_4 & safety_med ==> class_acc
+doors_5more & maint_low & persons_more & safety_high & lug_boot_med & buying_vhigh ==> class_acc
+maint_med & persons_more & buying_high & lug_boot_big & doors_2 & safety_med ==> class_acc
+buying_med & persons_more & lug_boot_big & doors_4 & safety_med & maint_high ==> class_acc
+maint_low & persons_more & buying_high & lug_boot_med & doors_4 & safety_med ==> class_acc
+doors_5more & maint_low & persons_more & safety_high & lug_boot_big & buying_vhigh ==> class_acc
+maint_med & persons_more & buying_high & lug_boot_big & safety_med ==> class_acc
+persons_more & lug_boot_big & buying_low & doors_4 & safety_med & maint_vhigh ==> class_acc
+buying_med & maint_med & persons_more & lug_boot_big & doors_4 & safety_med ==> class_acc
+maint_med & persons_more & lug_boot_small & buying_low & doors_4 & safety_med ==> class_acc
+doors_3 & persons_4 & buying_med & lug_boot_big & safety_med & maint_vhigh ==> class_acc
+doors_3 & persons_4 & maint_low & safety_high & buying_high & lug_boot_big ==> class_acc
+persons_4 & maint_med & lug_boot_big & doors_2 & safety_med & buying_vhigh ==> class_acc
+maint_med & persons_more & lug_boot_med & doors_4 & safety_med & buying_vhigh ==> class_acc
+persons_4 & buying_med & lug_boot_small & safety_high & doors_4 & maint_vhigh ==> class_acc
+persons_4 & buying_low & lug_boot_med & doors_4 & safety_med & maint_vhigh ==> class_acc
+persons_4 & doors_5more & safety_high & buying_low & lug_boot_med & maint_vhigh ==> class_acc
+persons_4 & buying_low & lug_boot_med & doors_4 & safety_med & maint_high ==> class_acc
+persons_4 & maint_low & lug_boot_small & buying_low & safety_med ==> class_acc
+persons_more & lug_boot_big & buying_low & doors_2 & safety_med & maint_vhigh ==> class_acc
+persons_more & safety_high & buying_low & doors_2 & lug_boot_med & maint_high ==> class_acc
+doors_3 & persons_more & buying_low & lug_boot_med & safety_med & maint_high ==> class_acc
+buying_med & maint_med & persons_more & doors_4 & safety_med ==> class_acc
+doors_3 & persons_4 & maint_low & safety_high & buying_high ==> class_acc
+persons_4 & buying_med & lug_boot_big & doors_4 & safety_med & maint_vhigh ==> class_acc
+maint_med & persons_more & lug_boot_small & safety_high & doors_4 & buying_vhigh ==> class_acc
+persons_4 & buying_med & doors_5more & safety_high & lug_boot_med & maint_high ==> class_acc
+doors_5more & maint_med & persons_more & safety_high & buying_high & lug_boot_med ==> class_acc
+doors_3 & maint_med & persons_more & buying_high & lug_boot_med & safety_med ==> class_acc
+doors_5more & persons_more & safety_high & buying_low & maint_vhigh ==> class_acc
+persons_4 & buying_med & maint_med & lug_boot_small & safety_high ==> class_acc
+persons_more & lug_boot_small & safety_high & buying_high & doors_4 & maint_high ==> class_acc
+persons_4 & safety_high & buying_high & doors_2 & lug_boot_med & maint_high ==> class_acc
+persons_4 & buying_med & safety_high & lug_boot_med & maint_high ==> class_acc
+persons_4 & buying_med & lug_boot_big & doors_2 & safety_med & maint_high ==> class_acc
+doors_3 & buying_med & persons_more & safety_high & lug_boot_big & maint_vhigh ==> class_acc
+persons_4 & maint_low & safety_high & buying_high & lug_boot_big & doors_4 ==> class_acc
+doors_3 & persons_more & buying_low & safety_med & maint_high ==> class_acc
+maint_low & persons_more & safety_high & buying_high & lug_boot_med & doors_4 ==> class_acc
+doors_5more & persons_more & lug_boot_small & safety_high & buying_low & maint_high ==> class_acc
+persons_4 & lug_boot_small & safety_high & buying_low & doors_4 & maint_high ==> class_acc
+persons_4 & maint_low & lug_boot_big & doors_4 & safety_med & buying_vhigh ==> class_acc
+persons_4 & buying_med & maint_med & safety_high & doors_2 & lug_boot_med ==> class_acc
+persons_4 & doors_5more & maint_low & lug_boot_small & safety_high & buying_vhigh ==> class_acc
+doors_3 & persons_more & lug_boot_big & buying_low & safety_med & maint_high ==> class_acc
+doors_3 & buying_med & persons_more & safety_high & maint_vhigh ==> class_acc
+doors_3 & buying_med & maint_med & persons_more & safety_med ==> class_acc
+buying_med & persons_more & lug_boot_small & safety_high & doors_4 & maint_high ==> class_acc
+persons_4 & doors_5more & lug_boot_small & safety_high & buying_low & maint_high ==> class_acc
+persons_4 & lug_boot_small & safety_high & buying_low & doors_2 & maint_high ==> class_acc
+maint_low & persons_more & safety_high & buying_high & doors_4 ==> class_acc
+buying_med & maint_med & persons_more & doors_2 & lug_boot_med & safety_med ==> class_acc
+doors_3 & persons_4 & buying_med & lug_boot_big & safety_med & maint_high ==> class_acc
+persons_4 & safety_high & buying_high & doors_2 & maint_high ==> class_acc
+persons_4 & buying_low & lug_boot_med & safety_med & maint_high ==> class_acc
+doors_5more & persons_more & buying_high & lug_boot_med & safety_med & maint_high ==> class_acc
+doors_3 & maint_med & persons_more & safety_high & buying_high & lug_boot_big ==> class_acc
+doors_3 & persons_4 & maint_low & safety_high & lug_boot_med & buying_vhigh ==> class_acc
+persons_4 & maint_med & lug_boot_small & safety_high & buying_vhigh ==> class_acc
+persons_4 & lug_boot_big & buying_low & doors_2 & safety_med & maint_vhigh ==> class_acc
+persons_4 & doors_5more & maint_med & lug_boot_big & safety_med & buying_vhigh ==> class_acc
+persons_4 & safety_high & buying_high & lug_boot_med & maint_high ==> class_acc
+doors_3 & buying_med & persons_more & lug_boot_med & safety_med & maint_vhigh ==> class_acc
+doors_3 & persons_4 & buying_med & safety_high & lug_boot_med & maint_vhigh ==> class_acc
+persons_4 & buying_med & maint_med & doors_4 & safety_med ==> class_acc
+buying_med & persons_more & safety_high & lug_boot_med & doors_4 & maint_vhigh ==> class_acc
+persons_4 & buying_med & safety_high & lug_boot_med & maint_vhigh ==> class_acc
+persons_4 & doors_5more & buying_low & safety_med & maint_high ==> class_acc
+doors_3 & buying_med & maint_med & persons_more & lug_boot_med & safety_med ==> class_acc
+persons_4 & buying_med & lug_boot_small & safety_high & doors_4 & maint_high ==> class_acc
+persons_4 & doors_5more & maint_med & safety_high & lug_boot_med & buying_vhigh ==> class_acc
+buying_med & persons_more & safety_high & lug_boot_big & doors_4 & maint_high ==> class_acc
+maint_low & persons_more & safety_high & doors_4 & buying_vhigh ==> class_acc
+persons_4 & buying_med & maint_low & lug_boot_small & doors_2 & safety_med ==> class_acc
+persons_4 & buying_high & lug_boot_big & safety_med & maint_high ==> class_acc
+doors_3 & maint_med & persons_more & safety_high & buying_high ==> class_acc
+doors_5more & persons_more & lug_boot_big & buying_low & safety_med & maint_high ==> class_acc
+persons_4 & maint_low & lug_boot_small & safety_high & buying_high & doors_2 ==> class_acc
+doors_5more & maint_med & persons_more & lug_boot_big & safety_med & buying_vhigh ==> class_acc
+maint_low & persons_more & safety_high & buying_high & lug_boot_med ==> class_acc
+doors_5more & maint_low & persons_more & buying_high & lug_boot_med & safety_med ==> class_acc
+doors_3 & maint_low & persons_more & safety_high & lug_boot_med & buying_vhigh ==> class_acc
+doors_3 & persons_4 & lug_boot_big & buying_low & safety_med & maint_vhigh ==> class_acc
+doors_3 & persons_4 & lug_boot_big & buying_low & safety_med & maint_high ==> class_acc
+persons_4 & doors_5more & maint_low & safety_high & lug_boot_big & buying_vhigh ==> class_acc
+maint_low & persons_more & lug_boot_med & doors_4 & safety_med & buying_vhigh ==> class_acc
+doors_3 & maint_med & persons_more & lug_boot_small & buying_low & safety_med ==> class_acc
+persons_4 & lug_boot_big & buying_low & safety_med & maint_high ==> class_acc
+doors_3 & persons_more & lug_boot_small & safety_high & buying_low & maint_high ==> class_acc
+maint_low & persons_more & lug_boot_small & safety_high & doors_4 & buying_vhigh ==> class_acc
+persons_4 & maint_low & safety_high & lug_boot_med & buying_vhigh ==> class_acc
+doors_3 & persons_4 & maint_med & safety_high & buying_high ==> class_acc
+persons_4 & buying_med & maint_low & lug_boot_small & safety_med ==> class_acc
+persons_more & safety_high & buying_low & doors_2 & lug_boot_med & maint_vhigh ==> class_acc
+persons_4 & lug_boot_big & buying_low & doors_2 & safety_med & maint_high ==> class_acc
+buying_med & persons_more & safety_high & lug_boot_med & doors_4 & maint_high ==> class_acc
+buying_med & doors_5more & persons_more & safety_high & maint_high ==> class_acc
+persons_4 & doors_5more & maint_med & safety_high & buying_vhigh ==> class_acc
+persons_4 & doors_5more & maint_med & safety_high & lug_boot_big & buying_vhigh ==> class_acc
+buying_med & persons_more & safety_high & doors_2 & lug_boot_med & maint_vhigh ==> class_acc
+persons_4 & buying_med & doors_5more & safety_high & lug_boot_med & maint_vhigh ==> class_acc
+persons_4 & maint_low & safety_high & buying_high & doors_2 ==> class_acc
+buying_low & maint_high & persons_4 & safety_med ==> class_acc
+persons_4 & doors_5more & safety_high & buying_low & maint_vhigh ==> class_acc
+maint_med & persons_more & safety_high & buying_high & doors_4 ==> class_acc
+doors_3 & persons_4 & safety_high & lug_boot_big & buying_low & maint_vhigh ==> class_acc
+persons_4 & buying_low & doors_4 & safety_med & maint_high ==> class_acc
+doors_3 & persons_4 & maint_med & buying_low & lug_boot_med & safety_med ==> class_acc
+doors_3 & maint_med & persons_more & lug_boot_small & safety_high & buying_high ==> class_acc
+persons_4 & buying_med & doors_5more & lug_boot_med & safety_med & maint_high ==> class_acc
+doors_3 & persons_4 & lug_boot_small & buying_low & safety_med & maint_high ==> class_acc
+doors_3 & maint_med & persons_more & safety_high & buying_high & lug_boot_med ==> class_acc
+doors_3 & maint_low & persons_more & lug_boot_med & safety_med & buying_vhigh ==> class_acc
+persons_4 & maint_med & safety_high & lug_boot_big & doors_2 & buying_vhigh ==> class_acc
+buying_med & doors_5more & persons_more & lug_boot_small & safety_high & maint_high ==> class_acc
+buying_med & doors_5more & persons_more & safety_high & lug_boot_big & maint_vhigh ==> class_acc
+persons_4 & maint_med & safety_high & lug_boot_med & doors_4 & buying_vhigh ==> class_acc
+buying_med & persons_more & safety_high & lug_boot_big & maint_high ==> class_acc
+persons_4 & buying_med & doors_5more & safety_high & lug_boot_big & maint_vhigh ==> class_acc
+persons_4 & doors_5more & maint_med & safety_high & buying_high ==> class_acc
+persons_4 & maint_low & buying_low & doors_2 & lug_boot_med & safety_med ==> class_acc
+maint_low & persons_more & lug_boot_small & buying_low & doors_4 & safety_med ==> class_acc
+persons_4 & buying_med & doors_5more & maint_med & lug_boot_small & safety_high ==> class_acc
+buying_med & doors_5more & persons_more & lug_boot_small & safety_high & maint_vhigh ==> class_acc
+doors_3 & persons_4 & maint_med & lug_boot_small & safety_high & buying_high ==> class_acc
+persons_4 & maint_med & buying_high & lug_boot_big & doors_2 & safety_med ==> class_acc
+doors_5more & persons_more & lug_boot_small & safety_high & buying_high & maint_high ==> class_acc
+doors_3 & maint_low & persons_more & safety_high & buying_high & lug_boot_med ==> class_acc
+doors_3 & maint_med & persons_more & lug_boot_big & safety_med & buying_vhigh ==> class_acc
+maint_med & persons_more & safety_high & buying_high & lug_boot_big & doors_2 ==> class_acc
+doors_3 & persons_more & buying_low & lug_boot_med & safety_med & maint_vhigh ==> class_acc
+persons_more & buying_low & lug_boot_med & safety_med & maint_high ==> class_acc
+persons_4 & maint_low & safety_high & doors_2 & lug_boot_med & buying_vhigh ==> class_acc
+doors_3 & maint_low & persons_more & lug_boot_big & safety_med & buying_vhigh ==> class_acc
+doors_3 & persons_4 & buying_med & lug_boot_small & safety_high & maint_high ==> class_acc
+doors_5more & maint_low & persons_more & safety_high & buying_vhigh ==> class_acc
+doors_5more & maint_med & persons_more & safety_high & buying_high ==> class_acc
+persons_4 & safety_high & buying_low & doors_4 & maint_vhigh ==> class_acc
+buying_med & doors_5more & persons_more & safety_high & maint_vhigh ==> class_acc
+buying_med & maint_high & persons_4 & safety_high ==> class_acc
+persons_4 & maint_low & safety_high & doors_2 & buying_vhigh ==> class_acc
+doors_3 & persons_more & safety_high & lug_boot_big & buying_low & maint_vhigh ==> class_acc
+persons_4 & lug_boot_big & buying_low & safety_med & maint_vhigh ==> class_acc
+persons_4 & doors_5more & maint_med & lug_boot_med & safety_med & buying_vhigh ==> class_acc
+persons_4 & lug_boot_small & safety_high & buying_low & maint_vhigh ==> class_acc
+doors_3 & persons_4 & safety_high & buying_high & lug_boot_big & maint_high ==> class_acc
+persons_4 & maint_low & lug_boot_small & safety_high & buying_high ==> class_acc
+maint_low & persons_more & buying_high & lug_boot_big & doors_4 & safety_med ==> class_acc
+persons_4 & buying_med & lug_boot_big & safety_med & maint_high ==> class_acc
+doors_3 & maint_low & persons_more & safety_high & buying_vhigh ==> class_acc
+persons_4 & buying_high & lug_boot_med & doors_4 & safety_med & maint_high ==> class_acc
+doors_5more & maint_med & persons_more & safety_high & lug_boot_big & buying_vhigh ==> class_acc
+persons_4 & buying_med & maint_med & lug_boot_big & doors_2 & safety_med ==> class_acc
+persons_4 & maint_med & safety_high & buying_high & lug_boot_big & doors_4 ==> class_acc
+persons_4 & doors_5more & maint_low & safety_high & buying_high & lug_boot_big ==> class_acc
+persons_4 & doors_5more & maint_low & safety_high & lug_boot_med & buying_vhigh ==> class_acc
+maint_med & persons_more & safety_high & lug_boot_med & buying_vhigh ==> class_acc
+persons_4 & doors_5more & maint_med & safety_high & buying_high & lug_boot_big ==> class_acc
+persons_4 & buying_med & doors_5more & maint_med & lug_boot_small & safety_med ==> class_acc
+doors_3 & persons_4 & safety_high & buying_low & lug_boot_med & maint_high ==> class_acc
+persons_more & lug_boot_big & buying_low & safety_med & maint_vhigh ==> class_acc
+buying_med & persons_more & safety_high & lug_boot_med & maint_high ==> class_acc
+doors_3 & persons_4 & buying_high & lug_boot_big & safety_med & maint_high ==> class_acc
+persons_4 & maint_med & safety_high & doors_4 & buying_vhigh ==> class_acc
+persons_4 & maint_low & lug_boot_med & doors_4 & safety_med & buying_vhigh ==> class_acc
+buying_med & maint_med & persons_more & lug_boot_small & doors_4 & safety_med ==> class_acc
+doors_3 & persons_4 & maint_med & lug_boot_small & buying_low & safety_med ==> class_acc
+maint_low & persons_more & lug_boot_big & doors_2 & safety_med & buying_vhigh ==> class_acc
+persons_more & lug_boot_small & safety_high & buying_low & doors_4 & maint_high ==> class_acc
+maint_med & persons_more & safety_high & buying_high & lug_boot_med & doors_4 ==> class_acc
+maint_low & persons_more & safety_high & buying_high & lug_boot_big ==> class_acc
+persons_4 & maint_low & buying_high & lug_boot_big & safety_med ==> class_acc
+doors_3 & persons_4 & maint_low & lug_boot_small & buying_low & safety_med ==> class_acc
+buying_med & doors_5more & maint_med & persons_more & lug_boot_small & safety_high ==> class_acc
+maint_med & persons_more & safety_high & buying_high & lug_boot_big ==> class_acc
+persons_4 & maint_med & safety_high & lug_boot_med & buying_vhigh ==> class_acc
+persons_4 & buying_med & maint_med & lug_boot_small & doors_4 & safety_med ==> class_acc
+maint_low & persons_more & safety_high & buying_high & lug_boot_big & doors_4 ==> class_acc
+doors_3 & maint_med & persons_more & lug_boot_small & safety_high & buying_vhigh ==> class_acc
+persons_4 & buying_med & lug_boot_small & safety_high & doors_2 & maint_high ==> class_acc
+persons_4 & buying_med & safety_high & lug_boot_med & doors_4 & maint_vhigh ==> class_acc
+persons_4 & maint_low & safety_high & buying_high & doors_2 & lug_boot_med ==> class_acc
+persons_4 & doors_5more & maint_med & buying_high & lug_boot_med & safety_med ==> class_acc
+persons_4 & maint_low & safety_high & doors_4 & buying_vhigh ==> class_acc
+persons_4 & maint_low & safety_high & buying_high & doors_4 ==> class_acc
+persons_4 & safety_high & buying_high & lug_boot_big & doors_2 & maint_high ==> class_acc
+doors_5more & maint_low & persons_more & lug_boot_small & buying_low & safety_med ==> class_acc
+persons_4 & safety_high & buying_low & doors_2 & maint_vhigh ==> class_acc
+doors_3 & persons_4 & maint_med & safety_high & buying_high & lug_boot_big ==> class_acc
+persons_4 & doors_5more & lug_boot_big & buying_low & safety_med & maint_vhigh ==> class_acc
+doors_3 & buying_med & persons_more & safety_high & maint_high ==> class_acc
+doors_5more & maint_med & persons_more & lug_boot_med & safety_med & buying_vhigh ==> class_acc
+persons_4 & maint_med & safety_high & lug_boot_big & doors_4 & buying_vhigh ==> class_acc
+persons_4 & maint_low & lug_boot_big & doors_2 & safety_med & buying_vhigh ==> class_acc
+doors_3 & maint_low & persons_more & lug_boot_small & safety_high & buying_vhigh ==> class_acc
+doors_3 & persons_4 & buying_med & safety_high & lug_boot_big & maint_high ==> class_acc
+doors_3 & maint_med & persons_more & safety_high & buying_vhigh ==> class_acc
+doors_3 & buying_med & persons_more & safety_high & lug_boot_med & maint_high ==> class_acc
+persons_4 & maint_med & safety_high & buying_high & lug_boot_med & doors_4 ==> class_acc
+maint_low & persons_more & safety_high & lug_boot_big & buying_vhigh ==> class_acc
+persons_more & safety_high & buying_high & lug_boot_big & doors_2 & maint_high ==> class_acc
+persons_4 & buying_med & maint_med & lug_boot_big & safety_med ==> class_acc
+maint_med & persons_more & lug_boot_big & safety_med & buying_vhigh ==> class_acc
+persons_4 & maint_med & lug_boot_med & doors_4 & safety_med & buying_vhigh ==> class_acc
+persons_4 & buying_med & lug_boot_small & safety_high & doors_2 & maint_vhigh ==> class_acc
+persons_4 & maint_med & lug_boot_small & safety_high & doors_4 & buying_vhigh ==> class_acc
+persons_4 & maint_low & lug_boot_small & safety_high & buying_high & doors_4 ==> class_acc
+persons_4 & maint_med & lug_boot_small & buying_low & safety_med ==> class_acc
+persons_4 & buying_med & maint_med & doors_2 & safety_med ==> class_acc
+persons_4 & maint_med & buying_high & lug_boot_big & doors_4 & safety_med ==> class_acc
+persons_4 & maint_low & safety_high & lug_boot_big & buying_vhigh ==> class_acc
+persons_4 & doors_5more & buying_high & lug_boot_big & safety_med & maint_high ==> class_acc
+buying_med & doors_5more & maint_med & persons_more & safety_med ==> class_acc
+buying_med & persons_more & safety_high & doors_4 & maint_vhigh ==> class_acc
+buying_med & maint_med & persons_more & lug_boot_big & safety_med ==> class_acc
+persons_4 & doors_5more & maint_low & lug_boot_big & safety_med & buying_vhigh ==> class_acc
+doors_3 & persons_more & safety_high & buying_low & maint_vhigh ==> class_acc
+doors_3 & buying_med & persons_more & safety_high & lug_boot_big & maint_high ==> class_acc
+doors_3 & persons_4 & buying_med & maint_low & lug_boot_small & safety_med ==> class_acc
+buying_med & doors_5more & maint_med & persons_more & lug_boot_small & safety_med ==> class_acc
+buying_med & persons_more & lug_boot_med & doors_4 & safety_med & maint_vhigh ==> class_acc
+doors_5more & maint_med & persons_more & safety_high & buying_vhigh ==> class_acc
+doors_5more & persons_more & safety_high & buying_low & lug_boot_med & maint_vhigh ==> class_acc
+persons_4 & buying_med & safety_high & lug_boot_big & maint_high ==> class_acc
+doors_5more & maint_low & persons_more & buying_high & lug_boot_big & safety_med ==> class_acc
+doors_3 & maint_low & persons_more & buying_high & lug_boot_med & safety_med ==> class_acc
+buying_low & maint_vhigh & persons_4 & safety_high ==> class_acc
+persons_4 & buying_med & maint_med & lug_boot_small & safety_high & doors_4 ==> class_acc
+buying_med & persons_more & safety_high & lug_boot_big & doors_2 & maint_high ==> class_acc
+persons_4 & doors_5more & buying_high & lug_boot_med & safety_med & maint_high ==> class_acc
+doors_5more & maint_low & persons_more & lug_boot_small & safety_high & buying_high ==> class_acc
+doors_3 & maint_low & persons_more & safety_high & lug_boot_big & buying_vhigh ==> class_acc
+buying_med & doors_5more & maint_med & persons_more & lug_boot_big & safety_med ==> class_acc
+persons_4 & doors_5more & maint_med & lug_boot_small & safety_high & buying_vhigh ==> class_acc
+maint_low & persons_more & buying_low & doors_2 & lug_boot_med & safety_med ==> class_acc
+doors_5more & maint_low & persons_more & safety_high & buying_high & lug_boot_med ==> class_acc
+maint_med & persons_more & safety_high & lug_boot_big & doors_4 & buying_vhigh ==> class_acc
+persons_more & lug_boot_big & buying_low & doors_4 & safety_med & maint_high ==> class_acc
+persons_4 & buying_med & maint_low & doors_2 & lug_boot_med & safety_med ==> class_acc
+buying_med & doors_5more & persons_more & safety_high & lug_boot_med & maint_vhigh ==> class_acc
+maint_med & persons_more & safety_high & lug_boot_big & doors_2 & buying_vhigh ==> class_acc
+persons_4 & doors_5more & maint_med & buying_high & lug_boot_big & safety_med ==> class_acc
+persons_4 & maint_low & lug_boot_big & safety_med & buying_vhigh ==> class_acc
+buying_med & doors_5more & maint_low & persons_more & lug_boot_small & safety_med ==> class_acc
+doors_3 & persons_more & lug_boot_small & safety_high & buying_low & maint_vhigh ==> class_acc
+persons_4 & maint_med & lug_boot_small & safety_high & buying_high & doors_4 ==> class_acc
+buying_med & doors_5more & persons_more & lug_boot_med & safety_med & maint_high ==> class_acc
+maint_med & persons_more & lug_boot_small & safety_high & buying_high & doors_4 ==> class_acc
+doors_3 & buying_med & persons_more & lug_boot_small & safety_high & maint_high ==> class_acc
+persons_more & safety_high & buying_high & lug_boot_big & maint_high ==> class_acc
+doors_3 & persons_4 & buying_med & maint_med & lug_boot_small & safety_med ==> class_acc
+doors_3 & persons_4 & maint_med & safety_high & lug_boot_med & buying_vhigh ==> class_acc
+persons_4 & safety_high & buying_high & doors_4 & maint_high ==> class_acc
+doors_3 & maint_med & persons_more & lug_boot_med & safety_med & buying_vhigh ==> class_acc
+persons_more & buying_high & lug_boot_big & safety_med & maint_high ==> class_acc
+maint_low & persons_more & buying_high & lug_boot_big & safety_med ==> class_acc
+persons_4 & maint_med & safety_high & buying_high & doors_4 ==> class_acc
+buying_med & doors_5more & persons_more & safety_high & lug_boot_big & maint_high ==> class_acc
+persons_4 & buying_med & safety_high & doors_4 & maint_vhigh ==> class_acc
+persons_4 & buying_med & lug_boot_small & safety_high & maint_high ==> class_acc
+doors_5more & persons_more & buying_low & lug_boot_med & safety_med & maint_vhigh ==> class_acc
+buying_med & persons_more & lug_boot_big & doors_2 & safety_med & maint_vhigh ==> class_acc
+maint_med & persons_more & safety_high & buying_high & doors_2 & lug_boot_med ==> class_acc
+buying_med & persons_more & safety_high & lug_boot_big & doors_2 & maint_vhigh ==> class_acc
+persons_more & safety_high & lug_boot_big & buying_low & doors_2 & maint_vhigh ==> class_acc
+doors_3 & persons_4 & buying_med & safety_high & maint_vhigh ==> class_acc
+maint_med & persons_more & safety_high & lug_boot_big & buying_vhigh ==> class_acc
+doors_3 & persons_4 & buying_med & maint_med & lug_boot_small & safety_high ==> class_acc
+doors_5more & maint_low & persons_more & safety_high & buying_high & lug_boot_big ==> class_acc
+buying_med & persons_more & lug_boot_big & doors_4 & safety_med & maint_vhigh ==> class_acc
+buying_med & doors_5more & persons_more & safety_high & lug_boot_med & maint_high ==> class_acc
+persons_more & buying_low & doors_2 & lug_boot_med & safety_med & maint_high ==> class_acc
+doors_3 & persons_more & buying_high & lug_boot_big & safety_med & maint_high ==> class_acc
+doors_3 & persons_more & safety_high & buying_high & lug_boot_big & maint_high ==> class_acc
+buying_med & persons_more & lug_boot_med & doors_4 & safety_med & maint_high ==> class_acc
+persons_more & lug_boot_big & buying_low & safety_med & maint_high ==> class_acc
+maint_low & persons_more & safety_high & lug_boot_big & doors_4 & buying_vhigh ==> class_acc
+doors_3 & persons_4 & lug_boot_small & safety_high & buying_high & maint_high ==> class_acc
+maint_low & persons_more & safety_high & lug_boot_big & doors_2 & buying_vhigh ==> class_acc
+buying_med & persons_more & lug_boot_big & safety_med & maint_high ==> class_acc
+persons_4 & maint_med & lug_boot_small & safety_high & buying_high ==> class_acc
+doors_3 & buying_med & persons_more & lug_boot_big & safety_med & maint_vhigh ==> class_acc
+persons_4 & maint_low & safety_high & lug_boot_med & doors_4 & buying_vhigh ==> class_acc
+buying_med & maint_med & persons_more & lug_boot_small & safety_high & doors_4 ==> class_acc
+buying_med & persons_more & lug_boot_small & safety_high & doors_4 & maint_vhigh ==> class_acc
+persons_4 & maint_med & safety_high & doors_2 & buying_vhigh ==> class_acc
+persons_4 & buying_med & safety_high & doors_2 & lug_boot_med & maint_high ==> class_acc
+persons_4 & buying_low & doors_2 & safety_med & maint_high ==> class_acc
+buying_med & persons_more & safety_high & doors_2 & lug_boot_med & maint_high ==> class_acc
+maint_low & persons_more & safety_high & doors_2 & lug_boot_med & buying_vhigh ==> class_acc
+persons_more & safety_high & lug_boot_big & buying_low & maint_vhigh ==> class_acc
+persons_4 & maint_low & buying_high & lug_boot_big & doors_4 & safety_med ==> class_acc
+doors_5more & maint_low & persons_more & lug_boot_med & safety_med & buying_vhigh ==> class_acc
+maint_low & persons_more & safety_high & lug_boot_med & buying_vhigh ==> class_acc
+buying_med & maint_med & persons_more & lug_boot_big & doors_2 & safety_med ==> class_acc
+persons_4 & maint_low & safety_high & lug_boot_big & doors_4 & buying_vhigh ==> class_acc
+buying_med & persons_more & safety_high & doors_4 & maint_high ==> class_acc
+persons_more & lug_boot_small & safety_high & buying_low & doors_4 & maint_vhigh ==> class_acc
+persons_4 & buying_med & maint_med & lug_boot_med & doors_4 & safety_med ==> class_acc
+doors_3 & persons_4 & buying_med & safety_high & maint_high ==> class_acc
+persons_4 & doors_5more & maint_low & lug_boot_small & buying_low & safety_med ==> class_acc
+persons_4 & buying_med & safety_high & lug_boot_big & doors_4 & maint_high ==> class_acc
+doors_3 & persons_more & safety_high & buying_high & maint_high ==> class_acc
+persons_4 & maint_low & lug_boot_small & safety_high & buying_vhigh ==> class_acc
+persons_4 & buying_med & safety_high & lug_boot_big & doors_2 & maint_vhigh ==> class_acc
+maint_med & persons_more & safety_high & lug_boot_med & doors_4 & buying_vhigh ==> class_acc
+persons_4 & doors_5more & lug_boot_small & buying_low & safety_med & maint_high ==> class_acc
+persons_4 & maint_low & safety_high & buying_high & lug_boot_med ==> class_acc
+doors_3 & maint_low & persons_more & safety_high & buying_high ==> class_acc
+doors_5more & maint_low & persons_more & safety_high & buying_high ==> class_acc
+doors_3 & persons_4 & maint_low & safety_high & buying_vhigh ==> class_acc
+persons_4 & buying_med & maint_med & lug_boot_small & doors_2 & safety_med ==> class_acc
+doors_3 & persons_4 & maint_low & lug_boot_small & safety_high & buying_vhigh ==> class_acc
+persons_4 & doors_5more & buying_low & lug_boot_med & safety_med & maint_high ==> class_acc
+buying_med & maint_low & persons_more & doors_2 & lug_boot_med & safety_med ==> class_acc
+persons_4 & maint_med & safety_high & buying_high & doors_2 & lug_boot_med ==> class_acc
+doors_5more & persons_more & safety_high & lug_boot_big & buying_low & maint_vhigh ==> class_acc
+persons_4 & maint_low & lug_boot_small & buying_low & doors_4 & safety_med ==> class_acc
+persons_4 & maint_med & safety_high & buying_high & lug_boot_big & doors_2 ==> class_acc
+persons_4 & buying_med & lug_boot_big & doors_2 & safety_med & maint_vhigh ==> class_acc
+doors_3 & persons_4 & maint_med & buying_high & lug_boot_big & safety_med ==> class_acc
+persons_4 & buying_med & safety_high & doors_2 & lug_boot_med & maint_vhigh ==> class_acc
+persons_more & safety_high & buying_low & lug_boot_med & maint_vhigh ==> class_acc
+persons_4 & maint_med & lug_boot_big & safety_med & buying_vhigh ==> class_acc
+persons_4 & buying_med & lug_boot_small & safety_high & maint_vhigh ==> class_acc
+doors_3 & maint_low & persons_more & buying_high & lug_boot_big & safety_med ==> class_acc
+persons_4 & maint_med & safety_high & buying_high & lug_boot_big ==> class_acc
+doors_5more & maint_med & persons_more & buying_high & lug_boot_big & safety_med ==> class_acc
+persons_4 & maint_low & safety_high & buying_high & lug_boot_med & doors_4 ==> class_acc
+doors_3 & buying_med & maint_med & persons_more & lug_boot_small & safety_high ==> class_acc
+persons_4 & doors_5more & maint_low & buying_high & lug_boot_big & safety_med ==> class_acc
+persons_4 & doors_5more & maint_med & lug_boot_small & buying_low & safety_med ==> class_acc
+maint_low & persons_more & lug_boot_big & safety_med & buying_vhigh ==> class_acc
+persons_more & safety_high & buying_high & lug_boot_med & doors_4 & maint_high ==> class_acc
+doors_5more & persons_more & lug_boot_small & buying_low & safety_med & maint_high ==> class_acc
+persons_4 & lug_boot_big & buying_low & doors_4 & safety_med & maint_vhigh ==> class_acc
+maint_low & persons_more & lug_boot_big & doors_4 & safety_med & buying_vhigh ==> class_acc
+maint_low & persons_more & safety_high & buying_high & doors_2 & lug_boot_med ==> class_acc
+doors_3 & persons_4 & maint_med & safety_high & lug_boot_big & buying_vhigh ==> class_acc
+persons_4 & safety_high & buying_low & doors_2 & lug_boot_med & maint_vhigh ==> class_acc
+persons_4 & buying_med & doors_5more & lug_boot_med & safety_med & maint_vhigh ==> class_acc
+doors_3 & persons_more & lug_boot_small & safety_high & buying_high & maint_high ==> class_acc
+buying_high & maint_low & persons_4 & safety_high ==> class_acc
+persons_4 & maint_med & lug_boot_small & buying_low & doors_2 & safety_med ==> class_acc
+persons_4 & safety_high & buying_low & lug_boot_med & doors_4 & maint_vhigh ==> class_acc
+buying_med & doors_5more & persons_more & lug_boot_med & safety_med & maint_vhigh ==> class_acc
+persons_4 & maint_low & buying_high & lug_boot_big & doors_2 & safety_med ==> class_acc
+persons_4 & maint_med & safety_high & buying_high & lug_boot_med ==> class_acc
+persons_4 & buying_med & doors_5more & maint_med & lug_boot_big & safety_med ==> class_acc
+doors_3 & persons_4 & maint_low & buying_low & lug_boot_med & safety_med ==> class_acc
+persons_4 & doors_5more & lug_boot_small & safety_high & buying_high & maint_high ==> class_acc
+persons_more & buying_low & lug_boot_med & doors_4 & safety_med & maint_high ==> class_acc
+maint_med & persons_more & lug_boot_big & doors_4 & safety_med & buying_vhigh ==> class_acc
+doors_5more & maint_med & persons_more & lug_boot_small & buying_low & safety_med ==> class_acc
+persons_4 & lug_boot_small & safety_high & buying_high & doors_2 & maint_high ==> class_acc
+persons_4 & buying_med & maint_low & lug_boot_small & doors_4 & safety_med ==> class_acc
+buying_med & maint_med & persons_more & safety_high & doors_2 & lug_boot_med ==> class_acc
+persons_4 & doors_5more & maint_low & lug_boot_med & safety_med & buying_vhigh ==> class_acc
+persons_more & safety_high & buying_high & lug_boot_med & maint_high ==> class_acc
+persons_4 & doors_5more & maint_med & lug_boot_small & safety_high & buying_high ==> class_acc
+doors_5more & persons_more & safety_high & buying_high & lug_boot_med & maint_high ==> class_acc
+persons_4 & doors_5more & lug_boot_small & safety_high & buying_low & maint_vhigh ==> class_acc
+persons_4 & buying_med & doors_5more & safety_high & lug_boot_big & maint_high ==> class_acc
+buying_vhigh & maint_low & persons_4 & safety_high ==> class_acc
+persons_4 & safety_high & buying_high & lug_boot_med & doors_4 & maint_high ==> class_acc
+persons_4 & buying_med & lug_boot_med & doors_4 & safety_med & maint_high ==> class_acc
+persons_4 & lug_boot_small & safety_high & buying_low & doors_4 & maint_vhigh ==> class_acc
+persons_more & buying_high & lug_boot_big & doors_4 & safety_med & maint_high ==> class_acc
+persons_4 & buying_med & maint_med & lug_boot_med & safety_med ==> class_acc
+persons_4 & maint_low & lug_boot_small & safety_high & doors_4 & buying_vhigh ==> class_acc
+persons_more & buying_low & lug_boot_med & doors_4 & safety_med & maint_vhigh ==> class_acc
+doors_3 & persons_4 & buying_med & maint_med & lug_boot_med & safety_med ==> class_acc
+doors_3 & buying_med & maint_low & persons_more & lug_boot_small & safety_med ==> class_acc
+buying_med & maint_vhigh & persons_4 & safety_high ==> class_acc
+persons_4 & buying_med & doors_5more & safety_high & maint_high ==> class_acc
+persons_4 & buying_med & doors_5more & lug_boot_small & safety_high & maint_vhigh ==> class_acc
+doors_5more & persons_more & buying_low & lug_boot_med & safety_med & maint_high ==> class_acc
+persons_4 & doors_5more & lug_boot_big & buying_low & safety_med & maint_high ==> class_acc
+doors_3 & maint_med & persons_more & safety_high & lug_boot_big & buying_vhigh ==> class_acc
+doors_5more & maint_med & persons_more & lug_boot_small & safety_high & buying_high ==> class_acc
+persons_more & lug_boot_small & buying_low & doors_4 & safety_med & maint_high ==> class_acc
+buying_med & maint_med & persons_4 & safety_med ==> class_acc
+doors_3 & persons_4 & buying_med & lug_boot_small & safety_high & maint_vhigh ==> class_acc
+doors_3 & buying_med & persons_more & lug_boot_big & safety_med & maint_high ==> class_acc
+buying_med & maint_med & persons_more & lug_boot_med & safety_med ==> class_acc
+persons_4 & doors_5more & safety_high & buying_high & maint_high ==> class_acc
+doors_3 & maint_low & persons_more & lug_boot_small & buying_low & safety_med ==> class_acc
+doors_3 & maint_med & persons_more & buying_high & lug_boot_big & safety_med ==> class_acc
+persons_4 & maint_low & buying_high & lug_boot_med & doors_4 & safety_med ==> class_acc
+doors_3 & persons_more & safety_high & buying_high & lug_boot_med & maint_high ==> class_acc
+doors_5more & persons_more & buying_high & lug_boot_big & safety_med & maint_high ==> class_acc
+persons_4 & buying_med & safety_high & lug_boot_big & maint_vhigh ==> class_acc
+persons_4 & buying_med & lug_boot_big & safety_med & maint_vhigh ==> class_acc
+doors_3 & persons_more & buying_high & lug_boot_med & safety_med & maint_high ==> class_acc
+doors_3 & persons_4 & buying_med & safety_high & lug_boot_med & maint_high ==> class_acc
+persons_more & buying_low & doors_4 & safety_med & maint_high ==> class_acc
+persons_4 & maint_med & lug_boot_small & buying_low & doors_4 & safety_med ==> class_acc
+persons_4 & buying_med & lug_boot_big & doors_4 & safety_med & maint_high ==> class_acc
+buying_med & maint_med & persons_more & lug_boot_med & doors_4 & safety_med ==> class_acc
+maint_med & persons_more & buying_low & doors_2 & lug_boot_med & safety_med ==> class_acc
+doors_5more & persons_more & buying_low & safety_med & maint_high ==> class_acc
+persons_4 & lug_boot_small & safety_high & buying_high & doors_4 & maint_high ==> class_acc
+persons_more & lug_boot_big & buying_low & doors_2 & safety_med & maint_high ==> class_acc
+doors_3 & buying_med & persons_more & lug_boot_small & safety_high & maint_vhigh ==> class_acc
+doors_3 & persons_4 & maint_low & lug_boot_big & safety_med & buying_vhigh ==> class_acc
+persons_4 & buying_med & safety_high & lug_boot_med & doors_4 & maint_high ==> class_acc
+doors_3 & persons_4 & buying_med & maint_med & safety_med ==> class_acc
+persons_more & safety_high & buying_high & doors_4 & maint_high ==> class_acc
+persons_more & safety_high & buying_high & lug_boot_big & doors_4 & maint_high ==> class_acc
+doors_3 & persons_4 & maint_med & lug_boot_small & safety_high & buying_vhigh ==> class_acc
+persons_more & safety_high & buying_low & doors_4 & maint_vhigh ==> class_acc
+doors_5more & maint_low & persons_more & lug_boot_big & safety_med & buying_vhigh ==> class_acc
+buying_med & doors_5more & maint_med & persons_more & lug_boot_med & safety_med ==> class_acc
+doors_3 & persons_4 & maint_low & lug_boot_small & safety_high & buying_high ==> class_acc
+doors_5more & maint_low & persons_more & lug_boot_small & safety_high & buying_vhigh ==> class_acc
+persons_4 & maint_med & buying_high & lug_boot_med & doors_4 & safety_med ==> class_acc
+doors_3 & persons_4 & buying_med & maint_med & lug_boot_big & safety_med ==> class_acc
+buying_med & persons_more & safety_high & lug_boot_med & maint_vhigh ==> class_acc
+persons_4 & maint_med & lug_boot_big & doors_4 & safety_med & buying_vhigh ==> class_acc
+persons_4 & doors_5more & safety_high & buying_high & lug_boot_big & maint_high ==> class_acc
+persons_4 & buying_med & safety_high & lug_boot_big & doors_2 & maint_high ==> class_acc
+doors_5more & maint_med & persons_more & lug_boot_small & safety_high & buying_vhigh ==> class_acc
+doors_5more & persons_more & lug_boot_big & buying_low & safety_med & maint_vhigh ==> class_acc
+doors_5more & maint_med & persons_more & safety_high & lug_boot_med & buying_vhigh ==> class_acc
+persons_4 & maint_med & safety_high & doors_2 & lug_boot_med & buying_vhigh ==> class_acc
+persons_4 & doors_5more & maint_med & safety_high & buying_high & lug_boot_med ==> class_acc
+persons_4 & maint_med & safety_high & lug_boot_big & buying_vhigh ==> class_acc
+persons_4 & safety_high & lug_boot_big & buying_low & doors_4 & maint_vhigh ==> class_acc
+persons_4 & lug_boot_big & buying_low & doors_4 & safety_med & maint_high ==> class_acc
+persons_4 & safety_high & buying_high & lug_boot_big & maint_high ==> class_acc
+persons_4 & buying_med & safety_high & lug_boot_big & doors_4 & maint_vhigh ==> class_acc
+persons_4 & buying_med & maint_med & doors_2 & lug_boot_med & safety_med ==> class_acc
+doors_5more & persons_more & safety_high & buying_high & maint_high ==> class_acc
+persons_4 & lug_boot_small & safety_high & buying_low & doors_2 & maint_vhigh ==> class_acc
+buying_med & doors_5more & persons_more & lug_boot_big & safety_med & maint_vhigh ==> class_acc
+persons_4 & safety_high & buying_low & lug_boot_med & maint_vhigh ==> class_acc
+doors_3 & buying_med & maint_med & persons_more & lug_boot_small & safety_med ==> class_acc
+persons_4 & lug_boot_small & safety_high & buying_high & maint_high ==> class_acc
+doors_3 & persons_more & lug_boot_big & buying_low & safety_med & maint_vhigh ==> class_acc
+maint_low & persons_more & lug_boot_small & safety_high & buying_high & doors_4 ==> class_acc
+persons_4 & doors_5more & maint_low & safety_high & buying_vhigh ==> class_acc
+persons_4 & maint_low & safety_high & buying_high & lug_boot_big & doors_2 ==> class_acc
+doors_3 & persons_4 & maint_low & safety_high & buying_high & lug_boot_med ==> class_acc
+doors_3 & persons_4 & buying_low & lug_boot_med & safety_med & maint_high ==> class_acc
+persons_4 & buying_med & safety_high & doors_2 & maint_vhigh ==> class_acc
+doors_3 & persons_4 & safety_high & buying_low & lug_boot_med & maint_vhigh ==> class_acc
+maint_med & persons_more & safety_high & doors_2 & lug_boot_med & buying_vhigh ==> class_acc
+doors_5more & maint_med & persons_more & buying_high & lug_boot_med & safety_med ==> class_acc
+doors_3 & persons_4 & maint_med & lug_boot_big & safety_med & buying_vhigh ==> class_acc
+doors_3 & persons_4 & safety_high & buying_high & lug_boot_med & maint_high ==> class_acc
+persons_4 & buying_high & lug_boot_big & doors_4 & safety_med & maint_high ==> class_acc
+doors_3 & persons_4 & buying_med & maint_low & lug_boot_med & safety_med ==> class_acc
+doors_3 & persons_4 & maint_low & buying_high & lug_boot_big & safety_med ==> class_acc
+persons_4 & buying_med & doors_5more & maint_med & lug_boot_med & safety_med ==> class_acc
+persons_4 & doors_5more & maint_low & lug_boot_small & safety_high & buying_high ==> class_acc
+doors_3 & maint_med & persons_more & safety_high & lug_boot_med & buying_vhigh ==> class_acc
+persons_4 & maint_med & buying_low & doors_2 & lug_boot_med & safety_med ==> class_acc
+maint_med & persons_more & lug_boot_big & doors_2 & safety_med & buying_vhigh ==> class_acc
+doors_3 & buying_med & persons_more & lug_boot_med & safety_med & maint_high ==> class_acc
+doors_3 & maint_low & persons_more & safety_high & buying_high & lug_boot_big ==> class_acc
+persons_4 & buying_low & doors_2 & lug_boot_med & safety_med & maint_high ==> class_acc
+persons_4 & doors_5more & maint_low & safety_high & buying_high & lug_boot_med ==> class_acc
+doors_3 & persons_4 & buying_med & safety_high & lug_boot_big & maint_vhigh ==> class_acc
+doors_3 & persons_4 & maint_med & safety_high & buying_high & lug_boot_med ==> class_acc
+persons_4 & buying_med & lug_boot_med & doors_4 & safety_med & maint_vhigh ==> class_acc
+persons_4 & buying_med & maint_med & lug_boot_big & doors_4 & safety_med ==> class_acc
+buying_med & persons_more & safety_high & lug_boot_big & maint_vhigh ==> class_acc
+doors_5more & maint_med & persons_more & safety_high & buying_high & lug_boot_big ==> class_acc
+doors_3 & persons_more & lug_boot_small & buying_low & safety_med & maint_high ==> class_acc
+doors_3 & persons_4 & safety_high & buying_low & maint_vhigh ==> class_acc
+persons_4 & maint_med & buying_high & lug_boot_big & safety_med ==> class_acc
+doors_3 & buying_med & persons_more & safety_high & lug_boot_med & maint_vhigh ==> class_acc
+persons_4 & buying_med & doors_5more & safety_high & maint_vhigh ==> class_acc
+persons_4 & buying_med & safety_high & doors_4 & maint_high ==> class_acc
+persons_4 & buying_med & safety_high & doors_2 & maint_high ==> class_acc
+persons_4 & buying_med & doors_5more & lug_boot_big & safety_med & maint_high ==> class_acc
+persons_4 & safety_high & lug_boot_big & buying_low & maint_vhigh ==> class_acc
+maint_med & persons_more & safety_high & buying_high & lug_boot_med ==> class_acc
+buying_high & maint_med & persons_4 & safety_high ==> class_acc
+buying_med & persons_more & lug_boot_big & safety_med & maint_vhigh ==> class_acc
+persons_4 & maint_med & lug_boot_small & safety_high & buying_high & doors_2 ==> class_acc
+persons_4 & buying_med & maint_med & lug_boot_small & safety_med ==> class_acc
+persons_4 & buying_med & maint_med & lug_boot_small & safety_high & doors_2 ==> class_acc
+persons_4 & maint_low & lug_boot_small & buying_low & doors_2 & safety_med ==> class_acc
+buying_med & persons_more & safety_high & lug_boot_big & doors_4 & maint_vhigh ==> class_acc
+persons_more & safety_high & buying_low & lug_boot_med & doors_4 & maint_vhigh ==> class_acc
+persons_4 & safety_high & buying_high & lug_boot_big & doors_4 & maint_high ==> class_acc
+persons_more & buying_high & lug_boot_big & doors_2 & safety_med & maint_high ==> class_acc
+persons_4 & doors_5more & safety_high & buying_high & lug_boot_med & maint_high ==> class_acc
+persons_4 & lug_boot_small & buying_low & safety_med & maint_high ==> class_acc

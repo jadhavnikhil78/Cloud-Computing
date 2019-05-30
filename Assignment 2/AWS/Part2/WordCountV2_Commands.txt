@@ -1,0 +1,186 @@
+Last login: Sun Feb  3 14:17:23 on ttys000
+Nikhils-MacBook-Pro:~ dragonheart$ cd Downloads/
+Nikhils-MacBook-Pro:Downloads dragonheart$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Nikhils-MacBook-Pro:Downloads dragonheart$ ssh -i ClouderaKeyPair.pem hadoop@ec2-18-216-219-129.us-east-2.compute.amazonaws.com
+Last login: Sun Feb  3 19:32:25 2019
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+11 package(s) needed for security, out of 15 available
+Run "sudo yum update" to apply all updates.
+                                                                    
+EEEEEEEEEEEEEEEEEEEE MMMMMMMM           MMMMMMMM RRRRRRRRRRRRRRR    
+E::::::::::::::::::E M:::::::M         M:::::::M R::::::::::::::R   
+EE:::::EEEEEEEEE:::E M::::::::M       M::::::::M R:::::RRRRRR:::::R 
+  E::::E       EEEEE M:::::::::M     M:::::::::M RR::::R      R::::R
+  E::::E             M::::::M:::M   M:::M::::::M   R:::R      R::::R
+  E:::::EEEEEEEEEE   M:::::M M:::M M:::M M:::::M   R:::RRRRRR:::::R 
+  E::::::::::::::E   M:::::M  M:::M:::M  M:::::M   R:::::::::::RR   
+  E:::::EEEEEEEEEE   M:::::M   M:::::M   M:::::M   R:::RRRRRR::::R  
+  E::::E             M:::::M    M:::M    M:::::M   R:::R      R::::R
+  E::::E       EEEEE M:::::M     MMM     M:::::M   R:::R      R::::R
+EE:::::EEEEEEEE::::E M:::::M             M:::::M   R:::R      R::::R
+E::::::::::::::::::E M:::::M             M:::::M RR::::R      R::::R
+EEEEEEEEEEEEEEEEEEEE MMMMMMM             MMMMMMM RRRRRRR      RRRRRR
+                                                                    
+[hadoop@ip-172-31-3-53 ~]$ hadoop fs -ls
+Found 1 items
+-rw-r--r--   1 hadoop hadoop       4492 2019-02-03 19:20 WordCount_Part2.jar
+[hadoop@ip-172-31-3-53 ~]$ hadoop fs -rm -r WordCount_Part2.jar
+Deleted WordCount_Part2.jar
+[hadoop@ip-172-31-3-53 ~]$ hadoop fs -ls
+[hadoop@ip-172-31-3-53 ~]$ aws s3 cp s3://801075504/WordCount_Part2.jar /home/hadoop
+fatal error: An error occurred (404) when calling the HeadObject operation: Key "WordCount_Part2.jar" does not exist
+[hadoop@ip-172-31-3-53 ~]$ aws s3 cp s3://801075504bucket/WordCount_Part2.jar /home/hadoop
+download: s3://801075504bucket/WordCount_Part2.jar to ./WordCount_Part2.jar
+[hadoop@ip-172-31-3-53 ~]$ hadoop fs -ls
+[hadoop@ip-172-31-3-53 ~]$ hadoop fs -put WordCount_Part2.jar /user/hadoop/
+[hadoop@ip-172-31-3-53 ~]$ hadoop fs -ls
+Found 1 items
+-rw-r--r--   1 hadoop hadoop       7332 2019-02-03 19:50 WordCount_Part2.jar
+[hadoop@ip-172-31-3-53 ~]$ hadoop jar WordCount_Part2.jar org.wc.WordCount2 s3://801075504bucket/mammalsV2.txt s3://801075504bucket/data2/
+19/02/03 19:52:14 INFO client.RMProxy: Connecting to ResourceManager at ip-172-31-3-53.us-east-2.compute.internal/172.31.3.53:8032
+19/02/03 19:52:17 INFO input.FileInputFormat: Total input files to process : 1
+19/02/03 19:52:17 INFO lzo.GPLNativeCodeLoader: Loaded native gpl library
+19/02/03 19:52:17 INFO lzo.LzoCodec: Successfully loaded & initialized native-lzo library [hadoop-lzo rev bab859f34a291cb7b3f4e724b59e1b48af69016b]
+19/02/03 19:52:17 INFO mapreduce.JobSubmitter: number of splits:1
+19/02/03 19:52:17 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1549144344337_0003
+19/02/03 19:52:18 INFO impl.YarnClientImpl: Submitted application application_1549144344337_0003
+19/02/03 19:52:18 INFO mapreduce.Job: The url to track the job: http://ip-172-31-3-53.us-east-2.compute.internal:20888/proxy/application_1549144344337_0003/
+19/02/03 19:52:18 INFO mapreduce.Job: Running job: job_1549144344337_0003
+19/02/03 19:52:28 INFO mapreduce.Job: Job job_1549144344337_0003 running in uber mode : false
+19/02/03 19:52:28 INFO mapreduce.Job:  map 0% reduce 0%
+19/02/03 19:52:37 INFO mapreduce.Job:  map 100% reduce 0%
+19/02/03 19:52:46 INFO mapreduce.Job:  map 100% reduce 33%
+19/02/03 19:52:49 INFO mapreduce.Job:  map 100% reduce 67%
+19/02/03 19:52:51 INFO mapreduce.Job:  map 100% reduce 100%
+19/02/03 19:52:51 INFO mapreduce.Job: Job job_1549144344337_0003 completed successfully
+19/02/03 19:52:52 INFO mapreduce.Job: Counters: 56
+	File System Counters
+		FILE: Number of bytes read=52045
+		FILE: Number of bytes written=781989
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=99
+		HDFS: Number of bytes written=0
+		HDFS: Number of read operations=1
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=0
+		S3: Number of bytes read=200167
+		S3: Number of bytes written=59550
+		S3: Number of read operations=0
+		S3: Number of large read operations=0
+		S3: Number of write operations=0
+	Job Counters 
+		Killed reduce tasks=1
+		Launched map tasks=1
+		Launched reduce tasks=3
+		Data-local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=325488
+		Total time spent by all reduces in occupied slots (ms)=2670336
+		Total time spent by all map tasks (ms)=6781
+		Total time spent by all reduce tasks (ms)=27816
+		Total vcore-milliseconds taken by all map tasks=6781
+		Total vcore-milliseconds taken by all reduce tasks=27816
+		Total megabyte-milliseconds taken by all map tasks=10415616
+		Total megabyte-milliseconds taken by all reduce tasks=85450752
+	Map-Reduce Framework
+		Map input records=4301
+		Map output records=30469
+		Map output bytes=312006
+		Map output materialized bytes=52033
+		Input split bytes=99
+		Combine input records=30469
+		Combine output records=5768
+		Reduce input groups=5768
+		Reduce shuffle bytes=52033
+		Reduce input records=5768
+		Reduce output records=5768
+		Spilled Records=11536
+		Shuffled Maps =3
+		Failed Shuffles=0
+		Merged Map outputs=3
+		GC time elapsed (ms)=1255
+		CPU time spent (ms)=5200
+		Physical memory (bytes) snapshot=1709838336
+		Virtual memory (bytes) snapshot=17281355776
+		Total committed heap usage (bytes)=1651507200
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=200167
+	File Output Format Counters 
+		Bytes Written=59550
+	org.wc.WordCount2$TokenizerMapper$CountersEnum
+		INPUT_WORDS=30469
+[hadoop@ip-172-31-3-53 ~]$ 
+

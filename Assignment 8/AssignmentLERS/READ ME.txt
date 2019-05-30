@@ -1,0 +1,10 @@
+1. The .zip file is a Java project. You can import it directly in Eclipse
+2. The .zip file comes attribute.txt and data.txt files 
+3. You can change file path of attribute.txt in line - 162
+4. You can change file path of data.txt in line - 177
+5. Run the java code
+6. The code asks your choice of a decision attribute from a list of attributes from the given attribute file:
+7. Enter an attribute and click Enter
+8. The code now generates certain and possible rules with corresponding support and confidence
+9. Results are stored in Output.txt file. You can change the filepath of Output.txt in line 60
+10. Upload Output.txt in Canvas

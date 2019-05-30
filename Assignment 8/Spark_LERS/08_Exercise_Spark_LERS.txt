@@ -1,0 +1,22 @@
+LERS algorithm in Hadoop MapReduce
+Download source code here: http://webpages.uncc.edu/aatzache/ITCS6190/Exercises/SparkLERS_Example.zip
+
+To run the Code:
+
+1. Copy the attached SparkLERS.jar file to your WinSCP or CyberDuck
+2. Copy all files : data.txt, attributes.txt and parameters.txt to WinSCP
+3. Copy all files : data.txt, attributes.txt and parameters.txt to DSBA-HDFS using the command:
+	hadoop fs -put /users/UNCC_NAME/FILE_PATH/filename.txt /user/UNCC_NAME/
+
+4. Run the .jar file using your terminal or Putty using following command:
+
+	spark-submit --class "org.SparkLERS.Main" --master yarn --deploy-mode client LOCATION_OF_JAR_FILE LOCATION_OF_attributes.txt LOCATION_OF_parameters.txt LOCATION_OF_DATA_FILE LOCATION_FOR_OUTPUT
+
+5. Copy the output using the command:
+	hadoop fs -get /user/UNCC_NAME/LOCATION_FOR_OUTPUT /users/UNCC_NAME/Spark_LERS_Output.txt
+
+6. Submit a copy of your execution from the terminal window and program output in Canvas
+
+
+
+

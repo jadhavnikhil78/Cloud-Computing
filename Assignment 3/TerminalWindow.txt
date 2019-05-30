@@ -1,0 +1,355 @@
+Name: Nikhil Jadhav
+Student ID: 801075504
+
+
+Last login: Sun Feb  3 14:46:09 on ttys000
+Nikhils-MacBook-Pro:~ dragonheart$ cd Downloads/
+Nikhils-MacBook-Pro:Downloads dragonheart$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Nikhils-MacBook-Pro:Downloads dragonheart$ ssh -i ClouderaKeyPair.pem hadoop@ec2-18-222-163-199.us-east-2.compute.amazonaws.com
+The authenticity of host 'ec2-18-222-163-199.us-east-2.compute.amazonaws.com (18.222.163.199)' can't be established.
+ECDSA key fingerprint is SHA256:77f4WEfQQfRECY891xh076J1KBY1hJsGguOK0MyDdjI.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'ec2-18-222-163-199.us-east-2.compute.amazonaws.com,18.222.163.199' (ECDSA) to the list of known hosts.
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+11 package(s) needed for security, out of 15 available
+Run "sudo yum update" to apply all updates.
+                                                                    
+EEEEEEEEEEEEEEEEEEEE MMMMMMMM           MMMMMMMM RRRRRRRRRRRRRRR    
+E::::::::::::::::::E M:::::::M         M:::::::M R::::::::::::::R   
+EE:::::EEEEEEEEE:::E M::::::::M       M::::::::M R:::::RRRRRR:::::R 
+  E::::E       EEEEE M:::::::::M     M:::::::::M RR::::R      R::::R
+  E::::E             M::::::M:::M   M:::M::::::M   R:::R      R::::R
+  E:::::EEEEEEEEEE   M:::::M M:::M M:::M M:::::M   R:::RRRRRR:::::R 
+  E::::::::::::::E   M:::::M  M:::M:::M  M:::::M   R:::::::::::RR   
+  E:::::EEEEEEEEEE   M:::::M   M:::::M   M:::::M   R:::RRRRRR::::R  
+  E::::E             M:::::M    M:::M    M:::::M   R:::R      R::::R
+  E::::E       EEEEE M:::::M     MMM     M:::::M   R:::R      R::::R
+EE:::::EEEEEEEE::::E M:::::M             M:::::M   R:::R      R::::R
+E::::::::::::::::::E M:::::M             M:::::M RR::::R      R::::R
+EEEEEEEEEEEEEEEEEEEE MMMMMMM             MMMMMMM RRRRRRR      RRRRRR
+                                                                    
+[hadoop@ip-172-31-5-165 ~]$ hive
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/lib/hive/lib/log4j-slf4j-impl-2.6.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/hadoop/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j2.properties Async: true
+Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+hive> CREATE TABLE UNCCUserNameCarData(Buying STRING,Maint STRING,Doors STRING,Persons STRING,LugBoot STRING,Safety STRING,Class String)
+    > COMMENT 'This is the Cars table'
+    > ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    > LINES TERMINATED BY '\n'
+    > STORED AS TEXTFILE;
+FAILED: SemanticException org.apache.hadoop.hive.ql.metadata.HiveException: java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient
+hive> CREATE TABLE UNCCUserNameCarData(Buying STRING,Maint STRING,Doors STRING,Persons STRING,LugBoot STRING,Safety STRING,Class String)
+    > COMMENT 'This is the Cars table'
+    > ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    > LINES TERMINATED BY '\n'
+    > STORED AS TEXTFILE;
+FAILED: SemanticException org.apache.hadoop.hive.ql.metadata.HiveException: java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient
+hive> 
+    > exit
+    > quit
+    > Display all 574 possibilities? (y or n)
+!                         !=                        $ELEM$                    $KEY$                     $VALUE$                   $elem$                    $key$                     
+$sum0                     $value$                   %                         &                         (                         )                         );                        
+*                         +                         ,                         -                         .                         /                         :                         
+<                         <=                        <=>                       <>                        =                         ==                        >                         
+>=                        ABORT                     ADD                       ALL                       ALTER                     AND                       ARRAY                     
+AS                        ASC                       BIGINT                    BINARY                    BOOLEAN                   BUCKET                    BUCKETS                   
+BY                        CAST                      CLUSTER                   CLUSTERED                 COLLECTION                COLUMNS                   COMMENT                   
+COMPACT                   COMPACTIONS               CONSTRAINT                CREATE                    DATA                      DATE                      DATETIME                  
+DEFINED                   DELIMITED                 DESC                      DESCRIBE                  DIRECTORY                 DISABLE                   DISTINCT                  
+DISTRIBUTE                DOUBLE                    DROP                      ENABLE                    EXCEPT                    EXPLAIN                   EXTENDED                  
+EXTERNAL                  FALSE                     FIELDS                    FLOAT                     FOREIGN                   FORMAT                    FROM                      
+FULL                      FUNCTION                  GROUP                     INPATH                    INPUTFORMAT               INSERT                    INT                       
+INTERSECT                 INTO                      IS                        ITEMS                     JOIN                      KEY                       KEYS                      
+LAST                      LEFT                      LIKE                      LIMIT                     LINES                     LOAD                      LOCAL                     
+LOCATION                  MAP                       MSCK                      NONE                      NORELY                    NOT                       NOVALIDATE                
+NULL                      NULLS                     OF                        OFFSET                    ON                        OR                        ORDER                     
+OUT                       OUTER                     OUTPUTFORMAT              OVERWRITE                 PARTITION                 PARTITIONED               PARTITIONS                
+PRECISION                 PRIMARY                   PURGE                     REDUCE                    REFERENCES                REGEXP                    RELY                      
+RENAME                    REPLACE                   REWRITE                   RIGHT                     RLIKE                     ROW                       SELECT                    
+SEQUENCEFILE              SERDE                     SERDEPROPERTIES           SET                       SHOW                      SMALLINT                  SORT                      
+SORTED                    STORED                    STRING                    SUBQUERY                  TABLE                     TABLES                    TABLESAMPLE               
+TBLPROPERTIES             TEMPORARY                 TERMINATED                TEXTFILE                  TIMESTAMP                 TINYINT                   TO                        
+TRANSACTIONS              TRANSFORM                 TRUE                      UNION                     UPDATE                    USING                     VALIDATE                  
+VALUES                    WAIT                      WHERE                     WITH                      [                         \'                        ]                         
+^                         abort                     abs(                      acos(                     add                       add_months(               aes_decrypt(              
+aes_encrypt(              all                       alter                     and                       and(                      array                     array(                    
+array_contains(           as                        asc                       ascii(                    asin(                     assert_true(              atan(                     
+avg(                      base64                    between(                  bigint                    bigint(                   bin(                      binary                    
+binary(                   bloom_filter(             boolean                   boolean(                  bround(                   bucket                    buckets                   
+by                        cardinality_violation(    case(                     cast                      cbrt(                     ceil(                     ceiling(                  
+char(                     char_length(              character_length(         chr(                      cluster                   clustered                 coalesce(                 
+collect_list(             collect_set(              collection                columns                   comment                   compact                   compactions               
+compute_stats(            concat(                   concat_ws(                constraint                context_ngrams(           conv(                     corr(                     
+cos(                      count(                    covar_pop(                covar_samp(               crc32                     create                    create_union(             
+cume_dist(                current_database(         current_date(             current_timestamp(        current_user(             data                      date                      
+date(                     date_add(                 date_format(              date_sub(                 datediff(                 datetime                  day(                      
+dayofmonth(               dayofweek(                decimal(                  decode(                   defined                   degrees(                  delimited                 
+dense_rank(               desc                      describe                  directory                 disable                   distinct                  distribute                
+div(                      double                    double(                   drop                      e(                        elt(                      enable                    
+encode(                   ewah_bitmap(              ewah_bitmap_and(          ewah_bitmap_empty(        ewah_bitmap_or(           except                    exp(                      
+explain                   explode(                  extended                  external                  extract_union(            factorial(                false                     
+field(                    fields                    find_in_set(              first_value(              float                     float(                    floor(                    
+floor_day(                floor_hour(               floor_minute(             floor_month(              floor_quarter(            floor_second(             floor_week(               
+floor_year(               foreign                   format                    format_number(            from                      from_unixtime(            from_utc_timestamp(       
+full                      function                  get_json_object(          get_splits(               greatest(                 group                     grouping(                 
+hash(                     hex(                      histogram_numeric(        hour(                     if(                       in(                       in_bloom_filter(          
+in_file(                  index(                    initcap(                  inline(                   inpath                    inputformat               insert                    
+instr(                    int                       int(                      internal_interval(        intersect                 interval_day_time(        interval_year_month(      
+into                      is                        isnotnull(                isnull(                   items                     java_method(              join                      
+json_tuple(               key                       keys                      lag(                      last                      last_day(                 last_value(               
+lcase(                    lead(                     least(                    left                      length(                   levenshtein(              like                      
+like(                     limit                     lines                     ln(                       load                      local                     locate(                   
+location                  log(                      log10                     log2                      logged_in_user(           lower(                    lpad(                     
+ltrim(                    map                       map(                      map_keys(                 map_values(               mask(                     mask_first_n(             
+mask_hash(                mask_last_n(              mask_show_first_n(        mask_show_last_n(         matchpath(                max(                      md5                       
+min(                      minute(                   mod(                      month(                    months_between(           msck                      named_struct(             
+negative(                 next_day(                 ngrams(                   none                      noop(                     noopstreaming(            noopwithmap(              
+noopwithmapstreaming(     norely                    not                       not(                      novalidate                ntile(                    null                      
+nullif(                   nulls                     nvl(                      octet_length(             of                        offset                    on                        
+or                        or(                       order                     out                       outer                     outputformat              overwrite                 
+parse_url(                parse_url_tuple(          partition                 partitioned               partitions                percent_rank(             percentile(               
+percentile_approx(        pi(                       pmod(                     posexplode(               positive(                 pow(                      power(                    
+precision                 primary                   printf(                   purge                     quarter(                  radians(                  rand(                     
+rank(                     reduce                    references                reflect(                  reflect2                  regexp                    regexp(                   
+regexp_extract(           regexp_replace(           regr_avgx(                regr_avgy(                regr_count(               regr_intercept(           regr_r2                   
+regr_slope(               regr_sxx(                 regr_sxy(                 regr_syy(                 rely                      rename                    repeat(                   
+replace                   replace(                  replicate_rows(           reverse(                  rewrite                   right                     rlike                     
+rlike(                    round(                    row                       row_number(               rpad(                     rtrim(                    second(                   
+select                    sentences(                sequencefile              serde                     serdeproperties           set                       sha(                      
+sha1                      sha2                      shiftleft(                shiftright(               shiftrightunsigned(       show                      sign(                     
+sin(                      size(                     smallint                  smallint(                 sort                      sort_array(               sort_array_by(            
+sorted                    soundex(                  space(                    split(                    sq_count_check(           sqrt(                     stack(                    
+std(                      stddev(                   stddev_pop(               stddev_samp(              stored                    str_to_map(               string                    
+string(                   struct(                   subquery                  substr(                   substring(                substring_index(          sum(                      
+table                     tables                    tablesample               tan(                      tblproperties             temporary                 terminated                
+textfile                  timestamp                 timestamp(                tinyint                   tinyint(                  to                        to_date(                  
+to_unix_timestamp(        to_utc_timestamp(         transactions              transform                 translate(                trim(                     true                      
+trunc(                    ucase(                    unbase64                  unhex(                    union                     unix_timestamp(           update                    
+upper(                    using                     uuid(                     validate                  values                    var_pop(                  var_samp(                 
+varchar(                  variance(                 version(                  wait                      weekofyear(               when(                     where                     
+windowingtablefunction(   with                      xpath(                    xpath_boolean(            xpath_double(             xpath_float(              xpath_int(                
+xpath_long(               xpath_number(             xpath_short(              xpath_string(             year(                     |                         ~                         
+    > 
+    > exit
+    > exit;
+NoViableAltException(24@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1300)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:208)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:77)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:70)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:468)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1317)
+	at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1457)
+	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1237)
+	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1227)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:233)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:184)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:403)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:686)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:239)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:153)
+FAILED: ParseException line 1:0 cannot recognize input near 'exit' 'quit' 'exit'
+hive> quit;
+[hadoop@ip-172-31-5-165 ~]$ clear
+
+[hadoop@ip-172-31-5-165 ~]$ rm   metastore_db/*.lck
+rm: cannot remove ‘metastore_db/*.lck’: No such file or directory
+[hadoop@ip-172-31-5-165 ~]$ CREATE TABLE UNCCUserNameCarData(Buying STRING,Maint STRING,Doors STRING,Persons STRING,LugBoot STRING,Safety STRING,Class String) COMMENT 'This is the Cars table' ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+-bash: syntax error near unexpected token `('
+[hadoop@ip-172-31-5-165 ~]$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[hadoop@ip-172-31-5-165 ~]$ hive
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j2.properties Async: false
+hive> CREATE TABLE UNCCUserNameCarData(Buying STRING,Maint STRING,Doors STRING,Persons STRING,LugBoot STRING,Safety STRING,Class String) COMMENT 'This is the Cars table' ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+OK
+Time taken: 1.301 seconds
+hive> load data inpath 's3://801075504bucket/data.txt' overwrite into table UNCCUserNameCarData;
+Loading data to table default.unccusernamecardata
+OK
+Time taken: 5.541 seconds
+hive> INSERT OVERWRITE LOCAL DIRECTORY './CarDataHiveOutput' ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' SELECT * FROM UNCCUserNameCarData WHERE UNCCUserNameCarData.Buying = 'vhigh' AND UNCCUserNameCarData.Doors LIKE '%more' AND UNCCUserNameCarData.Class = 'unacc';
+Query ID = hadoop_20190203203912_6d1d16ff-4e23-408b-acdf-f899ef1f672a
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1549225858946_0001)
+
+----------------------------------------------------------------------------------------------
+        VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  
+----------------------------------------------------------------------------------------------
+Map 1 .......... container     SUCCEEDED      1          1        0        0       0       0  
+----------------------------------------------------------------------------------------------
+VERTICES: 01/01  [==========================>>] 100%  ELAPSED TIME: 5.71 s     
+----------------------------------------------------------------------------------------------
+Moving data to local directory CarDataHiveOutput
+OK
+Time taken: 10.093 seconds
+hive> aws s3 cp ./CarDataHiveOutput/000000_0 s3://801075504bucket/CarDataHiveOutput.txt
+    > ;
+NoViableAltException(24@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1300)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:208)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:77)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:70)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:468)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1317)
+	at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1457)
+	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1237)
+	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1227)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:233)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:184)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:403)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:686)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:239)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:153)
+FAILED: ParseException line 1:0 cannot recognize input near 'aws' 's3' 'cp'
+hive> quit;
+[hadoop@ip-172-31-5-165 ~]$ aws s3 cp ./CarDataHiveOutput/000000_0 s3://801075504bucket/CarDataHiveOutput.txt
+upload: CarDataHiveOutput/000000_0 to s3://801075504bucket/CarDataHiveOutput.txt
+[hadoop@ip-172-31-5-165 ~]$ 
+
+
+
+
+
+
+

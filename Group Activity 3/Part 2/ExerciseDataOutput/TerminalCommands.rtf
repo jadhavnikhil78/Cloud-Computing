@@ -1,0 +1,90 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\csgray\c0;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \CocoaLigature0 Last login: Sun Mar 24 15:32:11 on ttys000\
+Nikhils-MacBook-Pro:~ dragonheart$ cd Downloads/\
+Nikhils-MacBook-Pro:Downloads dragonheart$ ssh -i ClouderaKeyPair.pem hadoop@ec2-18-221-145-126.us-east-2.compute.amazonaws.com\
+Last login: Sun Mar 24 19:37:10 2019\
+\
+       __|  __|_  )\
+       _|  (     /   Amazon Linux AMI\
+      ___|\\___|___|\
+\
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/\
+11 package(s) needed for security, out of 22 available\
+Run "sudo yum update" to apply all updates.\
+                                                                    \
+EEEEEEEEEEEEEEEEEEEE MMMMMMMM           MMMMMMMM RRRRRRRRRRRRRRR    \
+E::::::::::::::::::E M:::::::M         M:::::::M R::::::::::::::R   \
+EE:::::EEEEEEEEE:::E M::::::::M       M::::::::M R:::::RRRRRR:::::R \
+  E::::E       EEEEE M:::::::::M     M:::::::::M RR::::R      R::::R\
+  E::::E             M::::::M:::M   M:::M::::::M   R:::R      R::::R\
+  E:::::EEEEEEEEEE   M:::::M M:::M M:::M M:::::M   R:::RRRRRR:::::R \
+  E::::::::::::::E   M:::::M  M:::M:::M  M:::::M   R:::::::::::RR   \
+  E:::::EEEEEEEEEE   M:::::M   M:::::M   M:::::M   R:::RRRRRR::::R  \
+  E::::E             M:::::M    M:::M    M:::::M   R:::R      R::::R\
+  E::::E       EEEEE M:::::M     MMM     M:::::M   R:::R      R::::R\
+EE:::::EEEEEEEE::::E M:::::M             M:::::M   R:::R      R::::R\
+E::::::::::::::::::E M:::::M             M:::::M RR::::R      R::::R\
+EEEEEEEEEEEEEEEEEEEE MMMMMMM             MMMMMMM RRRRRRR      RRRRRR\
+                                                                    \
+[hadoop@ip-172-31-9-237 ~]$ sudo cp /etc/spark/conf/log4j.properties.template /etc/spark/conf/log4j.properties\
+[hadoop@ip-172-31-9-237 ~]$ sudo sed -i 's/log4j.rootCategory=INFO, console/log4j.rootCategory=ERROR,console/' /etc/spark/conf/log4j.properties\
+[hadoop@ip-172-31-9-237 ~]$ aws s3 cp s3://801075504bucket/FPGrowth.jar .\
+download: s3://801075504bucket/FPGrowth.jar to ./FPGrowth.jar   \
+[hadoop@ip-172-31-9-237 ~]$ spark-submit --class org.FP.Driver ./FPGrowth.jar s3://801075504bucket/ExerciseData.txt 0.75 0.75 s3://801075504bucket/FPGrowthOutput\
+[hadoop@ip-172-31-9-237 ~]$ spark-submit --class org.FP.Driver ./FPGrowth.jar s3://801075504bucket/ExerciseData.txt 0.75 0.75 s3://801075504bucket/FPGrowthOutput\
+[hadoop@ip-172-31-9-237 ~]$ spark-submit --class org.FP.Driver ./FPGrowth.jar s3://801075504bucket/ExerciseData.txt 0.5 0.5 s3://801075504bucket/FPGrowthOutput\
+Exception in thread "main" org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory s3://801075504bucket/FPGrowthOutput already exists\
+	at org.apache.hadoop.mapred.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:131)\
+	at org.apache.spark.internal.io.HadoopMapRedWriteConfigUtil.assertConf(SparkHadoopWriter.scala:287)\
+	at org.apache.spark.internal.io.SparkHadoopWriter$.write(SparkHadoopWriter.scala:71)\
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$1.apply$mcV$sp(PairRDDFunctions.scala:1096)\
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$1.apply(PairRDDFunctions.scala:1094)\
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$1.apply(PairRDDFunctions.scala:1094)\
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)\
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)\
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:363)\
+	at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopDataset(PairRDDFunctions.scala:1094)\
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$4.apply$mcV$sp(PairRDDFunctions.scala:1067)\
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$4.apply(PairRDDFunctions.scala:1032)\
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$4.apply(PairRDDFunctions.scala:1032)\
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)\
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)\
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:363)\
+	at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopFile(PairRDDFunctions.scala:1032)\
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$1.apply$mcV$sp(PairRDDFunctions.scala:958)\
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$1.apply(PairRDDFunctions.scala:958)\
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$1.apply(PairRDDFunctions.scala:958)\
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)\
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)\
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:363)\
+	at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopFile(PairRDDFunctions.scala:957)\
+	at org.apache.spark.rdd.RDD$$anonfun$saveAsTextFile$1.apply$mcV$sp(RDD.scala:1499)\
+	at org.apache.spark.rdd.RDD$$anonfun$saveAsTextFile$1.apply(RDD.scala:1478)\
+	at org.apache.spark.rdd.RDD$$anonfun$saveAsTextFile$1.apply(RDD.scala:1478)\
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)\
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)\
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:363)\
+	at org.apache.spark.rdd.RDD.saveAsTextFile(RDD.scala:1478)\
+	at org.FP.Driver$.main(Driver.scala:28)\
+	at org.FP.Driver.main(Driver.scala)\
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\
+	at java.lang.reflect.Method.invoke(Method.java:498)\
+	at org.apache.spark.deploy.JavaMainApplication.start(SparkApplication.scala:52)\
+	at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:849)\
+	at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:167)\
+	at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:195)\
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:86)\
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:924)\
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:933)\
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)\
+[hadoop@ip-172-31-9-237 ~]$ spark-submit --class org.FP.Driver ./FPGrowth.jar s3://801075504bucket/ExerciseData.txt 0.5 0.5 s3://801075504bucket/FPGrowthOutput\
+[hadoop@ip-172-31-9-237 ~]$ \
+}

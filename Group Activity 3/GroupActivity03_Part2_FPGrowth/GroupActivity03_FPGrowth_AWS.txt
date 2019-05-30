@@ -1,0 +1,25 @@
+Cloud Computing for Data Analysis
+
+Group Activity 03 - Part 2 in AWS-EMR cluster
+
+1. Download the .zip file from https://webpages.uncc.edu/aatzache/ITCS6190/Exercises/GroupActivity03_Part2_FPGrowth.zip
+
+2. Extract the .zip file
+
+3. This .zip file contains the source code(FPGrowth.zip), the executable 'FPGrowth.jar' file and data files inside the 'Data' folder 
+
+4. Create a cluster with Hadoop and Spark in AWS and start the cluster. Once the cluster is running, log-in to the master node using Putty(Windows) or SSH(MAC or Linux)
+
+5. Create a data bucket in AWS S3. Upload SampleData.txt, ExerciseData.txt and FPGrowth.jar files to S3
+
+6. From the master node download SparkAssociationRules.jar using the command:
+	aws s3 cp s3://BUCKET_NAME/FPGrowth.jar .
+
+7. Run the program using the command: 
+	spark-submit --class org.FP.Driver ./SparkAssociationRules.jar s3://BUCKET_NAME/ExerciseData.txt MINIMUM_SUPPORT_VALUE MINIMUM_CONFIDENCE_VALUE s3://BUCKET_NAME/FPGrowthOutput
+
+8. Download the output folder(FPGrowthOutput) from S3 to your local machine
+
+9. Execute the program for both SampleData.txt and ExerciseData.txt
+
+9. Upload the downloaded folder along with all commands, results and errors if any from the terminal window to Canvas

@@ -1,0 +1,633 @@
+Last login: Wed Feb 13 23:18:13 on ttys000
+Nikhils-MacBook-Pro:~ dragonheart$ cd Down
+-bash: cd: Down: No such file or directory
+Nikhils-MacBook-Pro:~ dragonheart$ cd Downloads/
+Nikhils-MacBook-Pro:Downloads dragonheart$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Nikhils-MacBook-Pro:Downloads dragonheart$ ssh -i ClouderaKeyPair.pem hadoop@ec2-52-15-128-149.us-east-2.compute.amazonaws.com
+The authenticity of host 'ec2-52-15-128-149.us-east-2.compute.amazonaws.com (52.15.128.149)' can't be established.
+ECDSA key fingerprint is SHA256:O+lGlsNslGS+oo5KRiqa/FL8Ri3XxAVpVgrJ+VqUTxs.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'ec2-52-15-128-149.us-east-2.compute.amazonaws.com,52.15.128.149' (ECDSA) to the list of known hosts.
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+11 package(s) needed for security, out of 16 available
+Run "sudo yum update" to apply all updates.
+                                                                    
+EEEEEEEEEEEEEEEEEEEE MMMMMMMM           MMMMMMMM RRRRRRRRRRRRRRR    
+E::::::::::::::::::E M:::::::M         M:::::::M R::::::::::::::R   
+EE:::::EEEEEEEEE:::E M::::::::M       M::::::::M R:::::RRRRRR:::::R 
+  E::::E       EEEEE M:::::::::M     M:::::::::M RR::::R      R::::R
+  E::::E             M::::::M:::M   M:::M::::::M   R:::R      R::::R
+  E:::::EEEEEEEEEE   M:::::M M:::M M:::M M:::::M   R:::RRRRRR:::::R 
+  E::::::::::::::E   M:::::M  M:::M:::M  M:::::M   R:::::::::::RR   
+  E:::::EEEEEEEEEE   M:::::M   M:::::M   M:::::M   R:::RRRRRR::::R  
+  E::::E             M:::::M    M:::M    M:::::M   R:::R      R::::R
+  E::::E       EEEEE M:::::M     MMM     M:::::M   R:::R      R::::R
+EE:::::EEEEEEEE::::E M:::::M             M:::::M   R:::R      R::::R
+E::::::::::::::::::E M:::::M             M:::::M RR::::R      R::::R
+EEEEEEEEEEEEEEEEEEEE MMMMMMM             MMMMMMM RRRRRRR      RRRRRR
+                                                                    
+[hadoop@ip-172-31-6-5 ~]$ aws s3 cp s3://801075504bucket/SparkSQLScala.jar .
+download: s3://801075504bucket/SparkSQLScala.jar to ./SparkSQLScala.jar
+[hadoop@ip-172-31-6-5 ~]$ spark-submit --class org.SparkSQL.Driver ./SparkSQLScala.jar s3://801075504bucket/data.txt s3://801075504bucket/SparkSQLOutput
+19/02/15 02:12:11 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+19/02/15 02:12:12 INFO spark.SparkContext: Running Spark version 2.4.0
+19/02/15 02:12:12 INFO spark.SparkContext: Submitted application: SparkAction
+19/02/15 02:12:12 INFO spark.SecurityManager: Changing view acls to: hadoop
+19/02/15 02:12:12 INFO spark.SecurityManager: Changing modify acls to: hadoop
+19/02/15 02:12:12 INFO spark.SecurityManager: Changing view acls groups to: 
+19/02/15 02:12:12 INFO spark.SecurityManager: Changing modify acls groups to: 
+19/02/15 02:12:12 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(hadoop); groups with view permissions: Set(); users  with modify permissions: Set(hadoop); groups with modify permissions: Set()
+19/02/15 02:12:12 INFO util.Utils: Successfully started service 'sparkDriver' on port 40083.
+19/02/15 02:12:12 INFO spark.SparkEnv: Registering MapOutputTracker
+19/02/15 02:12:12 INFO spark.SparkEnv: Registering BlockManagerMaster
+19/02/15 02:12:12 INFO storage.BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+19/02/15 02:12:12 INFO storage.BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+19/02/15 02:12:12 INFO storage.DiskBlockManager: Created local directory at /mnt/tmp/blockmgr-82b45199-077b-4917-87a8-3c2d6054188e
+19/02/15 02:12:12 INFO memory.MemoryStore: MemoryStore started with capacity 366.3 MB
+19/02/15 02:12:12 INFO spark.SparkEnv: Registering OutputCommitCoordinator
+19/02/15 02:12:12 INFO util.log: Logging initialized @2810ms
+19/02/15 02:12:13 INFO server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/02/15 02:12:13 INFO server.Server: Started @2916ms
+19/02/15 02:12:13 INFO server.AbstractConnector: Started ServerConnector@5ae81e1{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/02/15 02:12:13 INFO util.Utils: Successfully started service 'SparkUI' on port 4040.
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@2a76b80a{/jobs,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@18cc679e{/jobs/json,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@2e77b8cf{/jobs/job,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@67ef029{/jobs/job/json,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@7df587ef{/stages,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@6e57e95e{/stages/json,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@2755d705{/stages/stage,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@560cbf1a{/stages/stage/json,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@5fe8b721{/stages/pool,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@551a20d6{/stages/pool/json,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@578524c3{/storage,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@64c2b546{/storage/json,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@7e094740{/storage/rdd,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@7a11c4c7{/storage/rdd/json,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@4cc547a{/environment,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@7555b920{/environment/json,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@4152d38d{/executors,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@3591009c{/executors/json,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@5398edd0{/executors/threadDump,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@b5cc23a{/executors/threadDump/json,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@5cc5b667{/static,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@548e76f1{/,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@5aabbb29{/api,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@3aa3193a{/jobs/job/kill,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1ee4730{/stages/stage/kill,null,AVAILABLE,@Spark}
+19/02/15 02:12:13 INFO ui.SparkUI: Bound SparkUI to 0.0.0.0, and started at http://ip-172-31-6-5.us-east-2.compute.internal:4040
+19/02/15 02:12:13 INFO spark.SparkContext: Added JAR file:/home/hadoop/./SparkSQLScala.jar at spark://ip-172-31-6-5.us-east-2.compute.internal:40083/jars/SparkSQLScala.jar with timestamp 1550196733194
+19/02/15 02:12:13 INFO executor.Executor: Starting executor ID driver on host localhost
+19/02/15 02:12:13 INFO util.Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 33495.
+19/02/15 02:12:13 INFO netty.NettyBlockTransferService: Server created on ip-172-31-6-5.us-east-2.compute.internal:33495
+19/02/15 02:12:13 INFO storage.BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+19/02/15 02:12:13 INFO storage.BlockManagerMaster: Registering BlockManager BlockManagerId(driver, ip-172-31-6-5.us-east-2.compute.internal, 33495, None)
+19/02/15 02:12:13 INFO storage.BlockManagerMasterEndpoint: Registering block manager ip-172-31-6-5.us-east-2.compute.internal:33495 with 366.3 MB RAM, BlockManagerId(driver, ip-172-31-6-5.us-east-2.compute.internal, 33495, None)
+19/02/15 02:12:13 INFO storage.BlockManagerMaster: Registered BlockManager BlockManagerId(driver, ip-172-31-6-5.us-east-2.compute.internal, 33495, None)
+19/02/15 02:12:13 INFO storage.BlockManager: Initialized BlockManager: BlockManagerId(driver, ip-172-31-6-5.us-east-2.compute.internal, 33495, None)
+19/02/15 02:12:13 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@5b6e8f77{/metrics/json,null,AVAILABLE,@Spark}
+19/02/15 02:12:14 INFO memory.MemoryStore: Block broadcast_0 stored as values in memory (estimated size 209.0 KB, free 366.1 MB)
+19/02/15 02:12:14 INFO memory.MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 19.6 KB, free 366.1 MB)
+19/02/15 02:12:14 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on ip-172-31-6-5.us-east-2.compute.internal:33495 (size: 19.6 KB, free: 366.3 MB)
+19/02/15 02:12:14 INFO spark.SparkContext: Created broadcast 0 from textFile at Driver.scala:19
+19/02/15 02:12:17 INFO internal.SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('file:/home/hadoop/spark-warehouse').
+19/02/15 02:12:17 INFO internal.SharedState: Warehouse path is 'file:/home/hadoop/spark-warehouse'.
+19/02/15 02:12:18 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@18e4551{/SQL,null,AVAILABLE,@Spark}
+19/02/15 02:12:18 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@3ea48c37{/SQL/json,null,AVAILABLE,@Spark}
+19/02/15 02:12:18 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@18026052{/SQL/execution,null,AVAILABLE,@Spark}
+19/02/15 02:12:18 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@489f62a3{/SQL/execution/json,null,AVAILABLE,@Spark}
+19/02/15 02:12:18 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@62058742{/static/sql,null,AVAILABLE,@Spark}
+19/02/15 02:12:18 INFO state.StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
+19/02/15 02:12:20 INFO codegen.CodeGenerator: Code generated in 465.409935 ms
+Exception in thread "main" java.io.IOException: No FileSystem for scheme: s3
+	at org.apache.hadoop.fs.FileSystem.getFileSystemClass(FileSystem.java:2846)
+	at org.apache.hadoop.fs.FileSystem.createFileSystem(FileSystem.java:2857)
+	at org.apache.hadoop.fs.FileSystem.access$200(FileSystem.java:99)
+	at org.apache.hadoop.fs.FileSystem$Cache.getInternal(FileSystem.java:2896)
+	at org.apache.hadoop.fs.FileSystem$Cache.get(FileSystem.java:2878)
+	at org.apache.hadoop.fs.FileSystem.get(FileSystem.java:392)
+	at org.apache.hadoop.fs.Path.getFileSystem(Path.java:356)
+	at org.apache.spark.internal.io.SparkHadoopWriterUtils$.createPathFromString(SparkHadoopWriterUtils.scala:55)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$4.apply$mcV$sp(PairRDDFunctions.scala:1066)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$4.apply(PairRDDFunctions.scala:1032)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$4.apply(PairRDDFunctions.scala:1032)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:363)
+	at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopFile(PairRDDFunctions.scala:1032)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$1.apply$mcV$sp(PairRDDFunctions.scala:958)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$1.apply(PairRDDFunctions.scala:958)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$1.apply(PairRDDFunctions.scala:958)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:363)
+	at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopFile(PairRDDFunctions.scala:957)
+	at org.apache.spark.rdd.RDD$$anonfun$saveAsTextFile$1.apply$mcV$sp(RDD.scala:1499)
+	at org.apache.spark.rdd.RDD$$anonfun$saveAsTextFile$1.apply(RDD.scala:1478)
+	at org.apache.spark.rdd.RDD$$anonfun$saveAsTextFile$1.apply(RDD.scala:1478)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:363)
+	at org.apache.spark.rdd.RDD.saveAsTextFile(RDD.scala:1478)
+	at org.SparkSQL.Driver$.main(Driver.scala:31)
+	at org.SparkSQL.Driver.main(Driver.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.spark.deploy.JavaMainApplication.start(SparkApplication.scala:52)
+	at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:849)
+	at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:167)
+	at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:195)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:86)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:924)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:933)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+19/02/15 02:12:21 INFO spark.SparkContext: Invoking stop() from shutdown hook
+19/02/15 02:12:21 INFO server.AbstractConnector: Stopped Spark@5ae81e1{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/02/15 02:12:21 INFO ui.SparkUI: Stopped Spark web UI at http://ip-172-31-6-5.us-east-2.compute.internal:4040
+19/02/15 02:12:21 INFO spark.MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+19/02/15 02:12:21 INFO memory.MemoryStore: MemoryStore cleared
+19/02/15 02:12:21 INFO storage.BlockManager: BlockManager stopped
+19/02/15 02:12:21 INFO storage.BlockManagerMaster: BlockManagerMaster stopped
+19/02/15 02:12:21 INFO scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+19/02/15 02:12:21 INFO spark.SparkContext: Successfully stopped SparkContext
+19/02/15 02:12:21 INFO util.ShutdownHookManager: Shutdown hook called
+19/02/15 02:12:21 INFO util.ShutdownHookManager: Deleting directory /mnt/tmp/spark-c859bb59-0e7b-4191-b52a-fb0bc351eec5
+19/02/15 02:12:21 INFO util.ShutdownHookManager: Deleting directory /mnt/tmp/spark-b00e5b76-ad7e-4c6b-8a8c-477f53cfda7e
+[hadoop@ip-172-31-6-5 ~]$ clear
+
+[hadoop@ip-172-31-6-5 ~]$ spark-submit --class org.SparkSQL.Driver ./SparkSQLScala.jar s3://801075504bucket/data.txt s
+log4j:ERROR setFile(null,true) call failed.
+java.io.FileNotFoundException: /stderr (Permission denied)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.apache.log4j.FileAppender.setFile(FileAppender.java:294)
+	at org.apache.log4j.FileAppender.activateOptions(FileAppender.java:165)
+	at org.apache.log4j.DailyRollingFileAppender.activateOptions(DailyRollingFileAppender.java:223)
+	at org.apache.log4j.config.PropertySetter.activate(PropertySetter.java:307)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:172)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:104)
+	at org.apache.log4j.PropertyConfigurator.parseAppender(PropertyConfigurator.java:842)
+	at org.apache.log4j.PropertyConfigurator.parseCategory(PropertyConfigurator.java:768)
+	at org.apache.log4j.PropertyConfigurator.parseCatsAndRenderers(PropertyConfigurator.java:672)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:516)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:580)
+	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:526)
+	at org.apache.log4j.LogManager.<clinit>(LogManager.java:127)
+	at org.apache.spark.internal.Logging$class.initializeLogging(Logging.scala:120)
+	at org.apache.spark.internal.Logging$class.initializeLogIfNecessary(Logging.scala:108)
+	at org.apache.spark.deploy.SparkSubmit.initializeLogIfNecessary(SparkSubmit.scala:71)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:79)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:924)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:933)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+log4j:ERROR Either File or DatePattern options are not set for appender [DRFA-stderr].
+log4j:ERROR setFile(null,true) call failed.
+java.io.FileNotFoundException: /stdout (Permission denied)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.apache.log4j.FileAppender.setFile(FileAppender.java:294)
+	at org.apache.log4j.FileAppender.activateOptions(FileAppender.java:165)
+	at org.apache.log4j.DailyRollingFileAppender.activateOptions(DailyRollingFileAppender.java:223)
+	at org.apache.log4j.config.PropertySetter.activate(PropertySetter.java:307)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:172)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:104)
+	at org.apache.log4j.PropertyConfigurator.parseAppender(PropertyConfigurator.java:842)
+	at org.apache.log4j.PropertyConfigurator.parseCategory(PropertyConfigurator.java:768)
+	at org.apache.log4j.PropertyConfigurator.parseCatsAndRenderers(PropertyConfigurator.java:672)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:516)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:580)
+	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:526)
+	at org.apache.log4j.LogManager.<clinit>(LogManager.java:127)
+	at org.apache.spark.internal.Logging$class.initializeLogging(Logging.scala:120)
+	at org.apache.spark.internal.Logging$class.initializeLogIfNecessary(Logging.scala:108)
+	at org.apache.spark.deploy.SparkSubmit.initializeLogIfNecessary(SparkSubmit.scala:71)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:79)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:924)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:933)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+log4j:ERROR Either File or DatePattern options are not set for appender [DRFA-stdout].
+19/02/15 02:24:42 INFO SparkContext: Running Spark version 2.4.0
+19/02/15 02:24:42 INFO SparkContext: Submitted application: SparkAction
+19/02/15 02:24:42 INFO SecurityManager: Changing view acls to: hadoop
+19/02/15 02:24:42 INFO SecurityManager: Changing modify acls to: hadoop
+19/02/15 02:24:42 INFO SecurityManager: Changing view acls groups to: 
+19/02/15 02:24:42 INFO SecurityManager: Changing modify acls groups to: 
+19/02/15 02:24:42 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(hadoop); groups with view permissions: Set(); users  with modify permissions: Set(hadoop); groups with modify permissions: Set()
+19/02/15 02:24:42 INFO Utils: Successfully started service 'sparkDriver' on port 40053.
+19/02/15 02:24:42 INFO SparkEnv: Registering MapOutputTracker
+19/02/15 02:24:42 INFO SparkEnv: Registering BlockManagerMaster
+19/02/15 02:24:42 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+19/02/15 02:24:42 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+19/02/15 02:24:42 INFO DiskBlockManager: Created local directory at /mnt/tmp/blockmgr-df1bb7e0-c514-4307-8873-1a85edbbca1e
+19/02/15 02:24:42 INFO MemoryStore: MemoryStore started with capacity 424.4 MB
+19/02/15 02:24:42 INFO SparkEnv: Registering OutputCommitCoordinator
+19/02/15 02:24:43 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+19/02/15 02:24:43 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://ip-172-31-6-5.us-east-2.compute.internal:4040
+19/02/15 02:24:43 INFO SparkContext: Added JAR file:/home/hadoop/./SparkSQLScala.jar at spark://ip-172-31-6-5.us-east-2.compute.internal:40053/jars/SparkSQLScala.jar with timestamp 1550197483262
+19/02/15 02:24:43 INFO Executor: Starting executor ID driver on host localhost
+19/02/15 02:24:43 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 43179.
+19/02/15 02:24:43 INFO NettyBlockTransferService: Server created on ip-172-31-6-5.us-east-2.compute.internal:43179
+19/02/15 02:24:43 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+19/02/15 02:24:43 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, ip-172-31-6-5.us-east-2.compute.internal, 43179, None)
+19/02/15 02:24:43 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-6-5.us-east-2.compute.internal:43179 with 424.4 MB RAM, BlockManagerId(driver, ip-172-31-6-5.us-east-2.compute.internal, 43179, None)
+19/02/15 02:24:43 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, ip-172-31-6-5.us-east-2.compute.internal, 43179, None)
+19/02/15 02:24:43 INFO BlockManager: external shuffle service port = 7337
+19/02/15 02:24:43 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, ip-172-31-6-5.us-east-2.compute.internal, 43179, None)
+19/02/15 02:24:45 INFO EventLoggingListener: Logging events to hdfs:/var/log/spark/apps/local-1550197483360
+19/02/15 02:24:45 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 237.2 KB, free 424.2 MB)
+19/02/15 02:24:45 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 24.1 KB, free 424.2 MB)
+19/02/15 02:24:45 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on ip-172-31-6-5.us-east-2.compute.internal:43179 (size: 24.1 KB, free: 424.4 MB)
+19/02/15 02:24:46 INFO SparkContext: Created broadcast 0 from textFile at Driver.scala:19
+19/02/15 02:24:48 INFO SharedState: loading hive config file: file:/etc/spark/conf.dist/hive-site.xml
+19/02/15 02:24:48 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('hdfs:///user/spark/warehouse').
+19/02/15 02:24:48 INFO SharedState: Warehouse path is 'hdfs:///user/spark/warehouse'.
+19/02/15 02:24:49 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
+19/02/15 02:24:53 INFO CodeGenerator: Code generated in 494.052597 ms
+19/02/15 02:24:53 INFO deprecation: mapred.output.dir is deprecated. Instead, use mapreduce.output.fileoutputformat.outputdir
+19/02/15 02:24:53 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.DirectFileOutputCommitter
+19/02/15 02:24:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+19/02/15 02:24:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+19/02/15 02:24:53 INFO DirectFileOutputCommitter: Direct Write: DISABLED
+19/02/15 02:24:53 INFO GPLNativeCodeLoader: Loaded native gpl library
+19/02/15 02:24:53 INFO LzoCodec: Successfully loaded & initialized native-lzo library [hadoop-lzo rev bab859f34a291cb7b3f4e724b59e1b48af69016b]
+19/02/15 02:24:55 INFO FileInputFormat: Total input files to process : 1
+19/02/15 02:24:55 INFO SparkContext: Starting job: runJob at SparkHadoopWriter.scala:78
+19/02/15 02:24:55 INFO DAGScheduler: Got job 0 (runJob at SparkHadoopWriter.scala:78) with 1 output partitions
+19/02/15 02:24:55 INFO DAGScheduler: Final stage: ResultStage 0 (runJob at SparkHadoopWriter.scala:78)
+19/02/15 02:24:55 INFO DAGScheduler: Parents of final stage: List()
+19/02/15 02:24:55 INFO DAGScheduler: Missing parents: List()
+19/02/15 02:24:56 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[8] at saveAsTextFile at Driver.scala:31), which has no missing parents
+19/02/15 02:24:56 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 95.1 KB, free 424.1 MB)
+19/02/15 02:24:56 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 34.5 KB, free 424.0 MB)
+19/02/15 02:24:56 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on ip-172-31-6-5.us-east-2.compute.internal:43179 (size: 34.5 KB, free: 424.4 MB)
+19/02/15 02:24:56 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1201
+19/02/15 02:24:56 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[8] at saveAsTextFile at Driver.scala:31) (first 15 tasks are for partitions Vector(0))
+19/02/15 02:24:56 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+19/02/15 02:24:56 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, localhost, executor driver, partition 0, ANY, 7889 bytes)
+19/02/15 02:24:56 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+19/02/15 02:24:56 INFO Executor: Fetching spark://ip-172-31-6-5.us-east-2.compute.internal:40053/jars/SparkSQLScala.jar with timestamp 1550197483262
+19/02/15 02:24:56 INFO TransportClientFactory: Successfully created connection to ip-172-31-6-5.us-east-2.compute.internal/172.31.6.5:40053 after 75 ms (0 ms spent in bootstraps)
+19/02/15 02:24:56 INFO Utils: Fetching spark://ip-172-31-6-5.us-east-2.compute.internal:40053/jars/SparkSQLScala.jar to /mnt/tmp/spark-40854db0-ff13-40b6-8849-5bde1c226ce9/userFiles-a0675eef-1daf-4ee5-b1e4-4f40ec199709/fetchFileTemp7020916051815048315.tmp
+19/02/15 02:24:56 INFO Executor: Adding file:/mnt/tmp/spark-40854db0-ff13-40b6-8849-5bde1c226ce9/userFiles-a0675eef-1daf-4ee5-b1e4-4f40ec199709/SparkSQLScala.jar to class loader
+19/02/15 02:24:56 INFO HadoopRDD: Input split: s3://801075504bucket/data.txt:0+53593
+19/02/15 02:24:56 INFO S3NativeFileSystem: Opening 's3://801075504bucket/data.txt' for reading
+19/02/15 02:24:57 INFO CodeGenerator: Code generated in 57.982037 ms
+19/02/15 02:24:57 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.DirectFileOutputCommitter
+19/02/15 02:24:57 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+19/02/15 02:24:57 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+19/02/15 02:24:57 INFO DirectFileOutputCommitter: Direct Write: DISABLED
+19/02/15 02:24:57 INFO FileOutputCommitter: Saved output of task 'attempt_20190215022453_0008_m_000000_0' to hdfs://ip-172-31-6-5.us-east-2.compute.internal:8020/user/hadoop/s/_temporary/0/task_20190215022453_0008_m_000000
+19/02/15 02:24:57 INFO SparkHadoopMapRedUtil: attempt_20190215022453_0008_m_000000_0: Committed
+19/02/15 02:24:57 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1619 bytes result sent to driver
+19/02/15 02:24:57 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1114 ms on localhost (executor driver) (1/1)
+19/02/15 02:24:57 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+19/02/15 02:24:57 INFO DAGScheduler: ResultStage 0 (runJob at SparkHadoopWriter.scala:78) finished in 1.416 s
+19/02/15 02:24:57 INFO DAGScheduler: Job 0 finished: runJob at SparkHadoopWriter.scala:78, took 1.576430 s
+19/02/15 02:24:57 INFO SparkHadoopWriter: Job job_20190215022453_0008 committed.
+19/02/15 02:24:57 INFO SparkContext: Invoking stop() from shutdown hook
+19/02/15 02:24:57 INFO SparkUI: Stopped Spark web UI at http://ip-172-31-6-5.us-east-2.compute.internal:4040
+19/02/15 02:24:57 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+19/02/15 02:24:57 INFO MemoryStore: MemoryStore cleared
+19/02/15 02:24:57 INFO BlockManager: BlockManager stopped
+19/02/15 02:24:57 INFO BlockManagerMaster: BlockManagerMaster stopped
+19/02/15 02:24:57 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+19/02/15 02:24:57 INFO SparkContext: Successfully stopped SparkContext
+19/02/15 02:24:57 INFO ShutdownHookManager: Shutdown hook called
+19/02/15 02:24:57 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-c6ea0a2b-dd8d-4c2a-aa79-89e70e66d538
+19/02/15 02:24:57 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-40854db0-ff13-40b6-8849-5bde1c226ce9
+[hadoop@ip-172-31-6-5 ~]$ spark-submit --class org.SparkSQL.Driver ./SparkSQLScala.jar s3://801075504bucket/data.txt
+log4j:ERROR setFile(null,true) call failed.
+java.io.FileNotFoundException: /stderr (Permission denied)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.apache.log4j.FileAppender.setFile(FileAppender.java:294)
+	at org.apache.log4j.FileAppender.activateOptions(FileAppender.java:165)
+	at org.apache.log4j.DailyRollingFileAppender.activateOptions(DailyRollingFileAppender.java:223)
+	at org.apache.log4j.config.PropertySetter.activate(PropertySetter.java:307)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:172)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:104)
+	at org.apache.log4j.PropertyConfigurator.parseAppender(PropertyConfigurator.java:842)
+	at org.apache.log4j.PropertyConfigurator.parseCategory(PropertyConfigurator.java:768)
+	at org.apache.log4j.PropertyConfigurator.parseCatsAndRenderers(PropertyConfigurator.java:672)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:516)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:580)
+	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:526)
+	at org.apache.log4j.LogManager.<clinit>(LogManager.java:127)
+	at org.apache.spark.internal.Logging$class.initializeLogging(Logging.scala:120)
+	at org.apache.spark.internal.Logging$class.initializeLogIfNecessary(Logging.scala:108)
+	at org.apache.spark.deploy.SparkSubmit.initializeLogIfNecessary(SparkSubmit.scala:71)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:79)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:924)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:933)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+log4j:ERROR Either File or DatePattern options are not set for appender [DRFA-stderr].
+log4j:ERROR setFile(null,true) call failed.
+java.io.FileNotFoundException: /stdout (Permission denied)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.apache.log4j.FileAppender.setFile(FileAppender.java:294)
+	at org.apache.log4j.FileAppender.activateOptions(FileAppender.java:165)
+	at org.apache.log4j.DailyRollingFileAppender.activateOptions(DailyRollingFileAppender.java:223)
+	at org.apache.log4j.config.PropertySetter.activate(PropertySetter.java:307)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:172)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:104)
+	at org.apache.log4j.PropertyConfigurator.parseAppender(PropertyConfigurator.java:842)
+	at org.apache.log4j.PropertyConfigurator.parseCategory(PropertyConfigurator.java:768)
+	at org.apache.log4j.PropertyConfigurator.parseCatsAndRenderers(PropertyConfigurator.java:672)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:516)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:580)
+	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:526)
+	at org.apache.log4j.LogManager.<clinit>(LogManager.java:127)
+	at org.apache.spark.internal.Logging$class.initializeLogging(Logging.scala:120)
+	at org.apache.spark.internal.Logging$class.initializeLogIfNecessary(Logging.scala:108)
+	at org.apache.spark.deploy.SparkSubmit.initializeLogIfNecessary(SparkSubmit.scala:71)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:79)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:924)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:933)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+log4j:ERROR Either File or DatePattern options are not set for appender [DRFA-stdout].
+19/02/15 02:25:14 INFO SparkContext: Running Spark version 2.4.0
+19/02/15 02:25:14 INFO SparkContext: Submitted application: SparkAction
+19/02/15 02:25:14 INFO SecurityManager: Changing view acls to: hadoop
+19/02/15 02:25:14 INFO SecurityManager: Changing modify acls to: hadoop
+19/02/15 02:25:14 INFO SecurityManager: Changing view acls groups to: 
+19/02/15 02:25:14 INFO SecurityManager: Changing modify acls groups to: 
+19/02/15 02:25:14 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(hadoop); groups with view permissions: Set(); users  with modify permissions: Set(hadoop); groups with modify permissions: Set()
+19/02/15 02:25:14 INFO Utils: Successfully started service 'sparkDriver' on port 39413.
+19/02/15 02:25:14 INFO SparkEnv: Registering MapOutputTracker
+19/02/15 02:25:14 INFO SparkEnv: Registering BlockManagerMaster
+19/02/15 02:25:14 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+19/02/15 02:25:14 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+19/02/15 02:25:14 INFO DiskBlockManager: Created local directory at /mnt/tmp/blockmgr-1d25992d-b4ea-47e2-8e61-b1215e555a45
+19/02/15 02:25:14 INFO MemoryStore: MemoryStore started with capacity 424.4 MB
+19/02/15 02:25:14 INFO SparkEnv: Registering OutputCommitCoordinator
+19/02/15 02:25:15 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+19/02/15 02:25:15 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://ip-172-31-6-5.us-east-2.compute.internal:4040
+19/02/15 02:25:15 INFO SparkContext: Added JAR file:/home/hadoop/./SparkSQLScala.jar at spark://ip-172-31-6-5.us-east-2.compute.internal:39413/jars/SparkSQLScala.jar with timestamp 1550197515175
+19/02/15 02:25:15 INFO Executor: Starting executor ID driver on host localhost
+19/02/15 02:25:15 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 35415.
+19/02/15 02:25:15 INFO NettyBlockTransferService: Server created on ip-172-31-6-5.us-east-2.compute.internal:35415
+19/02/15 02:25:15 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+19/02/15 02:25:15 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, ip-172-31-6-5.us-east-2.compute.internal, 35415, None)
+19/02/15 02:25:15 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-6-5.us-east-2.compute.internal:35415 with 424.4 MB RAM, BlockManagerId(driver, ip-172-31-6-5.us-east-2.compute.internal, 35415, None)
+19/02/15 02:25:15 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, ip-172-31-6-5.us-east-2.compute.internal, 35415, None)
+19/02/15 02:25:15 INFO BlockManager: external shuffle service port = 7337
+19/02/15 02:25:15 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, ip-172-31-6-5.us-east-2.compute.internal, 35415, None)
+19/02/15 02:25:17 INFO EventLoggingListener: Logging events to hdfs:/var/log/spark/apps/local-1550197515294
+19/02/15 02:25:17 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 237.2 KB, free 424.2 MB)
+19/02/15 02:25:17 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 24.1 KB, free 424.2 MB)
+19/02/15 02:25:17 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on ip-172-31-6-5.us-east-2.compute.internal:35415 (size: 24.1 KB, free: 424.4 MB)
+19/02/15 02:25:17 INFO SparkContext: Created broadcast 0 from textFile at Driver.scala:19
+19/02/15 02:25:20 INFO SharedState: loading hive config file: file:/etc/spark/conf.dist/hive-site.xml
+19/02/15 02:25:20 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('hdfs:///user/spark/warehouse').
+19/02/15 02:25:20 INFO SharedState: Warehouse path is 'hdfs:///user/spark/warehouse'.
+19/02/15 02:25:21 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
+19/02/15 02:25:23 INFO CodeGenerator: Code generated in 513.457351 ms
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 1
+	at org.SparkSQL.Driver$.main(Driver.scala:31)
+	at org.SparkSQL.Driver.main(Driver.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.spark.deploy.JavaMainApplication.start(SparkApplication.scala:52)
+	at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:849)
+	at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:167)
+	at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:195)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:86)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:924)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:933)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+19/02/15 02:25:24 INFO SparkContext: Invoking stop() from shutdown hook
+19/02/15 02:25:24 INFO SparkUI: Stopped Spark web UI at http://ip-172-31-6-5.us-east-2.compute.internal:4040
+19/02/15 02:25:24 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+19/02/15 02:25:24 INFO MemoryStore: MemoryStore cleared
+19/02/15 02:25:24 INFO BlockManager: BlockManager stopped
+19/02/15 02:25:24 INFO BlockManagerMaster: BlockManagerMaster stopped
+19/02/15 02:25:24 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+19/02/15 02:25:24 INFO SparkContext: Successfully stopped SparkContext
+19/02/15 02:25:24 INFO ShutdownHookManager: Shutdown hook called
+19/02/15 02:25:24 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-e5ca12d1-3b61-408d-aeab-ba21267094a4
+19/02/15 02:25:24 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-fd8d2aee-66b2-4545-9318-e582f64066c9
+[hadoop@ip-172-31-6-5 ~]$ clear
+
+[hadoop@ip-172-31-6-5 ~]$ aws s3 cp s3://801075504bucket/SparkSQLScala.jar .
+download: s3://801075504bucket/SparkSQLScala.jar to ./SparkSQLScala.jar
+[hadoop@ip-172-31-6-5 ~]$ spark-submit --class org.SparkSQL.Driver ./SparkSQLScala.jar s3://801075504bucket/data.txt s3://801075504bucket/SparkSQLOutput
+log4j:ERROR setFile(null,true) call failed.
+java.io.FileNotFoundException: /stderr (Permission denied)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.apache.log4j.FileAppender.setFile(FileAppender.java:294)
+	at org.apache.log4j.FileAppender.activateOptions(FileAppender.java:165)
+	at org.apache.log4j.DailyRollingFileAppender.activateOptions(DailyRollingFileAppender.java:223)
+	at org.apache.log4j.config.PropertySetter.activate(PropertySetter.java:307)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:172)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:104)
+	at org.apache.log4j.PropertyConfigurator.parseAppender(PropertyConfigurator.java:842)
+	at org.apache.log4j.PropertyConfigurator.parseCategory(PropertyConfigurator.java:768)
+	at org.apache.log4j.PropertyConfigurator.parseCatsAndRenderers(PropertyConfigurator.java:672)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:516)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:580)
+	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:526)
+	at org.apache.log4j.LogManager.<clinit>(LogManager.java:127)
+	at org.apache.spark.internal.Logging$class.initializeLogging(Logging.scala:120)
+	at org.apache.spark.internal.Logging$class.initializeLogIfNecessary(Logging.scala:108)
+	at org.apache.spark.deploy.SparkSubmit.initializeLogIfNecessary(SparkSubmit.scala:71)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:79)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:924)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:933)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+log4j:ERROR Either File or DatePattern options are not set for appender [DRFA-stderr].
+log4j:ERROR setFile(null,true) call failed.
+java.io.FileNotFoundException: /stdout (Permission denied)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.apache.log4j.FileAppender.setFile(FileAppender.java:294)
+	at org.apache.log4j.FileAppender.activateOptions(FileAppender.java:165)
+	at org.apache.log4j.DailyRollingFileAppender.activateOptions(DailyRollingFileAppender.java:223)
+	at org.apache.log4j.config.PropertySetter.activate(PropertySetter.java:307)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:172)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:104)
+	at org.apache.log4j.PropertyConfigurator.parseAppender(PropertyConfigurator.java:842)
+	at org.apache.log4j.PropertyConfigurator.parseCategory(PropertyConfigurator.java:768)
+	at org.apache.log4j.PropertyConfigurator.parseCatsAndRenderers(PropertyConfigurator.java:672)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:516)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:580)
+	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:526)
+	at org.apache.log4j.LogManager.<clinit>(LogManager.java:127)
+	at org.apache.spark.internal.Logging$class.initializeLogging(Logging.scala:120)
+	at org.apache.spark.internal.Logging$class.initializeLogIfNecessary(Logging.scala:108)
+	at org.apache.spark.deploy.SparkSubmit.initializeLogIfNecessary(SparkSubmit.scala:71)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:79)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:924)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:933)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+log4j:ERROR Either File or DatePattern options are not set for appender [DRFA-stdout].
+19/02/15 02:26:31 INFO SparkContext: Running Spark version 2.4.0
+19/02/15 02:26:31 INFO SparkContext: Submitted application: SparkAction
+19/02/15 02:26:32 INFO SecurityManager: Changing view acls to: hadoop
+19/02/15 02:26:32 INFO SecurityManager: Changing modify acls to: hadoop
+19/02/15 02:26:32 INFO SecurityManager: Changing view acls groups to: 
+19/02/15 02:26:32 INFO SecurityManager: Changing modify acls groups to: 
+19/02/15 02:26:32 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(hadoop); groups with view permissions: Set(); users  with modify permissions: Set(hadoop); groups with modify permissions: Set()
+19/02/15 02:26:32 INFO Utils: Successfully started service 'sparkDriver' on port 39047.
+19/02/15 02:26:32 INFO SparkEnv: Registering MapOutputTracker
+19/02/15 02:26:32 INFO SparkEnv: Registering BlockManagerMaster
+19/02/15 02:26:32 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+19/02/15 02:26:32 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+19/02/15 02:26:32 INFO DiskBlockManager: Created local directory at /mnt/tmp/blockmgr-37a9c4a4-2738-4e71-a82b-56dc74795f63
+19/02/15 02:26:32 INFO MemoryStore: MemoryStore started with capacity 424.4 MB
+19/02/15 02:26:32 INFO SparkEnv: Registering OutputCommitCoordinator
+19/02/15 02:26:32 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+19/02/15 02:26:33 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://ip-172-31-6-5.us-east-2.compute.internal:4040
+19/02/15 02:26:33 INFO SparkContext: Added JAR file:/home/hadoop/./SparkSQLScala.jar at spark://ip-172-31-6-5.us-east-2.compute.internal:39047/jars/SparkSQLScala.jar with timestamp 1550197593084
+19/02/15 02:26:33 INFO Executor: Starting executor ID driver on host localhost
+19/02/15 02:26:33 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 37461.
+19/02/15 02:26:33 INFO NettyBlockTransferService: Server created on ip-172-31-6-5.us-east-2.compute.internal:37461
+19/02/15 02:26:33 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+19/02/15 02:26:33 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, ip-172-31-6-5.us-east-2.compute.internal, 37461, None)
+19/02/15 02:26:33 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-6-5.us-east-2.compute.internal:37461 with 424.4 MB RAM, BlockManagerId(driver, ip-172-31-6-5.us-east-2.compute.internal, 37461, None)
+19/02/15 02:26:33 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, ip-172-31-6-5.us-east-2.compute.internal, 37461, None)
+19/02/15 02:26:33 INFO BlockManager: external shuffle service port = 7337
+19/02/15 02:26:33 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, ip-172-31-6-5.us-east-2.compute.internal, 37461, None)
+19/02/15 02:26:35 INFO EventLoggingListener: Logging events to hdfs:/var/log/spark/apps/local-1550197593197
+19/02/15 02:26:35 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 237.2 KB, free 424.2 MB)
+19/02/15 02:26:35 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 24.1 KB, free 424.2 MB)
+19/02/15 02:26:35 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on ip-172-31-6-5.us-east-2.compute.internal:37461 (size: 24.1 KB, free: 424.4 MB)
+19/02/15 02:26:35 INFO SparkContext: Created broadcast 0 from textFile at Driver.scala:19
+19/02/15 02:26:38 INFO SharedState: loading hive config file: file:/etc/spark/conf.dist/hive-site.xml
+19/02/15 02:26:38 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('hdfs:///user/spark/warehouse').
+19/02/15 02:26:38 INFO SharedState: Warehouse path is 'hdfs:///user/spark/warehouse'.
+19/02/15 02:26:39 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
+19/02/15 02:26:42 INFO CodeGenerator: Code generated in 389.989371 ms
+19/02/15 02:26:44 INFO deprecation: mapred.output.dir is deprecated. Instead, use mapreduce.output.fileoutputformat.outputdir
+19/02/15 02:26:44 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.DirectFileOutputCommitter
+19/02/15 02:26:44 INFO DirectFileOutputCommitter: Nothing to setup since the outputs are written directly.
+19/02/15 02:26:44 INFO GPLNativeCodeLoader: Loaded native gpl library
+19/02/15 02:26:44 INFO LzoCodec: Successfully loaded & initialized native-lzo library [hadoop-lzo rev bab859f34a291cb7b3f4e724b59e1b48af69016b]
+19/02/15 02:26:44 INFO FileInputFormat: Total input files to process : 1
+19/02/15 02:26:44 INFO SparkContext: Starting job: runJob at SparkHadoopWriter.scala:78
+19/02/15 02:26:45 INFO DAGScheduler: Got job 0 (runJob at SparkHadoopWriter.scala:78) with 1 output partitions
+19/02/15 02:26:45 INFO DAGScheduler: Final stage: ResultStage 0 (runJob at SparkHadoopWriter.scala:78)
+19/02/15 02:26:45 INFO DAGScheduler: Parents of final stage: List()
+19/02/15 02:26:45 INFO DAGScheduler: Missing parents: List()
+19/02/15 02:26:45 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[8] at saveAsTextFile at Driver.scala:31), which has no missing parents
+19/02/15 02:26:45 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 95.1 KB, free 424.1 MB)
+19/02/15 02:26:45 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 34.6 KB, free 424.0 MB)
+19/02/15 02:26:45 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on ip-172-31-6-5.us-east-2.compute.internal:37461 (size: 34.6 KB, free: 424.4 MB)
+19/02/15 02:26:45 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1201
+19/02/15 02:26:45 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[8] at saveAsTextFile at Driver.scala:31) (first 15 tasks are for partitions Vector(0))
+19/02/15 02:26:45 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+19/02/15 02:26:45 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, localhost, executor driver, partition 0, ANY, 7889 bytes)
+19/02/15 02:26:45 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+19/02/15 02:26:45 INFO Executor: Fetching spark://ip-172-31-6-5.us-east-2.compute.internal:39047/jars/SparkSQLScala.jar with timestamp 1550197593084
+19/02/15 02:26:45 INFO TransportClientFactory: Successfully created connection to ip-172-31-6-5.us-east-2.compute.internal/172.31.6.5:39047 after 56 ms (0 ms spent in bootstraps)
+19/02/15 02:26:45 INFO Utils: Fetching spark://ip-172-31-6-5.us-east-2.compute.internal:39047/jars/SparkSQLScala.jar to /mnt/tmp/spark-df332a97-06ec-418d-aefe-20d91f2f9330/userFiles-6ddf589b-658a-4d06-a1bb-f89027f25342/fetchFileTemp8346101219439998102.tmp
+19/02/15 02:26:45 INFO Executor: Adding file:/mnt/tmp/spark-df332a97-06ec-418d-aefe-20d91f2f9330/userFiles-6ddf589b-658a-4d06-a1bb-f89027f25342/SparkSQLScala.jar to class loader
+19/02/15 02:26:45 INFO HadoopRDD: Input split: s3://801075504bucket/data.txt:0+53593
+19/02/15 02:26:45 INFO S3NativeFileSystem: Opening 's3://801075504bucket/data.txt' for reading
+19/02/15 02:26:46 INFO CodeGenerator: Code generated in 55.618342 ms
+19/02/15 02:26:46 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.DirectFileOutputCommitter
+19/02/15 02:26:46 INFO MultipartUploadOutputStream: close closed:false s3://801075504bucket/SparkSQLOutput/part-00000
+19/02/15 02:26:46 INFO SparkHadoopMapRedUtil: No need to commit output of task because needsTaskCommit=false: attempt_20190215022644_0008_m_000000_0
+19/02/15 02:26:46 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1619 bytes result sent to driver
+19/02/15 02:26:46 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1024 ms on localhost (executor driver) (1/1)
+19/02/15 02:26:46 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+19/02/15 02:26:46 INFO DAGScheduler: ResultStage 0 (runJob at SparkHadoopWriter.scala:78) finished in 1.349 s
+19/02/15 02:26:46 INFO DAGScheduler: Job 0 finished: runJob at SparkHadoopWriter.scala:78, took 1.462868 s
+19/02/15 02:26:46 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+19/02/15 02:26:46 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: true
+19/02/15 02:26:46 INFO DirectFileOutputCommitter: Direct Write: ENABLED
+19/02/15 02:26:46 INFO DirectFileOutputCommitter: Nothing to clean up since no temporary files were written.
+19/02/15 02:26:46 INFO MultipartUploadOutputStream: close closed:false s3://801075504bucket/SparkSQLOutput/_SUCCESS
+19/02/15 02:26:46 INFO SparkHadoopWriter: Job job_20190215022644_0008 committed.
+19/02/15 02:26:46 INFO SparkContext: Invoking stop() from shutdown hook
+19/02/15 02:26:46 INFO SparkUI: Stopped Spark web UI at http://ip-172-31-6-5.us-east-2.compute.internal:4040
+19/02/15 02:26:46 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+19/02/15 02:26:46 INFO MemoryStore: MemoryStore cleared
+19/02/15 02:26:46 INFO BlockManager: BlockManager stopped
+19/02/15 02:26:46 INFO BlockManagerMaster: BlockManagerMaster stopped
+19/02/15 02:26:46 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+19/02/15 02:26:46 INFO SparkContext: Successfully stopped SparkContext
+19/02/15 02:26:46 INFO ShutdownHookManager: Shutdown hook called
+19/02/15 02:26:46 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-d99331a8-ae95-4869-912e-e368a2f896d3
+19/02/15 02:26:46 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-df332a97-06ec-418d-aefe-20d91f2f9330
+[hadoop@ip-172-31-6-5 ~]$ 

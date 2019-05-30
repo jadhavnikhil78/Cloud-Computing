@@ -1,0 +1,56 @@
+The Simple English Wikipedia corpus is about 500 MB, spread across 200,000 files – one per
+page. However, the HDFS, like the Google File System, is designed to operate efficiently
+on a small number of large files rather than on a large number of small files. If we were to load
+the Wikipedia files into Hadoop DFS individually and then run a MapReduce process on this,
+Hadoop would need to perform 200,000 file open–seek-read–close operations – which is very time
+consuming. Instead, you will be using a pre-processed version of the Simple Wikipedia corpus in
+1
+which the pages are stored in an XML format, with many thousands of pages per file. This has
+been further preprocessed such that all the data for a single page is on the same line. This makes
+it easy to use the default InputFormat, which performs one map() call per line of each file it reads.
+The mapper will still perform a separate map() for each page of Simple Wikipedia, but since it is
+sequentially scanning through a small number of very large files, performance is much better than
+in the separate-file case.
+
+Each page of Wikipedia is represented in XML as follows:
+<title> Page_Name </title>
+(other fields we do not care about)
+<revision optionalAttr="val">
+<text optionalAttr2="val2"> (Page body goes here)
+</text>
+</revision>
+As mentioned before, the pages have been “flattened” to be represented on a single line. So this
+will be laid out on a single line like:
+<title>Page_Name</title>(other fields)<revision optionalAttr="val"><text
+optionalAttr="val2">(Page body)</text></revision>
+The body text of the page also has all newlines converted to spaces to ensure it stays on one line in
+this representation. Links to other Wikipedia articles are of the form “[[Name of other article]]”.
+
+Implementation using MapReduce
+Implement the PageRank algorithm using Hadoop MapReduce. You will need a
+driver class to run this process, which should run the link graph generator, calculate PageRank
+for 10 iterations, and then run the cleanup pass. Run PageRank, and that ouputs what the top 100
+highest-PageRank pages are.
+
+Some tips:
+
+1. Test run a single pass of the PageRank mapper/reducer before putting it in a loop.
+2. Each pass will require its own input and output directory; one output directory is used as the
+input directory for the next pass of the algorithm. Set the input and output directory names
+in the Job to values that make sense for this ow.
+3. Create a new Job and Configuration object for each MapReduce pass. main() should call a
+series of driver methods.
+4. Remember that you need to remove your intermediate/output directories between executions
+of your program.
+5. The input and output types for each of these passes should be Text. You should design a
+textual representation for the data that must be passed through each phase, that you can
+serialize to and parse from efficiently.
+6. Select an appropriate number of map tasks and reduce tasks.
+7. The final cleanup step should have 1 reduce task, to get a single list of all pages.
+8. Remember, this is \real" data. Tha data has been cleaned up for you in terms of formatting
+the input into a presentable manner, but there might be lines that do not conform to the
+layout you expect, blank lines, etc. Your code must be robust to these parsing errors. Just
+ignore any lines that are illegal { but do not cause a crash!}
+9. Use a small test input before moving to larger inputs.
+10. The Hadoop API reference is at http://hadoop.apache.org/core/docs/current/api/ {
+when in doubt, look it up here first!}

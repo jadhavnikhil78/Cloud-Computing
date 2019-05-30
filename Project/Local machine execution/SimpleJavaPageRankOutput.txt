@@ -1,0 +1,59 @@
+Enter the number of Iterations and nodes
+5
+5
+Enter the values of each link
+0
+1
+0
+0
+1
+1
+0
+1
+1
+0
+1
+0
+0
+0
+1
+0
+1
+0
+0
+1
+0
+0
+1
+1
+0
+Below are the values of 0 Iteration
+Node 0=0.17333335
+Node 1=0.28
+Node 2=0.17333335
+Node 3=0.17333335
+Node 4=0.20000002
+Below are the values of 1 Iteration
+Rank of Node 1=0.20551112
+Rank of Node 2=0.24320003
+Rank of Node 3=0.16142222
+Rank of Node 4=0.20551112
+Rank of Node 5=0.17866668
+Below are the values of 2 Iteration
+Rank of Node 1=0.18502831
+Rank of Node 2=0.26525298
+Rank of Node 3=0.16839495
+Rank of Node 4=0.18502831
+Rank of Node 5=0.18642062
+Below are the values of 3 Iteration
+Rank of Node 1=0.19573501
+Rank of Node 2=0.25086343
+Rank of Node 3=0.16229035
+Rank of Node 4=0.19573501
+Rank of Node 5=0.18105306
+Below are the values of 4 Iteration
+Rank of Node 1=0.18856555
+Rank of Node 2=0.25759375
+Rank of Node 3=0.16499925
+Rank of Node 4=0.18856555
+Rank of Node 5=0.18281251

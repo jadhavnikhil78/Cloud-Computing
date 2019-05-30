@@ -1,0 +1,2474 @@
+Last login: Sun Apr 14 01:13:58 on ttys000
+Nikhils-MacBook-Pro:~ dragonheart$ cd Downloads/
+Nikhils-MacBook-Pro:Downloads dragonheart$ ssh -i ClouderaKeyPair.pem hadoop@ec2-18-191-200-144.us-east-2.compute.amazonaws.com
+The authenticity of host 'ec2-18-191-200-144.us-east-2.compute.amazonaws.com (18.191.200.144)' can't be established.
+ECDSA key fingerprint is SHA256:GenTk+hhh04dQUFYRSpbjS/qUZmPcYZ0Oyl62gvFpXY.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'ec2-18-191-200-144.us-east-2.compute.amazonaws.com,18.191.200.144' (ECDSA) to the list of known hosts.
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+22 package(s) needed for security, out of 35 available
+Run "sudo yum update" to apply all updates.
+                                                                    
+EEEEEEEEEEEEEEEEEEEE MMMMMMMM           MMMMMMMM RRRRRRRRRRRRRRR    
+E::::::::::::::::::E M:::::::M         M:::::::M R::::::::::::::R   
+EE:::::EEEEEEEEE:::E M::::::::M       M::::::::M R:::::RRRRRR:::::R 
+  E::::E       EEEEE M:::::::::M     M:::::::::M RR::::R      R::::R
+  E::::E             M::::::M:::M   M:::M::::::M   R:::R      R::::R
+  E:::::EEEEEEEEEE   M:::::M M:::M M:::M M:::::M   R:::RRRRRR:::::R 
+  E::::::::::::::E   M:::::M  M:::M:::M  M:::::M   R:::::::::::RR   
+  E:::::EEEEEEEEEE   M:::::M   M:::::M   M:::::M   R:::RRRRRR::::R  
+  E::::E             M:::::M    M:::M    M:::::M   R:::R      R::::R
+  E::::E       EEEEE M:::::M     MMM     M:::::M   R:::R      R::::R
+EE:::::EEEEEEEE::::E M:::::M             M:::::M   R:::R      R::::R
+E::::::::::::::::::E M:::::M             M:::::M RR::::R      R::::R
+EEEEEEEEEEEEEEEEEEEE MMMMMMM             MMMMMMM RRRRRRR      RRRRRR
+                                                                    
+[hadoop@ip-172-31-1-165 ~]$ aws s3 cp s3://801075504bucket2/SparkMLib-0.0.1-SNAPSHOT.jar .
+download: s3://801075504bucket2/SparkMLib-0.0.1-SNAPSHOT.jar to ./SparkMLib-0.0.1-SNAPSHOT.jar
+[hadoop@ip-172-31-1-165 ~]$ spark-submit --class org.clusterings.KMeansDriver --master yarn --deploy-mode client ./SparkMLib-0.0.1-SNAPSHOT.jar s3://801075504bucket2/CarData.txt s3://801075504bucket2/KMeansOutput
+log4j:ERROR setFile(null,true) call failed.
+java.io.FileNotFoundException: /stderr (Permission denied)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.apache.log4j.FileAppender.setFile(FileAppender.java:294)
+	at org.apache.log4j.FileAppender.activateOptions(FileAppender.java:165)
+	at org.apache.log4j.DailyRollingFileAppender.activateOptions(DailyRollingFileAppender.java:223)
+	at org.apache.log4j.config.PropertySetter.activate(PropertySetter.java:307)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:172)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:104)
+	at org.apache.log4j.PropertyConfigurator.parseAppender(PropertyConfigurator.java:842)
+	at org.apache.log4j.PropertyConfigurator.parseCategory(PropertyConfigurator.java:768)
+	at org.apache.log4j.PropertyConfigurator.parseCatsAndRenderers(PropertyConfigurator.java:672)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:516)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:580)
+	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:526)
+	at org.apache.log4j.LogManager.<clinit>(LogManager.java:127)
+	at org.apache.spark.internal.Logging$class.initializeLogging(Logging.scala:120)
+	at org.apache.spark.internal.Logging$class.initializeLogIfNecessary(Logging.scala:108)
+	at org.apache.spark.deploy.SparkSubmit.initializeLogIfNecessary(SparkSubmit.scala:71)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:79)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:924)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:933)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+log4j:ERROR Either File or DatePattern options are not set for appender [DRFA-stderr].
+log4j:ERROR setFile(null,true) call failed.
+java.io.FileNotFoundException: /stdout (Permission denied)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.apache.log4j.FileAppender.setFile(FileAppender.java:294)
+	at org.apache.log4j.FileAppender.activateOptions(FileAppender.java:165)
+	at org.apache.log4j.DailyRollingFileAppender.activateOptions(DailyRollingFileAppender.java:223)
+	at org.apache.log4j.config.PropertySetter.activate(PropertySetter.java:307)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:172)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:104)
+	at org.apache.log4j.PropertyConfigurator.parseAppender(PropertyConfigurator.java:842)
+	at org.apache.log4j.PropertyConfigurator.parseCategory(PropertyConfigurator.java:768)
+	at org.apache.log4j.PropertyConfigurator.parseCatsAndRenderers(PropertyConfigurator.java:672)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:516)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:580)
+	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:526)
+	at org.apache.log4j.LogManager.<clinit>(LogManager.java:127)
+	at org.apache.spark.internal.Logging$class.initializeLogging(Logging.scala:120)
+	at org.apache.spark.internal.Logging$class.initializeLogIfNecessary(Logging.scala:108)
+	at org.apache.spark.deploy.SparkSubmit.initializeLogIfNecessary(SparkSubmit.scala:71)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:79)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:924)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:933)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+log4j:ERROR Either File or DatePattern options are not set for appender [DRFA-stdout].
+19/04/14 14:03:00 INFO SparkContext: Running Spark version 2.4.0
+19/04/14 14:03:00 INFO SparkContext: Submitted application: SparkAction
+19/04/14 14:03:00 INFO SecurityManager: Changing view acls to: hadoop
+19/04/14 14:03:00 INFO SecurityManager: Changing modify acls to: hadoop
+19/04/14 14:03:00 INFO SecurityManager: Changing view acls groups to: 
+19/04/14 14:03:00 INFO SecurityManager: Changing modify acls groups to: 
+19/04/14 14:03:00 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(hadoop); groups with view permissions: Set(); users  with modify permissions: Set(hadoop); groups with modify permissions: Set()
+19/04/14 14:03:00 INFO Utils: Successfully started service 'sparkDriver' on port 41735.
+19/04/14 14:03:01 INFO SparkEnv: Registering MapOutputTracker
+19/04/14 14:03:01 INFO SparkEnv: Registering BlockManagerMaster
+19/04/14 14:03:01 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+19/04/14 14:03:01 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+19/04/14 14:03:01 INFO DiskBlockManager: Created local directory at /mnt/tmp/blockmgr-4f2e4399-4096-4c48-b7ff-05d51b49be41
+19/04/14 14:03:01 INFO MemoryStore: MemoryStore started with capacity 424.4 MB
+19/04/14 14:03:01 INFO SparkEnv: Registering OutputCommitCoordinator
+19/04/14 14:03:01 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+19/04/14 14:03:01 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://ip-172-31-1-165.us-east-2.compute.internal:4040
+19/04/14 14:03:01 INFO SparkContext: Added JAR file:/home/hadoop/./SparkMLib-0.0.1-SNAPSHOT.jar at spark://ip-172-31-1-165.us-east-2.compute.internal:41735/jars/SparkMLib-0.0.1-SNAPSHOT.jar with timestamp 1555250581577
+19/04/14 14:03:01 INFO Executor: Starting executor ID driver on host localhost
+19/04/14 14:03:01 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 41701.
+19/04/14 14:03:01 INFO NettyBlockTransferService: Server created on ip-172-31-1-165.us-east-2.compute.internal:41701
+19/04/14 14:03:01 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+19/04/14 14:03:01 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, ip-172-31-1-165.us-east-2.compute.internal, 41701, None)
+19/04/14 14:03:01 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-1-165.us-east-2.compute.internal:41701 with 424.4 MB RAM, BlockManagerId(driver, ip-172-31-1-165.us-east-2.compute.internal, 41701, None)
+19/04/14 14:03:01 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, ip-172-31-1-165.us-east-2.compute.internal, 41701, None)
+19/04/14 14:03:01 INFO BlockManager: external shuffle service port = 7337
+19/04/14 14:03:01 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, ip-172-31-1-165.us-east-2.compute.internal, 41701, None)
+19/04/14 14:03:03 INFO EventLoggingListener: Logging events to hdfs:/var/log/spark/apps/local-1555250581715
+19/04/14 14:03:04 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 237.3 KB, free 424.2 MB)
+19/04/14 14:03:04 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 24.1 KB, free 424.2 MB)
+19/04/14 14:03:04 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:41701 (size: 24.1 KB, free: 424.4 MB)
+19/04/14 14:03:04 INFO SparkContext: Created broadcast 0 from textFile at KMeansDriver.scala:31
+19/04/14 14:03:04 INFO GPLNativeCodeLoader: Loaded native gpl library
+19/04/14 14:03:04 INFO LzoCodec: Successfully loaded & initialized native-lzo library [hadoop-lzo rev bab859f34a291cb7b3f4e724b59e1b48af69016b]
+Exception in thread "main" org.apache.hadoop.mapred.InvalidInputException: Input path does not exist: s3://801075504bucket2/CarData.txt
+	at org.apache.hadoop.mapred.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:260)
+	at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:208)
+	at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:288)
+	at org.apache.spark.rdd.HadoopRDD.getPartitions(HadoopRDD.scala:204)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:253)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:251)
+	at scala.Option.getOrElse(Option.scala:121)
+	at org.apache.spark.rdd.RDD.partitions(RDD.scala:251)
+	at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:49)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:253)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:251)
+	at scala.Option.getOrElse(Option.scala:121)
+	at org.apache.spark.rdd.RDD.partitions(RDD.scala:251)
+	at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:49)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:253)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:251)
+	at scala.Option.getOrElse(Option.scala:121)
+	at org.apache.spark.rdd.RDD.partitions(RDD.scala:251)
+	at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:49)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:253)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:251)
+	at scala.Option.getOrElse(Option.scala:121)
+	at org.apache.spark.rdd.RDD.partitions(RDD.scala:251)
+	at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:49)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:253)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:251)
+	at scala.Option.getOrElse(Option.scala:121)
+	at org.apache.spark.rdd.RDD.partitions(RDD.scala:251)
+	at org.apache.spark.rdd.RDD$$anonfun$distinct$2.apply(RDD.scala:406)
+	at org.apache.spark.rdd.RDD$$anonfun$distinct$2.apply(RDD.scala:406)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:363)
+	at org.apache.spark.rdd.RDD.distinct(RDD.scala:405)
+	at org.clusterings.KMeansDriver$.main(KMeansDriver.scala:39)
+	at org.clusterings.KMeansDriver.main(KMeansDriver.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.spark.deploy.JavaMainApplication.start(SparkApplication.scala:52)
+	at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:849)
+	at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:167)
+	at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:195)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:86)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:924)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:933)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+19/04/14 14:03:06 INFO SparkContext: Invoking stop() from shutdown hook
+19/04/14 14:03:06 INFO SparkUI: Stopped Spark web UI at http://ip-172-31-1-165.us-east-2.compute.internal:4040
+19/04/14 14:03:06 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+19/04/14 14:03:06 INFO MemoryStore: MemoryStore cleared
+19/04/14 14:03:06 INFO BlockManager: BlockManager stopped
+19/04/14 14:03:06 INFO BlockManagerMaster: BlockManagerMaster stopped
+19/04/14 14:03:06 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+19/04/14 14:03:06 INFO SparkContext: Successfully stopped SparkContext
+19/04/14 14:03:06 INFO ShutdownHookManager: Shutdown hook called
+19/04/14 14:03:06 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-965bd006-dd3f-4614-94b8-b83bbdb73da1
+19/04/14 14:03:06 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-be39cf2e-6f91-42dd-ab2e-7b49bb4c9f20
+[hadoop@ip-172-31-1-165 ~]$ spark-submit --class org.clusterings.KMeansDriver --master yarn --deploy-mode client ./SparkMLib-0.0.1-SNAPSHOT.jar s3://801075504bucket2/data.txt s3://801075504bucket2/KMeansOutput
+log4j:ERROR setFile(null,true) call failed.
+java.io.FileNotFoundException: /stderr (Permission denied)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.apache.log4j.FileAppender.setFile(FileAppender.java:294)
+	at org.apache.log4j.FileAppender.activateOptions(FileAppender.java:165)
+	at org.apache.log4j.DailyRollingFileAppender.activateOptions(DailyRollingFileAppender.java:223)
+	at org.apache.log4j.config.PropertySetter.activate(PropertySetter.java:307)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:172)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:104)
+	at org.apache.log4j.PropertyConfigurator.parseAppender(PropertyConfigurator.java:842)
+	at org.apache.log4j.PropertyConfigurator.parseCategory(PropertyConfigurator.java:768)
+	at org.apache.log4j.PropertyConfigurator.parseCatsAndRenderers(PropertyConfigurator.java:672)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:516)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:580)
+	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:526)
+	at org.apache.log4j.LogManager.<clinit>(LogManager.java:127)
+	at org.apache.spark.internal.Logging$class.initializeLogging(Logging.scala:120)
+	at org.apache.spark.internal.Logging$class.initializeLogIfNecessary(Logging.scala:108)
+	at org.apache.spark.deploy.SparkSubmit.initializeLogIfNecessary(SparkSubmit.scala:71)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:79)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:924)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:933)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+log4j:ERROR Either File or DatePattern options are not set for appender [DRFA-stderr].
+log4j:ERROR setFile(null,true) call failed.
+java.io.FileNotFoundException: /stdout (Permission denied)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.apache.log4j.FileAppender.setFile(FileAppender.java:294)
+	at org.apache.log4j.FileAppender.activateOptions(FileAppender.java:165)
+	at org.apache.log4j.DailyRollingFileAppender.activateOptions(DailyRollingFileAppender.java:223)
+	at org.apache.log4j.config.PropertySetter.activate(PropertySetter.java:307)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:172)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:104)
+	at org.apache.log4j.PropertyConfigurator.parseAppender(PropertyConfigurator.java:842)
+	at org.apache.log4j.PropertyConfigurator.parseCategory(PropertyConfigurator.java:768)
+	at org.apache.log4j.PropertyConfigurator.parseCatsAndRenderers(PropertyConfigurator.java:672)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:516)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:580)
+	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:526)
+	at org.apache.log4j.LogManager.<clinit>(LogManager.java:127)
+	at org.apache.spark.internal.Logging$class.initializeLogging(Logging.scala:120)
+	at org.apache.spark.internal.Logging$class.initializeLogIfNecessary(Logging.scala:108)
+	at org.apache.spark.deploy.SparkSubmit.initializeLogIfNecessary(SparkSubmit.scala:71)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:79)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:924)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:933)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+log4j:ERROR Either File or DatePattern options are not set for appender [DRFA-stdout].
+19/04/14 14:04:11 INFO SparkContext: Running Spark version 2.4.0
+19/04/14 14:04:11 INFO SparkContext: Submitted application: SparkAction
+19/04/14 14:04:11 INFO SecurityManager: Changing view acls to: hadoop
+19/04/14 14:04:11 INFO SecurityManager: Changing modify acls to: hadoop
+19/04/14 14:04:11 INFO SecurityManager: Changing view acls groups to: 
+19/04/14 14:04:11 INFO SecurityManager: Changing modify acls groups to: 
+19/04/14 14:04:11 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(hadoop); groups with view permissions: Set(); users  with modify permissions: Set(hadoop); groups with modify permissions: Set()
+19/04/14 14:04:11 INFO Utils: Successfully started service 'sparkDriver' on port 41421.
+19/04/14 14:04:11 INFO SparkEnv: Registering MapOutputTracker
+19/04/14 14:04:11 INFO SparkEnv: Registering BlockManagerMaster
+19/04/14 14:04:11 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+19/04/14 14:04:11 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+19/04/14 14:04:11 INFO DiskBlockManager: Created local directory at /mnt/tmp/blockmgr-4542ebdd-5868-4d05-a1d8-a56f9c325b52
+19/04/14 14:04:11 INFO MemoryStore: MemoryStore started with capacity 424.4 MB
+19/04/14 14:04:12 INFO SparkEnv: Registering OutputCommitCoordinator
+19/04/14 14:04:12 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+19/04/14 14:04:12 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://ip-172-31-1-165.us-east-2.compute.internal:4040
+19/04/14 14:04:12 INFO SparkContext: Added JAR file:/home/hadoop/./SparkMLib-0.0.1-SNAPSHOT.jar at spark://ip-172-31-1-165.us-east-2.compute.internal:41421/jars/SparkMLib-0.0.1-SNAPSHOT.jar with timestamp 1555250652397
+19/04/14 14:04:12 INFO Executor: Starting executor ID driver on host localhost
+19/04/14 14:04:12 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 37525.
+19/04/14 14:04:12 INFO NettyBlockTransferService: Server created on ip-172-31-1-165.us-east-2.compute.internal:37525
+19/04/14 14:04:12 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+19/04/14 14:04:12 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, ip-172-31-1-165.us-east-2.compute.internal, 37525, None)
+19/04/14 14:04:12 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-1-165.us-east-2.compute.internal:37525 with 424.4 MB RAM, BlockManagerId(driver, ip-172-31-1-165.us-east-2.compute.internal, 37525, None)
+19/04/14 14:04:12 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, ip-172-31-1-165.us-east-2.compute.internal, 37525, None)
+19/04/14 14:04:12 INFO BlockManager: external shuffle service port = 7337
+19/04/14 14:04:12 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, ip-172-31-1-165.us-east-2.compute.internal, 37525, None)
+19/04/14 14:04:14 INFO EventLoggingListener: Logging events to hdfs:/var/log/spark/apps/local-1555250652495
+19/04/14 14:04:14 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 237.3 KB, free 424.2 MB)
+19/04/14 14:04:14 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 24.1 KB, free 424.2 MB)
+19/04/14 14:04:14 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 24.1 KB, free: 424.4 MB)
+19/04/14 14:04:14 INFO SparkContext: Created broadcast 0 from textFile at KMeansDriver.scala:31
+19/04/14 14:04:14 INFO GPLNativeCodeLoader: Loaded native gpl library
+19/04/14 14:04:14 INFO LzoCodec: Successfully loaded & initialized native-lzo library [hadoop-lzo rev bab859f34a291cb7b3f4e724b59e1b48af69016b]
+19/04/14 14:04:17 INFO FileInputFormat: Total input files to process : 1
+19/04/14 14:04:17 INFO SparkContext: Starting job: collect at KMeansDriver.scala:39
+19/04/14 14:04:17 INFO DAGScheduler: Registering RDD 5 (distinct at KMeansDriver.scala:39)
+19/04/14 14:04:17 INFO DAGScheduler: Got job 0 (collect at KMeansDriver.scala:39) with 1 output partitions
+19/04/14 14:04:17 INFO DAGScheduler: Final stage: ResultStage 1 (collect at KMeansDriver.scala:39)
+19/04/14 14:04:17 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 0)
+19/04/14 14:04:17 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 0)
+19/04/14 14:04:17 INFO DAGScheduler: Submitting ShuffleMapStage 0 (MapPartitionsRDD[5] at distinct at KMeansDriver.scala:39), which has no missing parents
+19/04/14 14:04:17 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 5.4 KB, free 424.2 MB)
+19/04/14 14:04:17 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 3.1 KB, free 424.2 MB)
+19/04/14 14:04:17 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 3.1 KB, free: 424.4 MB)
+19/04/14 14:04:17 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:17 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[5] at distinct at KMeansDriver.scala:39) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:17 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+19/04/14 14:04:18 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, localhost, executor driver, partition 0, ANY, 7879 bytes)
+19/04/14 14:04:18 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+19/04/14 14:04:18 INFO Executor: Fetching spark://ip-172-31-1-165.us-east-2.compute.internal:41421/jars/SparkMLib-0.0.1-SNAPSHOT.jar with timestamp 1555250652397
+19/04/14 14:04:18 INFO TransportClientFactory: Successfully created connection to ip-172-31-1-165.us-east-2.compute.internal/172.31.1.165:41421 after 69 ms (0 ms spent in bootstraps)
+19/04/14 14:04:18 INFO Utils: Fetching spark://ip-172-31-1-165.us-east-2.compute.internal:41421/jars/SparkMLib-0.0.1-SNAPSHOT.jar to /mnt/tmp/spark-67c51838-6ea4-4f4d-b90d-83f94dc775a8/userFiles-3246f1c4-9dc3-4367-9211-e38c796eb020/fetchFileTemp8820750612565287003.tmp
+19/04/14 14:04:18 INFO Executor: Adding file:/mnt/tmp/spark-67c51838-6ea4-4f4d-b90d-83f94dc775a8/userFiles-3246f1c4-9dc3-4367-9211-e38c796eb020/SparkMLib-0.0.1-SNAPSHOT.jar to class loader
+19/04/14 14:04:18 INFO HadoopRDD: Input split: s3://801075504bucket2/data.txt:0+53593
+19/04/14 14:04:18 INFO S3NativeFileSystem: Opening 's3://801075504bucket2/data.txt' for reading
+19/04/14 14:04:18 INFO MemoryStore: Block rdd_2_0 stored as values in memory (estimated size 653.9 KB, free 423.5 MB)
+19/04/14 14:04:18 INFO BlockManagerInfo: Added rdd_2_0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 653.9 KB, free: 423.8 MB)
+19/04/14 14:04:19 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1226 bytes result sent to driver
+19/04/14 14:04:19 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1073 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+19/04/14 14:04:19 INFO DAGScheduler: ShuffleMapStage 0 (distinct at KMeansDriver.scala:39) finished in 1.255 s
+19/04/14 14:04:19 INFO DAGScheduler: looking for newly runnable stages
+19/04/14 14:04:19 INFO DAGScheduler: running: Set()
+19/04/14 14:04:19 INFO DAGScheduler: waiting: Set(ResultStage 1)
+19/04/14 14:04:19 INFO DAGScheduler: failed: Set()
+19/04/14 14:04:19 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[7] at distinct at KMeansDriver.scala:39), which has no missing parents
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 4.0 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 2.3 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 2.3 KB, free: 423.8 MB)
+19/04/14 14:04:19 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:19 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[7] at distinct at KMeansDriver.scala:39) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks
+19/04/14 14:04:19 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1, localhost, executor driver, partition 0, ANY, 7662 bytes)
+19/04/14 14:04:19 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+19/04/14 14:04:19 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/04/14 14:04:19 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 20 ms
+19/04/14 14:04:19 INFO BlockManagerInfo: Removed broadcast_1_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 3.1 KB, free: 423.8 MB)
+19/04/14 14:04:19 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 1251 bytes result sent to driver
+19/04/14 14:04:19 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 101 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+19/04/14 14:04:19 INFO DAGScheduler: ResultStage 1 (collect at KMeansDriver.scala:39) finished in 0.123 s
+19/04/14 14:04:19 INFO DAGScheduler: Job 0 finished: collect at KMeansDriver.scala:39, took 2.029310 s
+19/04/14 14:04:19 INFO SparkContext: Starting job: collect at KMeansDriver.scala:43
+19/04/14 14:04:19 INFO DAGScheduler: Registering RDD 9 (distinct at KMeansDriver.scala:43)
+19/04/14 14:04:19 INFO DAGScheduler: Got job 1 (collect at KMeansDriver.scala:43) with 1 output partitions
+19/04/14 14:04:19 INFO DAGScheduler: Final stage: ResultStage 3 (collect at KMeansDriver.scala:43)
+19/04/14 14:04:19 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 2)
+19/04/14 14:04:19 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 2)
+19/04/14 14:04:19 INFO DAGScheduler: Submitting ShuffleMapStage 2 (MapPartitionsRDD[9] at distinct at KMeansDriver.scala:43), which has no missing parents
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 5.4 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 3.1 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 3.1 KB, free: 423.8 MB)
+19/04/14 14:04:19 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:19 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 2 (MapPartitionsRDD[9] at distinct at KMeansDriver.scala:43) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks
+19/04/14 14:04:19 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2, localhost, executor driver, partition 0, PROCESS_LOCAL, 7879 bytes)
+19/04/14 14:04:19 INFO Executor: Running task 0.0 in stage 2.0 (TID 2)
+19/04/14 14:04:19 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:19 INFO Executor: Finished task 0.0 in stage 2.0 (TID 2). 1140 bytes result sent to driver
+19/04/14 14:04:19 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 60 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+19/04/14 14:04:19 INFO DAGScheduler: ShuffleMapStage 2 (distinct at KMeansDriver.scala:43) finished in 0.079 s
+19/04/14 14:04:19 INFO DAGScheduler: looking for newly runnable stages
+19/04/14 14:04:19 INFO DAGScheduler: running: Set()
+19/04/14 14:04:19 INFO DAGScheduler: waiting: Set(ResultStage 3)
+19/04/14 14:04:19 INFO DAGScheduler: failed: Set()
+19/04/14 14:04:19 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[11] at distinct at KMeansDriver.scala:43), which has no missing parents
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 4.0 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 2.3 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 2.3 KB, free: 423.8 MB)
+19/04/14 14:04:19 INFO SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:19 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 3 (MapPartitionsRDD[11] at distinct at KMeansDriver.scala:43) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks
+19/04/14 14:04:19 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 3, localhost, executor driver, partition 0, ANY, 7662 bytes)
+19/04/14 14:04:19 INFO Executor: Running task 0.0 in stage 3.0 (TID 3)
+19/04/14 14:04:19 INFO BlockManagerInfo: Removed broadcast_2_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 2.3 KB, free: 423.8 MB)
+19/04/14 14:04:19 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/04/14 14:04:19 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+19/04/14 14:04:19 INFO Executor: Finished task 0.0 in stage 3.0 (TID 3). 1165 bytes result sent to driver
+19/04/14 14:04:19 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 3) in 24 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool 
+19/04/14 14:04:19 INFO DAGScheduler: ResultStage 3 (collect at KMeansDriver.scala:43) finished in 0.036 s
+19/04/14 14:04:19 INFO DAGScheduler: Job 1 finished: collect at KMeansDriver.scala:43, took 0.137902 s
+19/04/14 14:04:19 INFO SparkContext: Starting job: collect at KMeansDriver.scala:47
+19/04/14 14:04:19 INFO DAGScheduler: Registering RDD 13 (distinct at KMeansDriver.scala:47)
+19/04/14 14:04:19 INFO DAGScheduler: Got job 2 (collect at KMeansDriver.scala:47) with 1 output partitions
+19/04/14 14:04:19 INFO DAGScheduler: Final stage: ResultStage 5 (collect at KMeansDriver.scala:47)
+19/04/14 14:04:19 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 4)
+19/04/14 14:04:19 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 4)
+19/04/14 14:04:19 INFO DAGScheduler: Submitting ShuffleMapStage 4 (MapPartitionsRDD[13] at distinct at KMeansDriver.scala:47), which has no missing parents
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 5.4 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 3.1 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 3.1 KB, free: 423.8 MB)
+19/04/14 14:04:19 INFO SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:19 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 4 (MapPartitionsRDD[13] at distinct at KMeansDriver.scala:47) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Adding task set 4.0 with 1 tasks
+19/04/14 14:04:19 INFO TaskSetManager: Starting task 0.0 in stage 4.0 (TID 4, localhost, executor driver, partition 0, PROCESS_LOCAL, 7879 bytes)
+19/04/14 14:04:19 INFO Executor: Running task 0.0 in stage 4.0 (TID 4)
+19/04/14 14:04:19 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:19 INFO Executor: Finished task 0.0 in stage 4.0 (TID 4). 1140 bytes result sent to driver
+19/04/14 14:04:19 INFO TaskSetManager: Finished task 0.0 in stage 4.0 (TID 4) in 36 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Removed TaskSet 4.0, whose tasks have all completed, from pool 
+19/04/14 14:04:19 INFO DAGScheduler: ShuffleMapStage 4 (distinct at KMeansDriver.scala:47) finished in 0.045 s
+19/04/14 14:04:19 INFO DAGScheduler: looking for newly runnable stages
+19/04/14 14:04:19 INFO DAGScheduler: running: Set()
+19/04/14 14:04:19 INFO DAGScheduler: waiting: Set(ResultStage 5)
+19/04/14 14:04:19 INFO DAGScheduler: failed: Set()
+19/04/14 14:04:19 INFO DAGScheduler: Submitting ResultStage 5 (MapPartitionsRDD[15] at distinct at KMeansDriver.scala:47), which has no missing parents
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 4.0 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 2.3 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 2.3 KB, free: 423.8 MB)
+19/04/14 14:04:19 INFO SparkContext: Created broadcast 6 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:19 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 5 (MapPartitionsRDD[15] at distinct at KMeansDriver.scala:47) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Adding task set 5.0 with 1 tasks
+19/04/14 14:04:19 INFO TaskSetManager: Starting task 0.0 in stage 5.0 (TID 5, localhost, executor driver, partition 0, ANY, 7662 bytes)
+19/04/14 14:04:19 INFO Executor: Running task 0.0 in stage 5.0 (TID 5)
+19/04/14 14:04:19 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/04/14 14:04:19 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+19/04/14 14:04:19 INFO Executor: Finished task 0.0 in stage 5.0 (TID 5). 1158 bytes result sent to driver
+19/04/14 14:04:19 INFO TaskSetManager: Finished task 0.0 in stage 5.0 (TID 5) in 16 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Removed TaskSet 5.0, whose tasks have all completed, from pool 
+19/04/14 14:04:19 INFO DAGScheduler: ResultStage 5 (collect at KMeansDriver.scala:47) finished in 0.031 s
+19/04/14 14:04:19 INFO DAGScheduler: Job 2 finished: collect at KMeansDriver.scala:47, took 0.088415 s
+19/04/14 14:04:19 INFO SparkContext: Starting job: collect at KMeansDriver.scala:51
+19/04/14 14:04:19 INFO DAGScheduler: Registering RDD 17 (distinct at KMeansDriver.scala:51)
+19/04/14 14:04:19 INFO DAGScheduler: Got job 3 (collect at KMeansDriver.scala:51) with 1 output partitions
+19/04/14 14:04:19 INFO DAGScheduler: Final stage: ResultStage 7 (collect at KMeansDriver.scala:51)
+19/04/14 14:04:19 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 6)
+19/04/14 14:04:19 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 6)
+19/04/14 14:04:19 INFO DAGScheduler: Submitting ShuffleMapStage 6 (MapPartitionsRDD[17] at distinct at KMeansDriver.scala:51), which has no missing parents
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 5.4 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 3.1 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 3.1 KB, free: 423.7 MB)
+19/04/14 14:04:19 INFO SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:19 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 6 (MapPartitionsRDD[17] at distinct at KMeansDriver.scala:51) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Adding task set 6.0 with 1 tasks
+19/04/14 14:04:19 INFO TaskSetManager: Starting task 0.0 in stage 6.0 (TID 6, localhost, executor driver, partition 0, PROCESS_LOCAL, 7879 bytes)
+19/04/14 14:04:19 INFO Executor: Running task 0.0 in stage 6.0 (TID 6)
+19/04/14 14:04:19 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 122
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 73
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 77
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 141
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 58
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 115
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 50
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 109
+19/04/14 14:04:19 INFO BlockManagerInfo: Removed broadcast_5_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 3.1 KB, free: 423.8 MB)
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 102
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 81
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 125
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 67
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 147
+19/04/14 14:04:19 INFO Executor: Finished task 0.0 in stage 6.0 (TID 6). 1183 bytes result sent to driver
+19/04/14 14:04:19 INFO TaskSetManager: Finished task 0.0 in stage 6.0 (TID 6) in 45 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Removed TaskSet 6.0, whose tasks have all completed, from pool 
+19/04/14 14:04:19 INFO DAGScheduler: ShuffleMapStage 6 (distinct at KMeansDriver.scala:51) finished in 0.057 s
+19/04/14 14:04:19 INFO DAGScheduler: looking for newly runnable stages
+19/04/14 14:04:19 INFO DAGScheduler: running: Set()
+19/04/14 14:04:19 INFO DAGScheduler: waiting: Set(ResultStage 7)
+19/04/14 14:04:19 INFO DAGScheduler: failed: Set()
+19/04/14 14:04:19 INFO DAGScheduler: Submitting ResultStage 7 (MapPartitionsRDD[19] at distinct at KMeansDriver.scala:51), which has no missing parents
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 51
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_8 stored as values in memory (estimated size 4.0 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 2.3 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 2.3 KB, free: 423.8 MB)
+19/04/14 14:04:19 INFO BlockManagerInfo: Removed broadcast_6_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 2.3 KB, free: 423.8 MB)
+19/04/14 14:04:19 INFO SparkContext: Created broadcast 8 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:19 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 7 (MapPartitionsRDD[19] at distinct at KMeansDriver.scala:51) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Adding task set 7.0 with 1 tasks
+19/04/14 14:04:19 INFO TaskSetManager: Starting task 0.0 in stage 7.0 (TID 7, localhost, executor driver, partition 0, ANY, 7662 bytes)
+19/04/14 14:04:19 INFO Executor: Running task 0.0 in stage 7.0 (TID 7)
+19/04/14 14:04:19 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/04/14 14:04:19 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 75
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 149
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 148
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 134
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 98
+19/04/14 14:04:19 INFO Executor: Finished task 0.0 in stage 7.0 (TID 7). 1196 bytes result sent to driver
+19/04/14 14:04:19 INFO TaskSetManager: Finished task 0.0 in stage 7.0 (TID 7) in 36 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Removed TaskSet 7.0, whose tasks have all completed, from pool 
+19/04/14 14:04:19 INFO DAGScheduler: ResultStage 7 (collect at KMeansDriver.scala:51) finished in 0.050 s
+19/04/14 14:04:19 INFO DAGScheduler: Job 3 finished: collect at KMeansDriver.scala:51, took 0.120464 s
+19/04/14 14:04:19 INFO BlockManagerInfo: Removed broadcast_3_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 3.1 KB, free: 423.8 MB)
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 132
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 101
+19/04/14 14:04:19 INFO BlockManagerInfo: Removed broadcast_4_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 2.3 KB, free: 423.8 MB)
+19/04/14 14:04:19 INFO SparkContext: Starting job: collect at KMeansDriver.scala:55
+19/04/14 14:04:19 INFO DAGScheduler: Registering RDD 21 (distinct at KMeansDriver.scala:55)
+19/04/14 14:04:19 INFO DAGScheduler: Got job 4 (collect at KMeansDriver.scala:55) with 1 output partitions
+19/04/14 14:04:19 INFO DAGScheduler: Final stage: ResultStage 9 (collect at KMeansDriver.scala:55)
+19/04/14 14:04:19 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 8)
+19/04/14 14:04:19 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 8)
+19/04/14 14:04:19 INFO DAGScheduler: Submitting ShuffleMapStage 8 (MapPartitionsRDD[21] at distinct at KMeansDriver.scala:55), which has no missing parents
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_9 stored as values in memory (estimated size 5.4 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 3.1 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 3.1 KB, free: 423.8 MB)
+19/04/14 14:04:19 INFO SparkContext: Created broadcast 9 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:19 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 8 (MapPartitionsRDD[21] at distinct at KMeansDriver.scala:55) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Adding task set 8.0 with 1 tasks
+19/04/14 14:04:19 INFO TaskSetManager: Starting task 0.0 in stage 8.0 (TID 8, localhost, executor driver, partition 0, PROCESS_LOCAL, 7879 bytes)
+19/04/14 14:04:19 INFO Executor: Running task 0.0 in stage 8.0 (TID 8)
+19/04/14 14:04:19 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 55
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 114
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 120
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 127
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 110
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 123
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 53
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned shuffle 2
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 96
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 116
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 64
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 93
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 86
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 80
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 71
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 138
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 136
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 143
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 60
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 106
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 54
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 61
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 135
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 66
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 57
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 145
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 92
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 144
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 85
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 139
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 59
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 140
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 56
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 82
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 128
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 103
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 113
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 107
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 133
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 108
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 100
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 74
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 105
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 131
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 97
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 62
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 78
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 68
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 130
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 69
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 76
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 129
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 83
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 65
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 70
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 95
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 137
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 94
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 142
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 79
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 72
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 111
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 88
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 104
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 121
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 117
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 118
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 126
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 87
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 99
+19/04/14 14:04:19 INFO Executor: Finished task 0.0 in stage 8.0 (TID 8). 1140 bytes result sent to driver
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 63
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 146
+19/04/14 14:04:19 INFO TaskSetManager: Finished task 0.0 in stage 8.0 (TID 8) in 40 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 112
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Removed TaskSet 8.0, whose tasks have all completed, from pool 
+19/04/14 14:04:19 INFO DAGScheduler: ShuffleMapStage 8 (distinct at KMeansDriver.scala:55) finished in 0.052 s
+19/04/14 14:04:19 INFO DAGScheduler: looking for newly runnable stages
+19/04/14 14:04:19 INFO DAGScheduler: running: Set()
+19/04/14 14:04:19 INFO DAGScheduler: waiting: Set(ResultStage 9)
+19/04/14 14:04:19 INFO DAGScheduler: failed: Set()
+19/04/14 14:04:19 INFO DAGScheduler: Submitting ResultStage 9 (MapPartitionsRDD[23] at distinct at KMeansDriver.scala:55), which has no missing parents
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_10 stored as values in memory (estimated size 4.0 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 2.3 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 2.3 KB, free: 423.8 MB)
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned shuffle 1
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 89
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 119
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 90
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 84
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 91
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 52
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 124
+19/04/14 14:04:19 INFO SparkContext: Created broadcast 10 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:19 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 9 (MapPartitionsRDD[23] at distinct at KMeansDriver.scala:55) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Adding task set 9.0 with 1 tasks
+19/04/14 14:04:19 INFO TaskSetManager: Starting task 0.0 in stage 9.0 (TID 9, localhost, executor driver, partition 0, ANY, 7662 bytes)
+19/04/14 14:04:19 INFO Executor: Running task 0.0 in stage 9.0 (TID 9)
+19/04/14 14:04:19 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/04/14 14:04:19 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+19/04/14 14:04:19 INFO Executor: Finished task 0.0 in stage 9.0 (TID 9). 1158 bytes result sent to driver
+19/04/14 14:04:19 INFO TaskSetManager: Finished task 0.0 in stage 9.0 (TID 9) in 18 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Removed TaskSet 9.0, whose tasks have all completed, from pool 
+19/04/14 14:04:19 INFO DAGScheduler: ResultStage 9 (collect at KMeansDriver.scala:55) finished in 0.030 s
+19/04/14 14:04:19 INFO DAGScheduler: Job 4 finished: collect at KMeansDriver.scala:55, took 0.094325 s
+19/04/14 14:04:19 INFO SparkContext: Starting job: collect at KMeansDriver.scala:59
+19/04/14 14:04:19 INFO DAGScheduler: Registering RDD 25 (distinct at KMeansDriver.scala:59)
+19/04/14 14:04:19 INFO DAGScheduler: Got job 5 (collect at KMeansDriver.scala:59) with 1 output partitions
+19/04/14 14:04:19 INFO DAGScheduler: Final stage: ResultStage 11 (collect at KMeansDriver.scala:59)
+19/04/14 14:04:19 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 10)
+19/04/14 14:04:19 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 10)
+19/04/14 14:04:19 INFO DAGScheduler: Submitting ShuffleMapStage 10 (MapPartitionsRDD[25] at distinct at KMeansDriver.scala:59), which has no missing parents
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_11 stored as values in memory (estimated size 5.4 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 159
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 177
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 193
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 188
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 156
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 232
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 210
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 161
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 181
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 217
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 212
+19/04/14 14:04:19 INFO ContextCleaner: Cleaned accumulator 204
+19/04/14 14:04:19 INFO MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 3.1 KB, free 423.5 MB)
+19/04/14 14:04:19 INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 3.1 KB, free: 423.7 MB)
+19/04/14 14:04:19 INFO SparkContext: Created broadcast 11 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:19 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 10 (MapPartitionsRDD[25] at distinct at KMeansDriver.scala:59) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:19 INFO TaskSchedulerImpl: Adding task set 10.0 with 1 tasks
+19/04/14 14:04:19 INFO TaskSetManager: Starting task 0.0 in stage 10.0 (TID 10, localhost, executor driver, partition 0, PROCESS_LOCAL, 7879 bytes)
+19/04/14 14:04:19 INFO Executor: Running task 0.0 in stage 10.0 (TID 10)
+19/04/14 14:04:19 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:19 INFO BlockManagerInfo: Removed broadcast_9_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 3.1 KB, free: 423.8 MB)
+19/04/14 14:04:20 INFO Executor: Finished task 0.0 in stage 10.0 (TID 10). 1140 bytes result sent to driver
+19/04/14 14:04:20 INFO TaskSetManager: Finished task 0.0 in stage 10.0 (TID 10) in 20 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:20 INFO TaskSchedulerImpl: Removed TaskSet 10.0, whose tasks have all completed, from pool 
+19/04/14 14:04:20 INFO DAGScheduler: ShuffleMapStage 10 (distinct at KMeansDriver.scala:59) finished in 0.041 s
+19/04/14 14:04:20 INFO DAGScheduler: looking for newly runnable stages
+19/04/14 14:04:20 INFO DAGScheduler: running: Set()
+19/04/14 14:04:20 INFO DAGScheduler: waiting: Set(ResultStage 11)
+19/04/14 14:04:20 INFO DAGScheduler: failed: Set()
+19/04/14 14:04:20 INFO DAGScheduler: Submitting ResultStage 11 (MapPartitionsRDD[27] at distinct at KMeansDriver.scala:59), which has no missing parents
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_12 stored as values in memory (estimated size 4.0 KB, free 423.5 MB)
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_12_piece0 stored as bytes in memory (estimated size 2.3 KB, free 423.5 MB)
+19/04/14 14:04:20 INFO BlockManagerInfo: Added broadcast_12_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 2.3 KB, free: 423.8 MB)
+19/04/14 14:04:20 INFO SparkContext: Created broadcast 12 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:20 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 11 (MapPartitionsRDD[27] at distinct at KMeansDriver.scala:59) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:20 INFO TaskSchedulerImpl: Adding task set 11.0 with 1 tasks
+19/04/14 14:04:20 INFO TaskSetManager: Starting task 0.0 in stage 11.0 (TID 11, localhost, executor driver, partition 0, ANY, 7662 bytes)
+19/04/14 14:04:20 INFO Executor: Running task 0.0 in stage 11.0 (TID 11)
+19/04/14 14:04:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/04/14 14:04:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 249
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 166
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 179
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 162
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 198
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 186
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 247
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 172
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 185
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 195
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 153
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 228
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 222
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 197
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 239
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 180
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 183
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 214
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 164
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 235
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 163
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 219
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 200
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 231
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 248
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 191
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 199
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 150
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 165
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 152
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 160
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 202
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 182
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 241
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 201
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 220
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 230
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 206
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 176
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 244
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 155
+19/04/14 14:04:20 INFO Executor: Finished task 0.0 in stage 11.0 (TID 11). 1157 bytes result sent to driver
+19/04/14 14:04:20 INFO TaskSetManager: Finished task 0.0 in stage 11.0 (TID 11) in 24 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:20 INFO TaskSchedulerImpl: Removed TaskSet 11.0, whose tasks have all completed, from pool 
+19/04/14 14:04:20 INFO BlockManagerInfo: Removed broadcast_8_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 2.3 KB, free: 423.8 MB)
+19/04/14 14:04:20 INFO DAGScheduler: ResultStage 11 (collect at KMeansDriver.scala:59) finished in 0.035 s
+19/04/14 14:04:20 INFO DAGScheduler: Job 5 finished: collect at KMeansDriver.scala:59, took 0.089866 s
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 233
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 169
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 243
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 190
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 223
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 196
+19/04/14 14:04:20 INFO BlockManagerInfo: Removed broadcast_7_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 3.1 KB, free: 423.8 MB)
+19/04/14 14:04:20 INFO SparkContext: Starting job: collect at KMeansDriver.scala:63
+19/04/14 14:04:20 INFO DAGScheduler: Registering RDD 29 (distinct at KMeansDriver.scala:63)
+19/04/14 14:04:20 INFO DAGScheduler: Got job 6 (collect at KMeansDriver.scala:63) with 1 output partitions
+19/04/14 14:04:20 INFO DAGScheduler: Final stage: ResultStage 13 (collect at KMeansDriver.scala:63)
+19/04/14 14:04:20 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 12)
+19/04/14 14:04:20 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 12)
+19/04/14 14:04:20 INFO DAGScheduler: Submitting ShuffleMapStage 12 (MapPartitionsRDD[29] at distinct at KMeansDriver.scala:63), which has no missing parents
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_13 stored as values in memory (estimated size 5.4 KB, free 423.5 MB)
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_13_piece0 stored as bytes in memory (estimated size 3.1 KB, free 423.5 MB)
+19/04/14 14:04:20 INFO BlockManagerInfo: Added broadcast_13_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 3.1 KB, free: 423.8 MB)
+19/04/14 14:04:20 INFO SparkContext: Created broadcast 13 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:20 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 12 (MapPartitionsRDD[29] at distinct at KMeansDriver.scala:63) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:20 INFO TaskSchedulerImpl: Adding task set 12.0 with 1 tasks
+19/04/14 14:04:20 INFO TaskSetManager: Starting task 0.0 in stage 12.0 (TID 12, localhost, executor driver, partition 0, PROCESS_LOCAL, 7879 bytes)
+19/04/14 14:04:20 INFO Executor: Running task 0.0 in stage 12.0 (TID 12)
+19/04/14 14:04:20 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 227
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 242
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 234
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 237
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 171
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 209
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned shuffle 4
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 173
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 187
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 158
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 218
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 236
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 238
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 226
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 208
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 184
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 245
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 192
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 194
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 175
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 216
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 157
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 151
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 207
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 178
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 168
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 215
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 154
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 174
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 240
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 225
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 229
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 211
+19/04/14 14:04:20 INFO Executor: Finished task 0.0 in stage 12.0 (TID 12). 1140 bytes result sent to driver
+19/04/14 14:04:20 INFO TaskSetManager: Finished task 0.0 in stage 12.0 (TID 12) in 36 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:20 INFO TaskSchedulerImpl: Removed TaskSet 12.0, whose tasks have all completed, from pool 
+19/04/14 14:04:20 INFO DAGScheduler: ShuffleMapStage 12 (distinct at KMeansDriver.scala:63) finished in 0.044 s
+19/04/14 14:04:20 INFO DAGScheduler: looking for newly runnable stages
+19/04/14 14:04:20 INFO DAGScheduler: running: Set()
+19/04/14 14:04:20 INFO DAGScheduler: waiting: Set(ResultStage 13)
+19/04/14 14:04:20 INFO DAGScheduler: failed: Set()
+19/04/14 14:04:20 INFO DAGScheduler: Submitting ResultStage 13 (MapPartitionsRDD[31] at distinct at KMeansDriver.scala:63), which has no missing parents
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_14 stored as values in memory (estimated size 4.0 KB, free 423.5 MB)
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_14_piece0 stored as bytes in memory (estimated size 2.3 KB, free 423.5 MB)
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned shuffle 3
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 170
+19/04/14 14:04:20 INFO BlockManagerInfo: Added broadcast_14_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 2.3 KB, free: 423.8 MB)
+19/04/14 14:04:20 INFO SparkContext: Created broadcast 14 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:20 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 13 (MapPartitionsRDD[31] at distinct at KMeansDriver.scala:63) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:20 INFO TaskSchedulerImpl: Adding task set 13.0 with 1 tasks
+19/04/14 14:04:20 INFO TaskSetManager: Starting task 0.0 in stage 13.0 (TID 13, localhost, executor driver, partition 0, ANY, 7662 bytes)
+19/04/14 14:04:20 INFO Executor: Running task 0.0 in stage 13.0 (TID 13)
+19/04/14 14:04:20 INFO BlockManagerInfo: Removed broadcast_10_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 2.3 KB, free: 423.8 MB)
+19/04/14 14:04:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/04/14 14:04:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+19/04/14 14:04:20 INFO Executor: Finished task 0.0 in stage 13.0 (TID 13). 1167 bytes result sent to driver
+19/04/14 14:04:20 INFO TaskSetManager: Finished task 0.0 in stage 13.0 (TID 13) in 22 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:20 INFO TaskSchedulerImpl: Removed TaskSet 13.0, whose tasks have all completed, from pool 
+19/04/14 14:04:20 INFO DAGScheduler: ResultStage 13 (collect at KMeansDriver.scala:63) finished in 0.033 s
+19/04/14 14:04:20 INFO DAGScheduler: Job 6 finished: collect at KMeansDriver.scala:63, took 0.081827 s
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 224
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 221
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 167
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 189
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 203
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 213
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 246
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 205
+19/04/14 14:04:20 INFO BlockManagerInfo: Removed broadcast_14_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 2.3 KB, free: 423.8 MB)
+19/04/14 14:04:20 WARN KMeans: The input data is not directly cached, which may hurt performance if its parent RDDs are also uncached.
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 259
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 312
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 296
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 310
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 257
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 261
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 327
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 256
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 346
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 335
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 305
+19/04/14 14:04:20 INFO BlockManagerInfo: Removed broadcast_12_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 2.3 KB, free: 423.8 MB)
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 253
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 345
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 302
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 348
+19/04/14 14:04:20 INFO BlockManagerInfo: Removed broadcast_13_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 3.1 KB, free: 423.8 MB)
+19/04/14 14:04:20 INFO SparkContext: Starting job: takeSample at KMeans.scala:386
+19/04/14 14:04:20 INFO DAGScheduler: Got job 7 (takeSample at KMeans.scala:386) with 1 output partitions
+19/04/14 14:04:20 INFO DAGScheduler: Final stage: ResultStage 14 (takeSample at KMeans.scala:386)
+19/04/14 14:04:20 INFO DAGScheduler: Parents of final stage: List()
+19/04/14 14:04:20 INFO DAGScheduler: Missing parents: List()
+19/04/14 14:04:20 INFO DAGScheduler: Submitting ResultStage 14 (MapPartitionsRDD[38] at map at KMeans.scala:248), which has no missing parents
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_15 stored as values in memory (estimated size 6.3 KB, free 423.5 MB)
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_15_piece0 stored as bytes in memory (estimated size 3.4 KB, free 423.5 MB)
+19/04/14 14:04:20 INFO BlockManagerInfo: Added broadcast_15_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 3.4 KB, free: 423.8 MB)
+19/04/14 14:04:20 INFO SparkContext: Created broadcast 15 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:20 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 14 (MapPartitionsRDD[38] at map at KMeans.scala:248) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:20 INFO TaskSchedulerImpl: Adding task set 14.0 with 1 tasks
+19/04/14 14:04:20 INFO TaskSetManager: Starting task 0.0 in stage 14.0 (TID 14, localhost, executor driver, partition 0, PROCESS_LOCAL, 8201 bytes)
+19/04/14 14:04:20 INFO Executor: Running task 0.0 in stage 14.0 (TID 14)
+19/04/14 14:04:20 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 297
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 280
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 347
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 258
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 275
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 301
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 276
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 271
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 322
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 251
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 340
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 341
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 318
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 265
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 286
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 339
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 303
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 273
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 337
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 311
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 281
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 325
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned shuffle 6
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 292
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 283
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 321
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 295
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 344
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 289
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 313
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 329
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 324
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 349
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 314
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 291
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 338
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 294
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 334
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 285
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 278
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 277
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 316
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 250
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 300
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 299
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 323
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 320
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 333
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 274
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 342
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 266
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 284
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 326
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 306
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 268
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 328
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 336
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 315
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 262
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 288
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 287
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 272
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 263
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 331
+19/04/14 14:04:20 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned shuffle 5
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 309
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 319
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 290
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 308
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 270
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 332
+19/04/14 14:04:20 INFO BlockManagerInfo: Removed broadcast_11_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 3.1 KB, free: 423.8 MB)
+19/04/14 14:04:20 INFO MemoryStore: Block rdd_36_0 stored as values in memory (estimated size 9.8 KB, free 423.5 MB)
+19/04/14 14:04:20 INFO BlockManagerInfo: Added rdd_36_0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 9.8 KB, free: 423.8 MB)
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 267
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 269
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 317
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 307
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 255
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 260
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 282
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 298
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 293
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 330
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 304
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 264
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 254
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 252
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 279
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 343
+19/04/14 14:04:20 INFO Executor: Finished task 0.0 in stage 14.0 (TID 14). 875 bytes result sent to driver
+19/04/14 14:04:20 INFO TaskSetManager: Finished task 0.0 in stage 14.0 (TID 14) in 118 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:20 INFO TaskSchedulerImpl: Removed TaskSet 14.0, whose tasks have all completed, from pool 
+19/04/14 14:04:20 INFO DAGScheduler: ResultStage 14 (takeSample at KMeans.scala:386) finished in 0.149 s
+19/04/14 14:04:20 INFO DAGScheduler: Job 7 finished: takeSample at KMeans.scala:386, took 0.154221 s
+19/04/14 14:04:20 INFO SparkContext: Starting job: takeSample at KMeans.scala:386
+19/04/14 14:04:20 INFO DAGScheduler: Got job 8 (takeSample at KMeans.scala:386) with 1 output partitions
+19/04/14 14:04:20 INFO DAGScheduler: Final stage: ResultStage 15 (takeSample at KMeans.scala:386)
+19/04/14 14:04:20 INFO DAGScheduler: Parents of final stage: List()
+19/04/14 14:04:20 INFO DAGScheduler: Missing parents: List()
+19/04/14 14:04:20 INFO DAGScheduler: Submitting ResultStage 15 (PartitionwiseSampledRDD[40] at takeSample at KMeans.scala:386), which has no missing parents
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_16 stored as values in memory (estimated size 7.1 KB, free 423.5 MB)
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_16_piece0 stored as bytes in memory (estimated size 3.7 KB, free 423.5 MB)
+19/04/14 14:04:20 INFO BlockManagerInfo: Added broadcast_16_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 3.7 KB, free: 423.7 MB)
+19/04/14 14:04:20 INFO SparkContext: Created broadcast 16 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:20 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 15 (PartitionwiseSampledRDD[40] at takeSample at KMeans.scala:386) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:20 INFO TaskSchedulerImpl: Adding task set 15.0 with 1 tasks
+19/04/14 14:04:20 INFO TaskSetManager: Starting task 0.0 in stage 15.0 (TID 15, localhost, executor driver, partition 0, PROCESS_LOCAL, 8310 bytes)
+19/04/14 14:04:20 INFO Executor: Running task 0.0 in stage 15.0 (TID 15)
+19/04/14 14:04:20 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:20 INFO BlockManager: Found block rdd_36_0 locally
+19/04/14 14:04:20 INFO Executor: Finished task 0.0 in stage 15.0 (TID 15). 2706 bytes result sent to driver
+19/04/14 14:04:20 INFO TaskSetManager: Finished task 0.0 in stage 15.0 (TID 15) in 33 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:20 INFO TaskSchedulerImpl: Removed TaskSet 15.0, whose tasks have all completed, from pool 
+19/04/14 14:04:20 INFO DAGScheduler: ResultStage 15 (takeSample at KMeans.scala:386) finished in 0.048 s
+19/04/14 14:04:20 INFO DAGScheduler: Job 8 finished: takeSample at KMeans.scala:386, took 0.054621 s
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 355
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 366
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 373
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 368
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 351
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 364
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 374
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 356
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 360
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 369
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 353
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_17 stored as values in memory (estimated size 176.0 B, free 423.5 MB)
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_17_piece0 stored as bytes in memory (estimated size 354.0 B, free 423.5 MB)
+19/04/14 14:04:20 INFO BlockManagerInfo: Added broadcast_17_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 354.0 B, free: 423.7 MB)
+19/04/14 14:04:20 INFO SparkContext: Created broadcast 17 from broadcast at KMeans.scala:400
+19/04/14 14:04:20 INFO BlockManagerInfo: Removed broadcast_16_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 3.7 KB, free: 423.7 MB)
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 371
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 359
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 357
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 352
+19/04/14 14:04:20 INFO SparkContext: Starting job: sum at KMeans.scala:406
+19/04/14 14:04:20 INFO BlockManagerInfo: Removed broadcast_15_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 3.4 KB, free: 423.8 MB)
+19/04/14 14:04:20 INFO DAGScheduler: Got job 9 (sum at KMeans.scala:406) with 1 output partitions
+19/04/14 14:04:20 INFO DAGScheduler: Final stage: ResultStage 16 (sum at KMeans.scala:406)
+19/04/14 14:04:20 INFO DAGScheduler: Parents of final stage: List()
+19/04/14 14:04:20 INFO DAGScheduler: Missing parents: List()
+19/04/14 14:04:20 INFO DAGScheduler: Submitting ResultStage 16 (MapPartitionsRDD[42] at map at KMeans.scala:403), which has no missing parents
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_18 stored as values in memory (estimated size 7.4 KB, free 423.5 MB)
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_18_piece0 stored as bytes in memory (estimated size 3.8 KB, free 423.5 MB)
+19/04/14 14:04:20 INFO BlockManagerInfo: Added broadcast_18_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 3.8 KB, free: 423.7 MB)
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 361
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 358
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 370
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 372
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 354
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 362
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 350
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 367
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 365
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 363
+19/04/14 14:04:20 INFO SparkContext: Created broadcast 18 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:20 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 16 (MapPartitionsRDD[42] at map at KMeans.scala:403) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:20 INFO TaskSchedulerImpl: Adding task set 16.0 with 1 tasks
+19/04/14 14:04:20 INFO TaskSetManager: Starting task 0.0 in stage 16.0 (TID 16, localhost, executor driver, partition 0, PROCESS_LOCAL, 8233 bytes)
+19/04/14 14:04:20 INFO Executor: Running task 0.0 in stage 16.0 (TID 16)
+19/04/14 14:04:20 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:20 INFO BlockManager: Found block rdd_36_0 locally
+19/04/14 14:04:20 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:20 INFO BlockManager: Found block rdd_36_0 locally
+19/04/14 14:04:20 INFO JniLoader: successfully loaded /tmp/jniloader3799000632073306179netlib-native_system-linux-x86_64.so
+19/04/14 14:04:20 INFO MemoryStore: Block rdd_42_0 stored as values in memory (estimated size 9.8 KB, free 423.5 MB)
+19/04/14 14:04:20 INFO BlockManagerInfo: Added rdd_42_0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 9.8 KB, free: 423.7 MB)
+19/04/14 14:04:20 INFO Executor: Finished task 0.0 in stage 16.0 (TID 16). 834 bytes result sent to driver
+19/04/14 14:04:20 INFO TaskSetManager: Finished task 0.0 in stage 16.0 (TID 16) in 133 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:20 INFO TaskSchedulerImpl: Removed TaskSet 16.0, whose tasks have all completed, from pool 
+19/04/14 14:04:20 INFO DAGScheduler: ResultStage 16 (sum at KMeans.scala:406) finished in 0.142 s
+19/04/14 14:04:20 INFO DAGScheduler: Job 9 finished: sum at KMeans.scala:406, took 0.158894 s
+19/04/14 14:04:20 INFO MapPartitionsRDD: Removing RDD 39 from persistence list
+19/04/14 14:04:20 INFO BlockManager: Removing RDD 39
+19/04/14 14:04:20 INFO SparkContext: Starting job: collect at KMeans.scala:414
+19/04/14 14:04:20 INFO DAGScheduler: Got job 10 (collect at KMeans.scala:414) with 1 output partitions
+19/04/14 14:04:20 INFO DAGScheduler: Final stage: ResultStage 17 (collect at KMeans.scala:414)
+19/04/14 14:04:20 INFO DAGScheduler: Parents of final stage: List()
+19/04/14 14:04:20 INFO DAGScheduler: Missing parents: List()
+19/04/14 14:04:20 INFO DAGScheduler: Submitting ResultStage 17 (MapPartitionsRDD[44] at mapPartitionsWithIndex at KMeans.scala:411), which has no missing parents
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_19 stored as values in memory (estimated size 8.0 KB, free 423.5 MB)
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 417
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 404
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 375
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 382
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 409
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 397
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 398
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_19_piece0 stored as bytes in memory (estimated size 4.1 KB, free 423.5 MB)
+19/04/14 14:04:20 INFO BlockManagerInfo: Added broadcast_19_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 4.1 KB, free: 423.7 MB)
+19/04/14 14:04:20 INFO SparkContext: Created broadcast 19 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:20 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 17 (MapPartitionsRDD[44] at mapPartitionsWithIndex at KMeans.scala:411) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:20 INFO TaskSchedulerImpl: Adding task set 17.0 with 1 tasks
+19/04/14 14:04:20 INFO TaskSetManager: Starting task 0.0 in stage 17.0 (TID 17, localhost, executor driver, partition 0, PROCESS_LOCAL, 8265 bytes)
+19/04/14 14:04:20 INFO Executor: Running task 0.0 in stage 17.0 (TID 17)
+19/04/14 14:04:20 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:20 INFO BlockManager: Found block rdd_36_0 locally
+19/04/14 14:04:20 INFO BlockManager: Found block rdd_42_0 locally
+19/04/14 14:04:20 INFO BlockManagerInfo: Removed broadcast_18_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 3.8 KB, free: 423.7 MB)
+19/04/14 14:04:20 INFO Executor: Finished task 0.0 in stage 17.0 (TID 17). 1800 bytes result sent to driver
+19/04/14 14:04:20 INFO TaskSetManager: Finished task 0.0 in stage 17.0 (TID 17) in 38 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:20 INFO TaskSchedulerImpl: Removed TaskSet 17.0, whose tasks have all completed, from pool 
+19/04/14 14:04:20 INFO DAGScheduler: ResultStage 17 (collect at KMeans.scala:414) finished in 0.059 s
+19/04/14 14:04:20 INFO DAGScheduler: Job 10 finished: collect at KMeans.scala:414, took 0.069073 s
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_20 stored as values in memory (estimated size 1112.0 B, free 423.5 MB)
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 387
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 376
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 388
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 414
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 393
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 380
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 420
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 422
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 423
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 383
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 378
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 403
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 391
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 384
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 416
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 410
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 413
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 405
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 392
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 415
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 396
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 412
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 379
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 421
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 402
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 389
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 401
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 407
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 408
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 399
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 390
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 381
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 400
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 385
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 386
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 418
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 406
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 419
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 394
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 411
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 424
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 395
+19/04/14 14:04:20 INFO ContextCleaner: Cleaned accumulator 377
+19/04/14 14:04:20 INFO MemoryStore: Block broadcast_20_piece0 stored as bytes in memory (estimated size 647.0 B, free 423.5 MB)
+19/04/14 14:04:20 INFO BlockManagerInfo: Added broadcast_20_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 647.0 B, free: 423.7 MB)
+19/04/14 14:04:20 INFO SparkContext: Created broadcast 20 from broadcast at KMeans.scala:400
+19/04/14 14:04:20 INFO SparkContext: Starting job: sum at KMeans.scala:406
+19/04/14 14:04:20 INFO DAGScheduler: Got job 11 (sum at KMeans.scala:406) with 1 output partitions
+19/04/14 14:04:20 INFO DAGScheduler: Final stage: ResultStage 18 (sum at KMeans.scala:406)
+19/04/14 14:04:20 INFO DAGScheduler: Parents of final stage: List()
+19/04/14 14:04:20 INFO DAGScheduler: Missing parents: List()
+19/04/14 14:04:20 INFO DAGScheduler: Submitting ResultStage 18 (MapPartitionsRDD[46] at map at KMeans.scala:403), which has no missing parents
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_21 stored as values in memory (estimated size 7.6 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_21_piece0 stored as bytes in memory (estimated size 3.9 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_21_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 3.9 KB, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 21 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:21 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 18 (MapPartitionsRDD[46] at map at KMeans.scala:403) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Adding task set 18.0 with 1 tasks
+19/04/14 14:04:21 INFO TaskSetManager: Starting task 0.0 in stage 18.0 (TID 18, localhost, executor driver, partition 0, PROCESS_LOCAL, 8265 bytes)
+19/04/14 14:04:21 INFO Executor: Running task 0.0 in stage 18.0 (TID 18)
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_36_0 locally
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_42_0 locally
+19/04/14 14:04:21 INFO MemoryStore: Block rdd_46_0 stored as values in memory (estimated size 9.8 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added rdd_46_0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 9.8 KB, free: 423.7 MB)
+19/04/14 14:04:21 INFO Executor: Finished task 0.0 in stage 18.0 (TID 18). 834 bytes result sent to driver
+19/04/14 14:04:21 INFO TaskSetManager: Finished task 0.0 in stage 18.0 (TID 18) in 55 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Removed TaskSet 18.0, whose tasks have all completed, from pool 
+19/04/14 14:04:21 INFO DAGScheduler: ResultStage 18 (sum at KMeans.scala:406) finished in 0.074 s
+19/04/14 14:04:21 INFO DAGScheduler: Job 11 finished: sum at KMeans.scala:406, took 0.090009 s
+19/04/14 14:04:21 INFO MapPartitionsRDD: Removing RDD 42 from persistence list
+19/04/14 14:04:21 INFO BlockManager: Removing RDD 42
+19/04/14 14:04:21 INFO SparkContext: Starting job: collect at KMeans.scala:414
+19/04/14 14:04:21 INFO DAGScheduler: Got job 12 (collect at KMeans.scala:414) with 1 output partitions
+19/04/14 14:04:21 INFO DAGScheduler: Final stage: ResultStage 19 (collect at KMeans.scala:414)
+19/04/14 14:04:21 INFO DAGScheduler: Parents of final stage: List()
+19/04/14 14:04:21 INFO DAGScheduler: Missing parents: List()
+19/04/14 14:04:21 INFO DAGScheduler: Submitting ResultStage 19 (MapPartitionsRDD[48] at mapPartitionsWithIndex at KMeans.scala:411), which has no missing parents
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_22 stored as values in memory (estimated size 8.3 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 453
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 466
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 465
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 445
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 440
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 433
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 456
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 436
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 429
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 432
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 461
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 472
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 439
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 430
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 469
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 462
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 457
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 471
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 460
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 446
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 467
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 431
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 437
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 428
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 463
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 468
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 447
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 449
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 441
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 470
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 454
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 473
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 442
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_22_piece0 stored as bytes in memory (estimated size 4.2 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_22_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 4.2 KB, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 22 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:21 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 19 (MapPartitionsRDD[48] at mapPartitionsWithIndex at KMeans.scala:411) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Adding task set 19.0 with 1 tasks
+19/04/14 14:04:21 INFO TaskSetManager: Starting task 0.0 in stage 19.0 (TID 19, localhost, executor driver, partition 0, PROCESS_LOCAL, 8297 bytes)
+19/04/14 14:04:21 INFO Executor: Running task 0.0 in stage 19.0 (TID 19)
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_36_0 locally
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_46_0 locally
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_21_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 3.9 KB, free: 423.7 MB)
+19/04/14 14:04:21 INFO Executor: Finished task 0.0 in stage 19.0 (TID 19). 1368 bytes result sent to driver
+19/04/14 14:04:21 INFO TaskSetManager: Finished task 0.0 in stage 19.0 (TID 19) in 38 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Removed TaskSet 19.0, whose tasks have all completed, from pool 
+19/04/14 14:04:21 INFO DAGScheduler: ResultStage 19 (collect at KMeans.scala:414) finished in 0.080 s
+19/04/14 14:04:21 INFO DAGScheduler: Job 12 finished: collect at KMeans.scala:414, took 0.095085 s
+19/04/14 14:04:21 INFO MapPartitionsRDD: Removing RDD 46 from persistence list
+19/04/14 14:04:21 INFO BlockManager: Removing RDD 46
+19/04/14 14:04:21 INFO TorrentBroadcast: Destroying Broadcast(17) (from destroy at KMeans.scala:421)
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 474
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 448
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 452
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 458
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 450
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 444
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 443
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 425
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 435
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 434
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 426
+19/04/14 14:04:21 INFO TorrentBroadcast: Destroying Broadcast(20) (from destroy at KMeans.scala:421)
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_17_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 354.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_23 stored as values in memory (estimated size 1688.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_23_piece0 stored as bytes in memory (estimated size 817.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_23_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 817.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 23 from broadcast at KMeans.scala:431
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_19_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 4.1 KB, free: 423.7 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_20_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 647.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 464
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 451
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 427
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 455
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 438
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 459
+19/04/14 14:04:21 INFO SparkContext: Starting job: countByValue at KMeans.scala:434
+19/04/14 14:04:21 INFO DAGScheduler: Registering RDD 51 (countByValue at KMeans.scala:434)
+19/04/14 14:04:21 INFO DAGScheduler: Got job 13 (countByValue at KMeans.scala:434) with 1 output partitions
+19/04/14 14:04:21 INFO DAGScheduler: Final stage: ResultStage 21 (countByValue at KMeans.scala:434)
+19/04/14 14:04:21 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 20)
+19/04/14 14:04:21 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 20)
+19/04/14 14:04:21 INFO DAGScheduler: Submitting ShuffleMapStage 20 (MapPartitionsRDD[51] at countByValue at KMeans.scala:434), which has no missing parents
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_24 stored as values in memory (estimated size 8.7 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_24_piece0 stored as bytes in memory (estimated size 4.5 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_24_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 4.5 KB, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 24 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:21 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 20 (MapPartitionsRDD[51] at countByValue at KMeans.scala:434) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Adding task set 20.0 with 1 tasks
+19/04/14 14:04:21 INFO TaskSetManager: Starting task 0.0 in stage 20.0 (TID 20, localhost, executor driver, partition 0, PROCESS_LOCAL, 8190 bytes)
+19/04/14 14:04:21 INFO Executor: Running task 0.0 in stage 20.0 (TID 20)
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_36_0 locally
+19/04/14 14:04:21 INFO Executor: Finished task 0.0 in stage 20.0 (TID 20). 1140 bytes result sent to driver
+19/04/14 14:04:21 INFO TaskSetManager: Finished task 0.0 in stage 20.0 (TID 20) in 55 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Removed TaskSet 20.0, whose tasks have all completed, from pool 
+19/04/14 14:04:21 INFO DAGScheduler: ShuffleMapStage 20 (countByValue at KMeans.scala:434) finished in 0.065 s
+19/04/14 14:04:21 INFO DAGScheduler: looking for newly runnable stages
+19/04/14 14:04:21 INFO DAGScheduler: running: Set()
+19/04/14 14:04:21 INFO DAGScheduler: waiting: Set(ResultStage 21)
+19/04/14 14:04:21 INFO DAGScheduler: failed: Set()
+19/04/14 14:04:21 INFO DAGScheduler: Submitting ResultStage 21 (ShuffledRDD[52] at countByValue at KMeans.scala:434), which has no missing parents
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_25 stored as values in memory (estimated size 3.3 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_25_piece0 stored as bytes in memory (estimated size 2022.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_25_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 2022.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 25 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:21 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 21 (ShuffledRDD[52] at countByValue at KMeans.scala:434) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Adding task set 21.0 with 1 tasks
+19/04/14 14:04:21 INFO TaskSetManager: Starting task 0.0 in stage 21.0 (TID 21, localhost, executor driver, partition 0, ANY, 7662 bytes)
+19/04/14 14:04:21 INFO Executor: Running task 0.0 in stage 21.0 (TID 21)
+19/04/14 14:04:21 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/04/14 14:04:21 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 498
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 476
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 480
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 483
+19/04/14 14:04:21 INFO Executor: Finished task 0.0 in stage 21.0 (TID 21). 1763 bytes result sent to driver
+19/04/14 14:04:21 INFO TaskSetManager: Finished task 0.0 in stage 21.0 (TID 21) in 32 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Removed TaskSet 21.0, whose tasks have all completed, from pool 
+19/04/14 14:04:21 INFO DAGScheduler: ResultStage 21 (countByValue at KMeans.scala:434) finished in 0.039 s
+19/04/14 14:04:21 INFO DAGScheduler: Job 13 finished: countByValue at KMeans.scala:434, took 0.117050 s
+19/04/14 14:04:21 INFO TorrentBroadcast: Destroying Broadcast(23) (from destroy at KMeans.scala:436)
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_24_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 4.5 KB, free: 423.7 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_23_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 817.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO LocalKMeans: Local KMeans++ converged in 2 iterations.
+19/04/14 14:04:21 INFO KMeans: Initialization with k-means|| took 1.149 seconds.
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_26 stored as values in memory (estimated size 392.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_26_piece0 stored as bytes in memory (estimated size 458.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_26_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 458.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 26 from broadcast at KMeans.scala:299
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 494
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 493
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 488
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 496
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 489
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 490
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 491
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 482
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 499
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 478
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 475
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 479
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_22_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 4.2 KB, free: 423.8 MB)
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 477
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 486
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 497
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 485
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 495
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 484
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 481
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 487
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 492
+19/04/14 14:04:21 INFO SparkContext: Starting job: collectAsMap at KMeans.scala:320
+19/04/14 14:04:21 INFO DAGScheduler: Registering RDD 53 (mapPartitions at KMeans.scala:302)
+19/04/14 14:04:21 INFO DAGScheduler: Got job 14 (collectAsMap at KMeans.scala:320) with 1 output partitions
+19/04/14 14:04:21 INFO DAGScheduler: Final stage: ResultStage 23 (collectAsMap at KMeans.scala:320)
+19/04/14 14:04:21 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 22)
+19/04/14 14:04:21 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 22)
+19/04/14 14:04:21 INFO DAGScheduler: Submitting ShuffleMapStage 22 (MapPartitionsRDD[53] at mapPartitions at KMeans.scala:302), which has no missing parents
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_27 stored as values in memory (estimated size 8.3 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_27_piece0 stored as bytes in memory (estimated size 4.3 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_27_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 4.3 KB, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 27 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:21 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 22 (MapPartitionsRDD[53] at mapPartitions at KMeans.scala:302) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Adding task set 22.0 with 1 tasks
+19/04/14 14:04:21 INFO TaskSetManager: Starting task 0.0 in stage 22.0 (TID 22, localhost, executor driver, partition 0, PROCESS_LOCAL, 8190 bytes)
+19/04/14 14:04:21 INFO Executor: Running task 0.0 in stage 22.0 (TID 22)
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_36_0 locally
+19/04/14 14:04:21 INFO Executor: Finished task 0.0 in stage 22.0 (TID 22). 1253 bytes result sent to driver
+19/04/14 14:04:21 INFO TaskSetManager: Finished task 0.0 in stage 22.0 (TID 22) in 38 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Removed TaskSet 22.0, whose tasks have all completed, from pool 
+19/04/14 14:04:21 INFO DAGScheduler: ShuffleMapStage 22 (mapPartitions at KMeans.scala:302) finished in 0.054 s
+19/04/14 14:04:21 INFO DAGScheduler: looking for newly runnable stages
+19/04/14 14:04:21 INFO DAGScheduler: running: Set()
+19/04/14 14:04:21 INFO DAGScheduler: waiting: Set(ResultStage 23)
+19/04/14 14:04:21 INFO DAGScheduler: failed: Set()
+19/04/14 14:04:21 INFO DAGScheduler: Submitting ResultStage 23 (ShuffledRDD[54] at reduceByKey at KMeans.scala:317), which has no missing parents
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_28 stored as values in memory (estimated size 2.8 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_28_piece0 stored as bytes in memory (estimated size 1721.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_28_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 1721.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 28 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:21 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 23 (ShuffledRDD[54] at reduceByKey at KMeans.scala:317) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Adding task set 23.0 with 1 tasks
+19/04/14 14:04:21 INFO TaskSetManager: Starting task 0.0 in stage 23.0 (TID 23, localhost, executor driver, partition 0, ANY, 7662 bytes)
+19/04/14 14:04:21 INFO Executor: Running task 0.0 in stage 23.0 (TID 23)
+19/04/14 14:04:21 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/04/14 14:04:21 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+19/04/14 14:04:21 INFO Executor: Finished task 0.0 in stage 23.0 (TID 23). 1703 bytes result sent to driver
+19/04/14 14:04:21 INFO TaskSetManager: Finished task 0.0 in stage 23.0 (TID 23) in 14 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Removed TaskSet 23.0, whose tasks have all completed, from pool 
+19/04/14 14:04:21 INFO DAGScheduler: ResultStage 23 (collectAsMap at KMeans.scala:320) finished in 0.018 s
+19/04/14 14:04:21 INFO DAGScheduler: Job 14 finished: collectAsMap at KMeans.scala:320, took 0.080494 s
+19/04/14 14:04:21 INFO TorrentBroadcast: Destroying Broadcast(26) (from destroy at KMeans.scala:330)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_29 stored as values in memory (estimated size 392.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 582
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_26_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 458.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 563
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 506
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 590
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 580
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_29_piece0 stored as bytes in memory (estimated size 471.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_29_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 471.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_28_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 1721.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 29 from broadcast at KMeans.scala:299
+19/04/14 14:04:21 INFO SparkContext: Starting job: collectAsMap at KMeans.scala:320
+19/04/14 14:04:21 INFO DAGScheduler: Registering RDD 55 (mapPartitions at KMeans.scala:302)
+19/04/14 14:04:21 INFO DAGScheduler: Got job 15 (collectAsMap at KMeans.scala:320) with 1 output partitions
+19/04/14 14:04:21 INFO DAGScheduler: Final stage: ResultStage 25 (collectAsMap at KMeans.scala:320)
+19/04/14 14:04:21 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 24)
+19/04/14 14:04:21 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 24)
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned shuffle 8
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 564
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 593
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 527
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 510
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 598
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 573
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 567
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 572
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 575
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 539
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 530
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 517
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 516
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 504
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 536
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 512
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 553
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 561
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 585
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 556
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 565
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 524
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 528
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 525
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 554
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 557
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 594
+19/04/14 14:04:21 INFO DAGScheduler: Submitting ShuffleMapStage 24 (MapPartitionsRDD[55] at mapPartitions at KMeans.scala:302), which has no missing parents
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 544
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 502
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 535
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 547
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 542
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 576
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 540
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 505
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 555
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 589
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 538
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 537
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_30 stored as values in memory (estimated size 8.3 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_30_piece0 stored as bytes in memory (estimated size 4.3 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_30_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 4.3 KB, free: 423.7 MB)
+19/04/14 14:04:21 INFO BlockManager: Removing RDD 42
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 30 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:21 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 24 (MapPartitionsRDD[55] at mapPartitions at KMeans.scala:302) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Adding task set 24.0 with 1 tasks
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned RDD 42
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 518
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 559
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 597
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 503
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 579
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 549
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 522
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 541
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 501
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 599
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 595
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 519
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 592
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 574
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 566
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 569
+19/04/14 14:04:21 INFO TaskSetManager: Starting task 0.0 in stage 24.0 (TID 24, localhost, executor driver, partition 0, PROCESS_LOCAL, 8190 bytes)
+19/04/14 14:04:21 INFO Executor: Running task 0.0 in stage 24.0 (TID 24)
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_36_0 locally
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 545
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned shuffle 7
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 584
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 577
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 588
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 562
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 586
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_27_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 4.3 KB, free: 423.7 MB)
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 531
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 523
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 550
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 591
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 513
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 507
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 534
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 600
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 587
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 570
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 583
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 500
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 552
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 509
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 578
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 543
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 548
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 514
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 526
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 546
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 515
+19/04/14 14:04:21 INFO BlockManager: Removing RDD 46
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned RDD 46
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 568
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 532
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_25_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 2022.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 521
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 511
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 596
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 571
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 508
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 520
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 533
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 551
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 581
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 560
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 558
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 529
+19/04/14 14:04:21 INFO Executor: Finished task 0.0 in stage 24.0 (TID 24). 1296 bytes result sent to driver
+19/04/14 14:04:21 INFO TaskSetManager: Finished task 0.0 in stage 24.0 (TID 24) in 23 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Removed TaskSet 24.0, whose tasks have all completed, from pool 
+19/04/14 14:04:21 INFO DAGScheduler: ShuffleMapStage 24 (mapPartitions at KMeans.scala:302) finished in 0.035 s
+19/04/14 14:04:21 INFO DAGScheduler: looking for newly runnable stages
+19/04/14 14:04:21 INFO DAGScheduler: running: Set()
+19/04/14 14:04:21 INFO DAGScheduler: waiting: Set(ResultStage 25)
+19/04/14 14:04:21 INFO DAGScheduler: failed: Set()
+19/04/14 14:04:21 INFO DAGScheduler: Submitting ResultStage 25 (ShuffledRDD[56] at reduceByKey at KMeans.scala:317), which has no missing parents
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_31 stored as values in memory (estimated size 2.8 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_31_piece0 stored as bytes in memory (estimated size 1721.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_31_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 1721.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 31 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:21 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 25 (ShuffledRDD[56] at reduceByKey at KMeans.scala:317) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Adding task set 25.0 with 1 tasks
+19/04/14 14:04:21 INFO TaskSetManager: Starting task 0.0 in stage 25.0 (TID 25, localhost, executor driver, partition 0, ANY, 7662 bytes)
+19/04/14 14:04:21 INFO Executor: Running task 0.0 in stage 25.0 (TID 25)
+19/04/14 14:04:21 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/04/14 14:04:21 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+19/04/14 14:04:21 INFO Executor: Finished task 0.0 in stage 25.0 (TID 25). 1703 bytes result sent to driver
+19/04/14 14:04:21 INFO TaskSetManager: Finished task 0.0 in stage 25.0 (TID 25) in 12 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Removed TaskSet 25.0, whose tasks have all completed, from pool 
+19/04/14 14:04:21 INFO DAGScheduler: ResultStage 25 (collectAsMap at KMeans.scala:320) finished in 0.019 s
+19/04/14 14:04:21 INFO DAGScheduler: Job 15 finished: collectAsMap at KMeans.scala:320, took 0.063779 s
+19/04/14 14:04:21 INFO TorrentBroadcast: Destroying Broadcast(29) (from destroy at KMeans.scala:330)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_32 stored as values in memory (estimated size 392.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_32_piece0 stored as bytes in memory (estimated size 469.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_29_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 471.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_32_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 469.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 32 from broadcast at KMeans.scala:299
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 605
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 619
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 641
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 645
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 616
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 610
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 617
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 632
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 621
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 622
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 612
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 646
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 609
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 604
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 614
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 608
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 629
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 648
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 633
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 644
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 643
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 620
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 607
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 639
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 649
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 601
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 606
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 650
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 631
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 642
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 637
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 627
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 615
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 628
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 625
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 624
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 626
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 647
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 603
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 618
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 638
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned shuffle 9
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 635
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 651
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 602
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 630
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 611
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 636
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 634
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 640
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 613
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_31_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 1721.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 623
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_30_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 4.3 KB, free: 423.8 MB)
+19/04/14 14:04:21 INFO SparkContext: Starting job: collectAsMap at KMeans.scala:320
+19/04/14 14:04:21 INFO DAGScheduler: Registering RDD 57 (mapPartitions at KMeans.scala:302)
+19/04/14 14:04:21 INFO DAGScheduler: Got job 16 (collectAsMap at KMeans.scala:320) with 1 output partitions
+19/04/14 14:04:21 INFO DAGScheduler: Final stage: ResultStage 27 (collectAsMap at KMeans.scala:320)
+19/04/14 14:04:21 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 26)
+19/04/14 14:04:21 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 26)
+19/04/14 14:04:21 INFO DAGScheduler: Submitting ShuffleMapStage 26 (MapPartitionsRDD[57] at mapPartitions at KMeans.scala:302), which has no missing parents
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_33 stored as values in memory (estimated size 8.3 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_33_piece0 stored as bytes in memory (estimated size 4.3 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_33_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 4.3 KB, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 33 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:21 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 26 (MapPartitionsRDD[57] at mapPartitions at KMeans.scala:302) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Adding task set 26.0 with 1 tasks
+19/04/14 14:04:21 INFO TaskSetManager: Starting task 0.0 in stage 26.0 (TID 26, localhost, executor driver, partition 0, PROCESS_LOCAL, 8190 bytes)
+19/04/14 14:04:21 INFO Executor: Running task 0.0 in stage 26.0 (TID 26)
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_36_0 locally
+19/04/14 14:04:21 INFO Executor: Finished task 0.0 in stage 26.0 (TID 26). 1253 bytes result sent to driver
+19/04/14 14:04:21 INFO TaskSetManager: Finished task 0.0 in stage 26.0 (TID 26) in 16 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Removed TaskSet 26.0, whose tasks have all completed, from pool 
+19/04/14 14:04:21 INFO DAGScheduler: ShuffleMapStage 26 (mapPartitions at KMeans.scala:302) finished in 0.023 s
+19/04/14 14:04:21 INFO DAGScheduler: looking for newly runnable stages
+19/04/14 14:04:21 INFO DAGScheduler: running: Set()
+19/04/14 14:04:21 INFO DAGScheduler: waiting: Set(ResultStage 27)
+19/04/14 14:04:21 INFO DAGScheduler: failed: Set()
+19/04/14 14:04:21 INFO DAGScheduler: Submitting ResultStage 27 (ShuffledRDD[58] at reduceByKey at KMeans.scala:317), which has no missing parents
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_34 stored as values in memory (estimated size 2.8 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_34_piece0 stored as bytes in memory (estimated size 1721.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_34_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 1721.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 34 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:21 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 27 (ShuffledRDD[58] at reduceByKey at KMeans.scala:317) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Adding task set 27.0 with 1 tasks
+19/04/14 14:04:21 INFO TaskSetManager: Starting task 0.0 in stage 27.0 (TID 27, localhost, executor driver, partition 0, ANY, 7662 bytes)
+19/04/14 14:04:21 INFO Executor: Running task 0.0 in stage 27.0 (TID 27)
+19/04/14 14:04:21 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/04/14 14:04:21 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+19/04/14 14:04:21 INFO Executor: Finished task 0.0 in stage 27.0 (TID 27). 1703 bytes result sent to driver
+19/04/14 14:04:21 INFO TaskSetManager: Finished task 0.0 in stage 27.0 (TID 27) in 9 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Removed TaskSet 27.0, whose tasks have all completed, from pool 
+19/04/14 14:04:21 INFO DAGScheduler: ResultStage 27 (collectAsMap at KMeans.scala:320) finished in 0.014 s
+19/04/14 14:04:21 INFO DAGScheduler: Job 16 finished: collectAsMap at KMeans.scala:320, took 0.044125 s
+19/04/14 14:04:21 INFO TorrentBroadcast: Destroying Broadcast(32) (from destroy at KMeans.scala:330)
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_32_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 469.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_35 stored as values in memory (estimated size 392.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_35_piece0 stored as bytes in memory (estimated size 474.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_35_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 474.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 35 from broadcast at KMeans.scala:299
+19/04/14 14:04:21 INFO SparkContext: Starting job: collectAsMap at KMeans.scala:320
+19/04/14 14:04:21 INFO DAGScheduler: Registering RDD 59 (mapPartitions at KMeans.scala:302)
+19/04/14 14:04:21 INFO DAGScheduler: Got job 17 (collectAsMap at KMeans.scala:320) with 1 output partitions
+19/04/14 14:04:21 INFO DAGScheduler: Final stage: ResultStage 29 (collectAsMap at KMeans.scala:320)
+19/04/14 14:04:21 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 28)
+19/04/14 14:04:21 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 28)
+19/04/14 14:04:21 INFO DAGScheduler: Submitting ShuffleMapStage 28 (MapPartitionsRDD[59] at mapPartitions at KMeans.scala:302), which has no missing parents
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_36 stored as values in memory (estimated size 8.3 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_36_piece0 stored as bytes in memory (estimated size 4.3 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_36_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 4.3 KB, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 36 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:21 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 28 (MapPartitionsRDD[59] at mapPartitions at KMeans.scala:302) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Adding task set 28.0 with 1 tasks
+19/04/14 14:04:21 INFO TaskSetManager: Starting task 0.0 in stage 28.0 (TID 28, localhost, executor driver, partition 0, PROCESS_LOCAL, 8190 bytes)
+19/04/14 14:04:21 INFO Executor: Running task 0.0 in stage 28.0 (TID 28)
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_36_0 locally
+19/04/14 14:04:21 INFO Executor: Finished task 0.0 in stage 28.0 (TID 28). 1253 bytes result sent to driver
+19/04/14 14:04:21 INFO TaskSetManager: Finished task 0.0 in stage 28.0 (TID 28) in 16 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Removed TaskSet 28.0, whose tasks have all completed, from pool 
+19/04/14 14:04:21 INFO DAGScheduler: ShuffleMapStage 28 (mapPartitions at KMeans.scala:302) finished in 0.024 s
+19/04/14 14:04:21 INFO DAGScheduler: looking for newly runnable stages
+19/04/14 14:04:21 INFO DAGScheduler: running: Set()
+19/04/14 14:04:21 INFO DAGScheduler: waiting: Set(ResultStage 29)
+19/04/14 14:04:21 INFO DAGScheduler: failed: Set()
+19/04/14 14:04:21 INFO DAGScheduler: Submitting ResultStage 29 (ShuffledRDD[60] at reduceByKey at KMeans.scala:317), which has no missing parents
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_37 stored as values in memory (estimated size 2.8 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 674
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 673
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 685
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 670
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 661
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 657
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 666
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 678
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 664
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 676
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 681
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 696
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_34_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 1721.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_37_piece0 stored as bytes in memory (estimated size 1721.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_37_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 1721.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 37 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 654
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 683
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 655
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 653
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 701
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 687
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 669
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 682
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 697
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 689
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 672
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 688
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 698
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 656
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 690
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 695
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 668
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 702
+19/04/14 14:04:21 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 29 (ShuffledRDD[60] at reduceByKey at KMeans.scala:317) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Adding task set 29.0 with 1 tasks
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned shuffle 10
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 675
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 686
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 652
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 660
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 684
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 677
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 658
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 691
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 692
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 671
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 700
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 679
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_33_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 4.3 KB, free: 423.7 MB)
+19/04/14 14:04:21 INFO TaskSetManager: Starting task 0.0 in stage 29.0 (TID 29, localhost, executor driver, partition 0, ANY, 7662 bytes)
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 694
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 663
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 665
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 659
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 699
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 680
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 667
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 693
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 662
+19/04/14 14:04:21 INFO Executor: Running task 0.0 in stage 29.0 (TID 29)
+19/04/14 14:04:21 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/04/14 14:04:21 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+19/04/14 14:04:21 INFO Executor: Finished task 0.0 in stage 29.0 (TID 29). 1703 bytes result sent to driver
+19/04/14 14:04:21 INFO TaskSetManager: Finished task 0.0 in stage 29.0 (TID 29) in 7 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Removed TaskSet 29.0, whose tasks have all completed, from pool 
+19/04/14 14:04:21 INFO DAGScheduler: ResultStage 29 (collectAsMap at KMeans.scala:320) finished in 0.023 s
+19/04/14 14:04:21 INFO DAGScheduler: Job 17 finished: collectAsMap at KMeans.scala:320, took 0.052438 s
+19/04/14 14:04:21 INFO TorrentBroadcast: Destroying Broadcast(35) (from destroy at KMeans.scala:330)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_38 stored as values in memory (estimated size 392.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_38_piece0 stored as bytes in memory (estimated size 476.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_35_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 474.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_38_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 476.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 38 from broadcast at KMeans.scala:299
+19/04/14 14:04:21 INFO SparkContext: Starting job: collectAsMap at KMeans.scala:320
+19/04/14 14:04:21 INFO DAGScheduler: Registering RDD 61 (mapPartitions at KMeans.scala:302)
+19/04/14 14:04:21 INFO DAGScheduler: Got job 18 (collectAsMap at KMeans.scala:320) with 1 output partitions
+19/04/14 14:04:21 INFO DAGScheduler: Final stage: ResultStage 31 (collectAsMap at KMeans.scala:320)
+19/04/14 14:04:21 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 30)
+19/04/14 14:04:21 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 30)
+19/04/14 14:04:21 INFO DAGScheduler: Submitting ShuffleMapStage 30 (MapPartitionsRDD[61] at mapPartitions at KMeans.scala:302), which has no missing parents
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_39 stored as values in memory (estimated size 8.3 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_39_piece0 stored as bytes in memory (estimated size 4.3 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_39_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 4.3 KB, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 39 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:21 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 30 (MapPartitionsRDD[61] at mapPartitions at KMeans.scala:302) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Adding task set 30.0 with 1 tasks
+19/04/14 14:04:21 INFO TaskSetManager: Starting task 0.0 in stage 30.0 (TID 30, localhost, executor driver, partition 0, PROCESS_LOCAL, 8190 bytes)
+19/04/14 14:04:21 INFO Executor: Running task 0.0 in stage 30.0 (TID 30)
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:21 INFO BlockManager: Found block rdd_36_0 locally
+19/04/14 14:04:21 INFO Executor: Finished task 0.0 in stage 30.0 (TID 30). 1253 bytes result sent to driver
+19/04/14 14:04:21 INFO TaskSetManager: Finished task 0.0 in stage 30.0 (TID 30) in 10 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Removed TaskSet 30.0, whose tasks have all completed, from pool 
+19/04/14 14:04:21 INFO DAGScheduler: ShuffleMapStage 30 (mapPartitions at KMeans.scala:302) finished in 0.016 s
+19/04/14 14:04:21 INFO DAGScheduler: looking for newly runnable stages
+19/04/14 14:04:21 INFO DAGScheduler: running: Set()
+19/04/14 14:04:21 INFO DAGScheduler: waiting: Set(ResultStage 31)
+19/04/14 14:04:21 INFO DAGScheduler: failed: Set()
+19/04/14 14:04:21 INFO DAGScheduler: Submitting ResultStage 31 (ShuffledRDD[62] at reduceByKey at KMeans.scala:317), which has no missing parents
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_40 stored as values in memory (estimated size 2.8 KB, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_40_piece0 stored as bytes in memory (estimated size 1721.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_40_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 1721.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 40 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:21 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 31 (ShuffledRDD[62] at reduceByKey at KMeans.scala:317) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Adding task set 31.0 with 1 tasks
+19/04/14 14:04:21 INFO TaskSetManager: Starting task 0.0 in stage 31.0 (TID 31, localhost, executor driver, partition 0, ANY, 7662 bytes)
+19/04/14 14:04:21 INFO Executor: Running task 0.0 in stage 31.0 (TID 31)
+19/04/14 14:04:21 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/04/14 14:04:21 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+19/04/14 14:04:21 INFO Executor: Finished task 0.0 in stage 31.0 (TID 31). 1703 bytes result sent to driver
+19/04/14 14:04:21 INFO TaskSetManager: Finished task 0.0 in stage 31.0 (TID 31) in 6 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:21 INFO TaskSchedulerImpl: Removed TaskSet 31.0, whose tasks have all completed, from pool 
+19/04/14 14:04:21 INFO DAGScheduler: ResultStage 31 (collectAsMap at KMeans.scala:320) finished in 0.017 s
+19/04/14 14:04:21 INFO DAGScheduler: Job 18 finished: collectAsMap at KMeans.scala:320, took 0.039981 s
+19/04/14 14:04:21 INFO TorrentBroadcast: Destroying Broadcast(38) (from destroy at KMeans.scala:330)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_41 stored as values in memory (estimated size 392.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO MemoryStore: Block broadcast_41_piece0 stored as bytes in memory (estimated size 459.0 B, free 423.5 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_38_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 476.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO BlockManagerInfo: Added broadcast_41_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 459.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO SparkContext: Created broadcast 41 from broadcast at KMeans.scala:299
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 781
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 776
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 729
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 771
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 799
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 791
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_37_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 1721.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 797
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 779
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 800
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 753
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 711
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 712
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 803
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 728
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 766
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 716
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 778
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 724
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 788
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 739
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 789
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 765
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 749
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 792
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 708
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 798
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 737
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 717
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 787
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 785
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 786
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 782
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned shuffle 11
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_40_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 1721.0 B, free: 423.7 MB)
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 719
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 774
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 740
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 746
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 775
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 804
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 720
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 709
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 707
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 718
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 767
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 790
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 731
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 721
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 722
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 763
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 748
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 793
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 704
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 784
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 802
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 742
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 732
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 725
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_39_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 4.3 KB, free: 423.7 MB)
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 713
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 745
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 723
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 750
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 761
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 773
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 743
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 710
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 726
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 801
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 751
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 736
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 703
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 770
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 715
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 777
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 705
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 795
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 727
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 794
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 755
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 762
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned shuffle 12
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 756
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 752
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 735
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 769
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 730
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 768
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 796
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 772
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 714
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 744
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 758
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 733
+19/04/14 14:04:21 INFO BlockManagerInfo: Removed broadcast_36_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 4.3 KB, free: 423.8 MB)
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 780
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 764
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 747
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 783
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 760
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 754
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 757
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 741
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 759
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 734
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 706
+19/04/14 14:04:21 INFO ContextCleaner: Cleaned accumulator 738
+19/04/14 14:04:22 INFO SparkContext: Starting job: collectAsMap at KMeans.scala:320
+19/04/14 14:04:22 INFO DAGScheduler: Registering RDD 63 (mapPartitions at KMeans.scala:302)
+19/04/14 14:04:22 INFO DAGScheduler: Got job 19 (collectAsMap at KMeans.scala:320) with 1 output partitions
+19/04/14 14:04:22 INFO DAGScheduler: Final stage: ResultStage 33 (collectAsMap at KMeans.scala:320)
+19/04/14 14:04:22 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 32)
+19/04/14 14:04:22 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 32)
+19/04/14 14:04:22 INFO DAGScheduler: Submitting ShuffleMapStage 32 (MapPartitionsRDD[63] at mapPartitions at KMeans.scala:302), which has no missing parents
+19/04/14 14:04:22 INFO MemoryStore: Block broadcast_42 stored as values in memory (estimated size 8.3 KB, free 423.5 MB)
+19/04/14 14:04:22 INFO MemoryStore: Block broadcast_42_piece0 stored as bytes in memory (estimated size 4.3 KB, free 423.5 MB)
+19/04/14 14:04:22 INFO BlockManagerInfo: Added broadcast_42_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 4.3 KB, free: 423.7 MB)
+19/04/14 14:04:22 INFO SparkContext: Created broadcast 42 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:22 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 32 (MapPartitionsRDD[63] at mapPartitions at KMeans.scala:302) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:22 INFO TaskSchedulerImpl: Adding task set 32.0 with 1 tasks
+19/04/14 14:04:22 INFO TaskSetManager: Starting task 0.0 in stage 32.0 (TID 32, localhost, executor driver, partition 0, PROCESS_LOCAL, 8190 bytes)
+19/04/14 14:04:22 INFO Executor: Running task 0.0 in stage 32.0 (TID 32)
+19/04/14 14:04:22 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:22 INFO BlockManager: Found block rdd_36_0 locally
+19/04/14 14:04:22 INFO Executor: Finished task 0.0 in stage 32.0 (TID 32). 1253 bytes result sent to driver
+19/04/14 14:04:22 INFO TaskSetManager: Finished task 0.0 in stage 32.0 (TID 32) in 17 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:22 INFO TaskSchedulerImpl: Removed TaskSet 32.0, whose tasks have all completed, from pool 
+19/04/14 14:04:22 INFO DAGScheduler: ShuffleMapStage 32 (mapPartitions at KMeans.scala:302) finished in 0.030 s
+19/04/14 14:04:22 INFO DAGScheduler: looking for newly runnable stages
+19/04/14 14:04:22 INFO DAGScheduler: running: Set()
+19/04/14 14:04:22 INFO DAGScheduler: waiting: Set(ResultStage 33)
+19/04/14 14:04:22 INFO DAGScheduler: failed: Set()
+19/04/14 14:04:22 INFO DAGScheduler: Submitting ResultStage 33 (ShuffledRDD[64] at reduceByKey at KMeans.scala:317), which has no missing parents
+19/04/14 14:04:22 INFO MemoryStore: Block broadcast_43 stored as values in memory (estimated size 2.8 KB, free 423.5 MB)
+19/04/14 14:04:22 INFO MemoryStore: Block broadcast_43_piece0 stored as bytes in memory (estimated size 1721.0 B, free 423.5 MB)
+19/04/14 14:04:22 INFO BlockManagerInfo: Added broadcast_43_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 1721.0 B, free: 423.7 MB)
+19/04/14 14:04:22 INFO SparkContext: Created broadcast 43 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:22 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 33 (ShuffledRDD[64] at reduceByKey at KMeans.scala:317) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:22 INFO TaskSchedulerImpl: Adding task set 33.0 with 1 tasks
+19/04/14 14:04:22 INFO TaskSetManager: Starting task 0.0 in stage 33.0 (TID 33, localhost, executor driver, partition 0, ANY, 7662 bytes)
+19/04/14 14:04:22 INFO Executor: Running task 0.0 in stage 33.0 (TID 33)
+19/04/14 14:04:22 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/04/14 14:04:22 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+19/04/14 14:04:22 INFO Executor: Finished task 0.0 in stage 33.0 (TID 33). 1703 bytes result sent to driver
+19/04/14 14:04:22 INFO TaskSetManager: Finished task 0.0 in stage 33.0 (TID 33) in 11 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:22 INFO TaskSchedulerImpl: Removed TaskSet 33.0, whose tasks have all completed, from pool 
+19/04/14 14:04:22 INFO DAGScheduler: ResultStage 33 (collectAsMap at KMeans.scala:320) finished in 0.016 s
+19/04/14 14:04:22 INFO DAGScheduler: Job 19 finished: collectAsMap at KMeans.scala:320, took 0.066227 s
+19/04/14 14:04:22 INFO TorrentBroadcast: Destroying Broadcast(41) (from destroy at KMeans.scala:330)
+19/04/14 14:04:22 INFO BlockManagerInfo: Removed broadcast_41_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 459.0 B, free: 423.7 MB)
+19/04/14 14:04:22 INFO KMeans: Iterations took 0.639 seconds.
+19/04/14 14:04:22 INFO KMeans: KMeans converged in 6 iterations.
+19/04/14 14:04:22 INFO KMeans: The cost is 6143.7362765045855.
+19/04/14 14:04:22 INFO MapPartitionsRDD: Removing RDD 36 from persistence list
+19/04/14 14:04:22 INFO BlockManager: Removing RDD 36
+19/04/14 14:04:22 WARN KMeans: The input data was not directly cached, which may hurt performance if its parent RDDs are also uncached.
+19/04/14 14:04:22 INFO SparkContext: Starting job: collect at KMeansDriver.scala:98
+19/04/14 14:04:22 INFO DAGScheduler: Got job 20 (collect at KMeansDriver.scala:98) with 1 output partitions
+19/04/14 14:04:22 INFO DAGScheduler: Final stage: ResultStage 34 (collect at KMeansDriver.scala:98)
+19/04/14 14:04:22 INFO DAGScheduler: Parents of final stage: List()
+19/04/14 14:04:22 INFO DAGScheduler: Missing parents: List()
+19/04/14 14:04:22 INFO DAGScheduler: Submitting ResultStage 34 (MapPartitionsRDD[65] at map at KMeansDriver.scala:97), which has no missing parents
+19/04/14 14:04:22 INFO MemoryStore: Block broadcast_44 stored as values in memory (estimated size 7.0 KB, free 423.5 MB)
+19/04/14 14:04:22 INFO MemoryStore: Block broadcast_44_piece0 stored as bytes in memory (estimated size 3.7 KB, free 423.5 MB)
+19/04/14 14:04:22 INFO BlockManagerInfo: Added broadcast_44_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 3.7 KB, free: 423.8 MB)
+19/04/14 14:04:22 INFO SparkContext: Created broadcast 44 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:22 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 34 (MapPartitionsRDD[65] at map at KMeansDriver.scala:97) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:22 INFO TaskSchedulerImpl: Adding task set 34.0 with 1 tasks
+19/04/14 14:04:22 INFO TaskSetManager: Starting task 0.0 in stage 34.0 (TID 34, localhost, executor driver, partition 0, PROCESS_LOCAL, 7890 bytes)
+19/04/14 14:04:22 INFO Executor: Running task 0.0 in stage 34.0 (TID 34)
+19/04/14 14:04:22 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:22 INFO Executor: Finished task 0.0 in stage 34.0 (TID 34). 40671 bytes result sent to driver
+19/04/14 14:04:22 INFO TaskSetManager: Finished task 0.0 in stage 34.0 (TID 34) in 27 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:22 INFO TaskSchedulerImpl: Removed TaskSet 34.0, whose tasks have all completed, from pool 
+19/04/14 14:04:22 INFO DAGScheduler: ResultStage 34 (collect at KMeansDriver.scala:98) finished in 0.034 s
+19/04/14 14:04:22 INFO DAGScheduler: Job 20 finished: collect at KMeansDriver.scala:98, took 0.037775 s
+[3.0,3.0,2.0,1.0,0.0,1.0,2.0] - 1
+[3.0,3.0,2.0,1.0,1.0,2.0,2.0] - 1
+[3.0,3.0,2.0,1.0,1.0,1.0,2.0] - 1
+[3.0,3.0,2.0,0.0,0.0,2.0,2.0] - 1
+[3.0,3.0,2.0,0.0,1.0,1.0,2.0] - 1
+[3.0,3.0,2.0,2.0,0.0,2.0,2.0] - 1
+[3.0,3.0,2.0,2.0,0.0,1.0,2.0] - 1
+[3.0,3.0,2.0,2.0,0.0,0.0,2.0] - 1
+[3.0,3.0,2.0,2.0,1.0,1.0,2.0] - 1
+[3.0,3.0,2.0,2.0,2.0,2.0,2.0] - 1
+[3.0,3.0,2.0,2.0,2.0,0.0,2.0] - 1
+[3.0,3.0,3.0,1.0,0.0,2.0,2.0] - 1
+[3.0,3.0,3.0,1.0,0.0,1.0,2.0] - 1
+[3.0,3.0,3.0,1.0,0.0,0.0,2.0] - 1
+[3.0,3.0,3.0,0.0,0.0,2.0,2.0] - 1
+[3.0,3.0,3.0,0.0,1.0,1.0,2.0] - 1
+[3.0,3.0,3.0,2.0,0.0,2.0,2.0] - 1
+[3.0,3.0,3.0,2.0,1.0,0.0,2.0] - 1
+[3.0,3.0,3.0,2.0,2.0,2.0,2.0] - 1
+[3.0,3.0,3.0,2.0,2.0,0.0,2.0] - 1
+[3.0,3.0,1.0,1.0,1.0,1.0,2.0] - 1
+[3.0,3.0,1.0,1.0,2.0,2.0,2.0] - 1
+[3.0,3.0,1.0,1.0,2.0,1.0,2.0] - 1
+[3.0,3.0,1.0,0.0,0.0,1.0,2.0] - 1
+[3.0,3.0,1.0,0.0,1.0,1.0,2.0] - 1
+[3.0,3.0,1.0,0.0,1.0,0.0,2.0] - 1
+[3.0,3.0,1.0,0.0,2.0,2.0,2.0] - 1
+[3.0,3.0,1.0,0.0,2.0,1.0,2.0] - 1
+[3.0,3.0,1.0,2.0,1.0,2.0,2.0] - 1
+[3.0,3.0,0.0,1.0,0.0,2.0,2.0] - 1
+[3.0,3.0,0.0,1.0,0.0,1.0,2.0] - 1
+[3.0,3.0,0.0,1.0,0.0,0.0,2.0] - 1
+[3.0,3.0,0.0,0.0,0.0,1.0,2.0] - 1
+[3.0,3.0,0.0,0.0,1.0,2.0,2.0] - 1
+[3.0,3.0,0.0,0.0,1.0,1.0,2.0] - 1
+[3.0,3.0,0.0,0.0,1.0,0.0,2.0] - 1
+[3.0,3.0,0.0,2.0,1.0,0.0,2.0] - 1
+[3.0,3.0,0.0,2.0,2.0,0.0,2.0] - 1
+[3.0,0.0,2.0,1.0,0.0,1.0,2.0] - 1
+[3.0,0.0,2.0,1.0,2.0,2.0,2.0] - 1
+[3.0,0.0,2.0,1.0,2.0,1.0,2.0] - 1
+[3.0,0.0,2.0,0.0,1.0,2.0,2.0] - 1
+[3.0,0.0,2.0,0.0,2.0,0.0,2.0] - 1
+[3.0,0.0,2.0,2.0,0.0,0.0,2.0] - 1
+[3.0,0.0,2.0,2.0,1.0,2.0,2.0] - 1
+[3.0,0.0,2.0,2.0,1.0,1.0,2.0] - 1
+[3.0,0.0,2.0,2.0,2.0,1.0,2.0] - 1
+[3.0,0.0,3.0,1.0,2.0,0.0,2.0] - 1
+[3.0,0.0,3.0,0.0,0.0,2.0,2.0] - 1
+[3.0,0.0,3.0,0.0,0.0,0.0,2.0] - 1
+[3.0,0.0,3.0,0.0,1.0,1.0,2.0] - 1
+[3.0,0.0,3.0,2.0,0.0,2.0,2.0] - 1
+[3.0,0.0,3.0,2.0,0.0,0.0,2.0] - 1
+[3.0,0.0,3.0,2.0,1.0,2.0,2.0] - 1
+[3.0,0.0,3.0,2.0,2.0,1.0,2.0] - 1
+[3.0,0.0,1.0,1.0,2.0,0.0,2.0] - 1
+[3.0,0.0,1.0,0.0,1.0,0.0,2.0] - 1
+[3.0,0.0,1.0,0.0,2.0,0.0,2.0] - 1
+[3.0,0.0,1.0,2.0,0.0,1.0,2.0] - 1
+[3.0,0.0,1.0,2.0,0.0,0.0,2.0] - 1
+[3.0,0.0,1.0,2.0,1.0,2.0,2.0] - 1
+[3.0,0.0,1.0,2.0,1.0,1.0,2.0] - 1
+[3.0,0.0,0.0,1.0,0.0,0.0,2.0] - 1
+[3.0,0.0,0.0,0.0,0.0,2.0,2.0] - 1
+[3.0,0.0,0.0,0.0,0.0,1.0,2.0] - 1
+[3.0,0.0,0.0,0.0,0.0,0.0,2.0] - 1
+[3.0,0.0,0.0,0.0,1.0,1.0,2.0] - 1
+[3.0,0.0,0.0,0.0,2.0,1.0,2.0] - 1
+[3.0,1.0,2.0,1.0,0.0,0.0,2.0] - 1
+[3.0,1.0,2.0,1.0,1.0,0.0,2.0] - 1
+[3.0,1.0,2.0,0.0,0.0,1.0,2.0] - 1
+[3.0,1.0,2.0,0.0,2.0,2.0,2.0] - 1
+[3.0,1.0,2.0,0.0,2.0,0.0,0.0] - 2
+[3.0,1.0,2.0,2.0,0.0,2.0,2.0] - 1
+[3.0,1.0,2.0,2.0,1.0,0.0,0.0] - 2
+[3.0,1.0,3.0,1.0,1.0,0.0,2.0] - 1
+[3.0,1.0,3.0,0.0,0.0,1.0,2.0] - 1
+[3.0,1.0,3.0,0.0,1.0,1.0,2.0] - 1
+[3.0,1.0,3.0,0.0,2.0,1.0,0.0] - 2
+[3.0,1.0,3.0,0.0,2.0,0.0,0.0] - 2
+[3.0,1.0,3.0,2.0,1.0,2.0,2.0] - 1
+[3.0,1.0,3.0,2.0,1.0,1.0,0.0] - 2
+[3.0,1.0,3.0,2.0,1.0,0.0,0.0] - 2
+[3.0,1.0,1.0,0.0,2.0,1.0,0.0] - 2
+[3.0,1.0,1.0,2.0,1.0,2.0,2.0] - 1
+[3.0,1.0,1.0,2.0,2.0,2.0,2.0] - 1
+[3.0,1.0,0.0,1.0,0.0,2.0,2.0] - 1
+[3.0,1.0,0.0,1.0,2.0,2.0,2.0] - 1
+[3.0,1.0,0.0,0.0,2.0,1.0,0.0] - 2
+[3.0,1.0,0.0,2.0,1.0,1.0,0.0] - 2
+[3.0,2.0,2.0,1.0,2.0,1.0,2.0] - 1
+[3.0,2.0,2.0,0.0,0.0,1.0,2.0] - 1
+[3.0,2.0,2.0,0.0,1.0,1.0,2.0] - 1
+[3.0,2.0,2.0,2.0,0.0,0.0,2.0] - 1
+[3.0,2.0,2.0,2.0,1.0,2.0,2.0] - 1
+[3.0,2.0,2.0,2.0,1.0,1.0,2.0] - 1
+[3.0,2.0,2.0,2.0,1.0,0.0,0.0] - 2
+[3.0,2.0,2.0,2.0,2.0,2.0,2.0] - 1
+[3.0,2.0,2.0,2.0,2.0,1.0,0.0] - 2
+[3.0,2.0,3.0,1.0,0.0,1.0,2.0] - 1
+[3.0,2.0,3.0,1.0,2.0,1.0,2.0] - 1
+[3.0,2.0,3.0,1.0,2.0,0.0,2.0] - 1
+[3.0,2.0,3.0,0.0,1.0,1.0,2.0] - 1
+[3.0,2.0,3.0,0.0,1.0,0.0,0.0] - 2
+[3.0,2.0,3.0,0.0,2.0,2.0,2.0] - 1
+[3.0,2.0,3.0,0.0,2.0,1.0,0.0] - 2
+[3.0,2.0,1.0,1.0,1.0,0.0,2.0] - 1
+[3.0,2.0,1.0,2.0,1.0,2.0,2.0] - 1
+[3.0,2.0,1.0,2.0,1.0,0.0,0.0] - 2
+[3.0,2.0,1.0,2.0,2.0,2.0,2.0] - 1
+[3.0,2.0,1.0,2.0,2.0,0.0,0.0] - 2
+[3.0,2.0,0.0,1.0,1.0,1.0,2.0] - 1
+[3.0,2.0,0.0,0.0,0.0,2.0,2.0] - 1
+[3.0,2.0,0.0,0.0,0.0,1.0,2.0] - 1
+[3.0,2.0,0.0,0.0,1.0,2.0,2.0] - 1
+[3.0,2.0,0.0,0.0,1.0,1.0,0.0] - 2
+[3.0,2.0,0.0,2.0,2.0,1.0,0.0] - 2
+[0.0,3.0,2.0,0.0,0.0,2.0,2.0] - 0
+[0.0,3.0,2.0,0.0,0.0,1.0,2.0] - 0
+[0.0,3.0,2.0,0.0,0.0,0.0,2.0] - 0
+[0.0,3.0,2.0,0.0,1.0,1.0,2.0] - 0
+[0.0,3.0,2.0,0.0,2.0,2.0,2.0] - 0
+[0.0,3.0,3.0,1.0,2.0,1.0,2.0] - 0
+[0.0,3.0,3.0,0.0,1.0,1.0,2.0] - 0
+[0.0,3.0,3.0,0.0,1.0,0.0,2.0] - 0
+[0.0,3.0,3.0,2.0,0.0,2.0,2.0] - 0
+[0.0,3.0,3.0,2.0,0.0,1.0,2.0] - 0
+[0.0,3.0,3.0,2.0,2.0,0.0,2.0] - 0
+[0.0,3.0,1.0,1.0,0.0,1.0,2.0] - 0
+[0.0,3.0,1.0,1.0,1.0,2.0,2.0] - 0
+[0.0,3.0,1.0,1.0,1.0,0.0,2.0] - 0
+[0.0,3.0,1.0,1.0,2.0,2.0,2.0] - 0
+[0.0,3.0,1.0,0.0,0.0,2.0,2.0] - 0
+[0.0,3.0,1.0,0.0,0.0,1.0,2.0] - 0
+[0.0,3.0,1.0,0.0,1.0,2.0,2.0] - 0
+[0.0,3.0,1.0,0.0,2.0,2.0,2.0] - 0
+[0.0,3.0,1.0,0.0,2.0,0.0,2.0] - 0
+[0.0,3.0,1.0,2.0,0.0,2.0,2.0] - 0
+[0.0,3.0,1.0,2.0,0.0,1.0,2.0] - 0
+[0.0,3.0,1.0,2.0,2.0,1.0,2.0] - 0
+[0.0,3.0,0.0,0.0,0.0,2.0,2.0] - 0
+[0.0,3.0,0.0,0.0,1.0,2.0,2.0] - 0
+[0.0,3.0,0.0,0.0,2.0,1.0,2.0] - 0
+[0.0,3.0,0.0,2.0,0.0,2.0,2.0] - 0
+[0.0,3.0,0.0,2.0,0.0,1.0,2.0] - 0
+[0.0,3.0,0.0,2.0,1.0,2.0,2.0] - 0
+[0.0,3.0,0.0,2.0,1.0,0.0,2.0] - 0
+[0.0,3.0,0.0,2.0,2.0,1.0,2.0] - 0
+[0.0,0.0,2.0,1.0,1.0,0.0,2.0] - 0
+[0.0,0.0,2.0,1.0,2.0,2.0,2.0] - 0
+[0.0,0.0,2.0,1.0,2.0,1.0,2.0] - 0
+[0.0,0.0,2.0,0.0,0.0,0.0,0.0] - 2
+[0.0,0.0,2.0,0.0,2.0,2.0,2.0] - 0
+[0.0,0.0,2.0,0.0,2.0,1.0,0.0] - 2
+[0.0,0.0,2.0,2.0,0.0,2.0,2.0] - 0
+[0.0,0.0,3.0,1.0,0.0,0.0,2.0] - 0
+[0.0,0.0,3.0,1.0,1.0,1.0,2.0] - 0
+[0.0,0.0,3.0,1.0,2.0,1.0,2.0] - 0
+[0.0,0.0,3.0,1.0,2.0,0.0,2.0] - 0
+[0.0,0.0,3.0,0.0,1.0,1.0,2.0] - 0
+[0.0,0.0,3.0,0.0,2.0,0.0,0.0] - 2
+[0.0,0.0,3.0,2.0,0.0,2.0,2.0] - 0
+[0.0,0.0,3.0,2.0,0.0,0.0,0.0] - 2
+[0.0,0.0,3.0,2.0,2.0,1.0,0.0] - 2
+[0.0,0.0,1.0,1.0,0.0,2.0,2.0] - 0
+[0.0,0.0,1.0,1.0,1.0,1.0,2.0] - 0
+[0.0,0.0,1.0,0.0,1.0,2.0,2.0] - 0
+[0.0,0.0,1.0,0.0,2.0,2.0,2.0] - 0
+[0.0,0.0,1.0,2.0,1.0,2.0,2.0] - 0
+[0.0,0.0,1.0,2.0,1.0,1.0,0.0] - 2
+[0.0,0.0,0.0,1.0,0.0,1.0,2.0] - 0
+[0.0,0.0,0.0,1.0,0.0,0.0,2.0] - 0
+[0.0,0.0,0.0,0.0,2.0,2.0,2.0] - 0
+[0.0,0.0,0.0,2.0,0.0,2.0,2.0] - 0
+[0.0,1.0,2.0,1.0,0.0,0.0,2.0] - 0
+[0.0,1.0,2.0,1.0,2.0,2.0,2.0] - 0
+[0.0,1.0,2.0,0.0,0.0,2.0,2.0] - 0
+[0.0,1.0,2.0,0.0,0.0,1.0,2.0] - 0
+[0.0,1.0,2.0,0.0,2.0,2.0,2.0] - 0
+[0.0,1.0,2.0,2.0,1.0,0.0,0.0] - 2
+[0.0,1.0,2.0,2.0,2.0,1.0,0.0] - 2
+[0.0,1.0,3.0,1.0,0.0,2.0,2.0] - 0
+[0.0,1.0,3.0,1.0,1.0,2.0,2.0] - 0
+[0.0,1.0,3.0,0.0,0.0,1.0,2.0] - 0
+[0.0,1.0,3.0,0.0,0.0,0.0,0.0] - 2
+[0.0,1.0,3.0,2.0,0.0,2.0,2.0] - 0
+[0.0,1.0,3.0,2.0,0.0,1.0,2.0] - 0
+[0.0,1.0,3.0,2.0,0.0,0.0,0.0] - 2
+[0.0,1.0,3.0,2.0,2.0,2.0,2.0] - 0
+[0.0,1.0,1.0,1.0,0.0,1.0,2.0] - 0
+[0.0,1.0,1.0,0.0,1.0,2.0,2.0] - 0
+[0.0,1.0,1.0,0.0,1.0,0.0,0.0] - 2
+[0.0,1.0,1.0,2.0,1.0,2.0,2.0] - 0
+[0.0,1.0,1.0,2.0,1.0,1.0,0.0] - 2
+[0.0,1.0,1.0,2.0,2.0,1.0,0.0] - 2
+[0.0,1.0,0.0,1.0,0.0,0.0,2.0] - 0
+[0.0,1.0,0.0,1.0,2.0,0.0,2.0] - 0
+[0.0,1.0,0.0,0.0,2.0,2.0,2.0] - 0
+[0.0,1.0,0.0,2.0,2.0,0.0,0.0] - 2
+[0.0,2.0,2.0,0.0,2.0,2.0,2.0] - 0
+[0.0,2.0,2.0,2.0,0.0,2.0,2.0] - 0
+[0.0,2.0,2.0,2.0,1.0,1.0,2.0] - 0
+[0.0,2.0,2.0,2.0,2.0,1.0,0.0] - 2
+[0.0,2.0,2.0,2.0,2.0,0.0,0.0] - 2
+[0.0,2.0,3.0,1.0,0.0,2.0,2.0] - 0
+[0.0,2.0,3.0,1.0,1.0,2.0,2.0] - 0
+[0.0,2.0,3.0,1.0,2.0,1.0,2.0] - 0
+[0.0,2.0,3.0,0.0,0.0,0.0,0.0] - 2
+[0.0,2.0,3.0,0.0,1.0,2.0,2.0] - 0
+[0.0,2.0,3.0,0.0,1.0,0.0,0.0] - 2
+[0.0,2.0,3.0,0.0,2.0,1.0,0.0] - 2
+[0.0,2.0,3.0,0.0,2.0,0.0,0.0] - 2
+[0.0,2.0,3.0,2.0,0.0,0.0,0.0] - 2
+[0.0,2.0,3.0,2.0,2.0,1.0,0.0] - 2
+[0.0,2.0,3.0,2.0,2.0,0.0,0.0] - 2
+[0.0,2.0,1.0,1.0,0.0,2.0,2.0] - 0
+[0.0,2.0,1.0,1.0,1.0,1.0,2.0] - 0
+[0.0,2.0,1.0,1.0,1.0,0.0,2.0] - 0
+[0.0,2.0,1.0,1.0,2.0,0.0,2.0] - 0
+[0.0,2.0,1.0,0.0,1.0,1.0,0.0] - 2
+[0.0,2.0,1.0,0.0,1.0,0.0,0.0] - 2
+[0.0,2.0,1.0,0.0,2.0,1.0,0.0] - 2
+[0.0,2.0,1.0,0.0,2.0,0.0,0.0] - 2
+[0.0,2.0,1.0,2.0,0.0,1.0,2.0] - 0
+[0.0,2.0,1.0,2.0,0.0,0.0,0.0] - 2
+[0.0,2.0,1.0,2.0,1.0,0.0,0.0] - 2
+[0.0,2.0,0.0,1.0,0.0,1.0,2.0] - 0
+[0.0,2.0,0.0,0.0,0.0,2.0,2.0] - 0
+[0.0,2.0,0.0,2.0,0.0,1.0,2.0] - 0
+[0.0,2.0,0.0,2.0,2.0,2.0,2.0] - 0
+[0.0,2.0,0.0,2.0,2.0,0.0,0.0] - 2
+[1.0,3.0,2.0,1.0,0.0,1.0,2.0] - 0
+[1.0,3.0,2.0,1.0,1.0,1.0,2.0] - 0
+[1.0,3.0,2.0,1.0,1.0,0.0,2.0] - 0
+[1.0,3.0,2.0,0.0,0.0,0.0,0.0] - 2
+[1.0,3.0,2.0,0.0,1.0,1.0,2.0] - 0
+[1.0,3.0,2.0,0.0,2.0,1.0,0.0] - 2
+[1.0,3.0,2.0,2.0,0.0,0.0,2.0] - 0
+[1.0,3.0,2.0,2.0,1.0,1.0,2.0] - 0
+[1.0,3.0,2.0,2.0,1.0,0.0,0.0] - 2
+[1.0,3.0,2.0,2.0,2.0,0.0,0.0] - 2
+[1.0,3.0,3.0,1.0,0.0,2.0,2.0] - 0
+[1.0,3.0,3.0,1.0,0.0,1.0,2.0] - 0
+[1.0,3.0,3.0,1.0,0.0,0.0,2.0] - 0
+[1.0,3.0,3.0,1.0,1.0,2.0,2.0] - 0
+[1.0,3.0,3.0,0.0,1.0,1.0,2.0] - 0
+[1.0,3.0,3.0,2.0,1.0,2.0,2.0] - 0
+[1.0,3.0,1.0,1.0,0.0,0.0,2.0] - 0
+[1.0,3.0,1.0,1.0,1.0,1.0,2.0] - 0
+[1.0,3.0,1.0,1.0,2.0,2.0,2.0] - 0
+[1.0,3.0,1.0,0.0,0.0,2.0,2.0] - 0
+[1.0,3.0,1.0,0.0,0.0,0.0,0.0] - 2
+[1.0,3.0,1.0,0.0,2.0,1.0,0.0] - 2
+[1.0,3.0,1.0,0.0,2.0,0.0,0.0] - 2
+[1.0,3.0,1.0,2.0,0.0,0.0,0.0] - 2
+[1.0,3.0,1.0,2.0,1.0,1.0,0.0] - 2
+[1.0,3.0,0.0,0.0,0.0,2.0,2.0] - 0
+[1.0,3.0,0.0,2.0,0.0,1.0,2.0] - 0
+[1.0,3.0,0.0,2.0,0.0,0.0,0.0] - 2
+[1.0,3.0,0.0,2.0,1.0,2.0,2.0] - 0
+[1.0,3.0,0.0,2.0,1.0,0.0,0.0] - 2
+[1.0,3.0,0.0,2.0,2.0,0.0,0.0] - 2
+[1.0,0.0,2.0,1.0,0.0,0.0,2.0] - 0
+[1.0,0.0,2.0,1.0,2.0,2.0,2.0] - 0
+[1.0,0.0,2.0,1.0,2.0,1.0,2.0] - 0
+[1.0,0.0,2.0,0.0,0.0,2.0,2.0] - 0
+[1.0,0.0,2.0,0.0,0.0,1.0,2.0] - 0
+[1.0,0.0,2.0,0.0,2.0,2.0,2.0] - 0
+[1.0,0.0,2.0,0.0,2.0,0.0,0.0] - 2
+[1.0,0.0,2.0,2.0,0.0,2.0,2.0] - 0
+[1.0,0.0,2.0,2.0,2.0,1.0,0.0] - 2
+[1.0,0.0,3.0,1.0,0.0,2.0,2.0] - 0
+[1.0,0.0,3.0,0.0,0.0,0.0,0.0] - 2
+[1.0,0.0,3.0,2.0,0.0,0.0,0.0] - 2
+[1.0,0.0,1.0,1.0,0.0,1.0,2.0] - 0
+[1.0,0.0,1.0,1.0,0.0,0.0,2.0] - 0
+[1.0,0.0,1.0,1.0,2.0,0.0,2.0] - 0
+[1.0,0.0,1.0,0.0,0.0,1.0,2.0] - 0
+[1.0,0.0,1.0,0.0,1.0,2.0,2.0] - 0
+[1.0,0.0,1.0,0.0,2.0,1.0,0.0] - 2
+[1.0,0.0,1.0,2.0,1.0,2.0,2.0] - 0
+[1.0,0.0,1.0,2.0,2.0,2.0,2.0] - 0
+[1.0,0.0,1.0,2.0,2.0,1.0,0.0] - 2
+[1.0,0.0,1.0,2.0,2.0,0.0,0.0] - 2
+[1.0,0.0,0.0,1.0,1.0,2.0,2.0] - 0
+[1.0,0.0,0.0,0.0,1.0,2.0,2.0] - 0
+[1.0,0.0,0.0,0.0,1.0,0.0,0.0] - 2
+[1.0,0.0,0.0,0.0,2.0,0.0,0.0] - 2
+[1.0,0.0,0.0,2.0,1.0,0.0,0.0] - 2
+[1.0,1.0,2.0,1.0,0.0,0.0,2.0] - 0
+[1.0,1.0,2.0,0.0,0.0,1.0,0.0] - 2
+[1.0,1.0,2.0,0.0,2.0,0.0,3.0] - 0
+[1.0,1.0,2.0,2.0,2.0,0.0,3.0] - 0
+[1.0,1.0,3.0,1.0,0.0,1.0,2.0] - 0
+[1.0,1.0,3.0,1.0,1.0,2.0,2.0] - 0
+[1.0,1.0,3.0,1.0,1.0,1.0,2.0] - 0
+[1.0,1.0,3.0,0.0,0.0,1.0,0.0] - 2
+[1.0,1.0,3.0,0.0,1.0,1.0,0.0] - 2
+[1.0,1.0,3.0,0.0,1.0,0.0,0.0] - 2
+[1.0,1.0,3.0,2.0,0.0,0.0,0.0] - 2
+[1.0,1.0,1.0,1.0,0.0,0.0,2.0] - 0
+[1.0,1.0,1.0,1.0,1.0,0.0,2.0] - 0
+[1.0,1.0,1.0,1.0,2.0,2.0,2.0] - 0
+[1.0,1.0,1.0,0.0,0.0,2.0,2.0] - 0
+[1.0,1.0,1.0,0.0,2.0,2.0,2.0] - 0
+[1.0,1.0,1.0,0.0,2.0,0.0,3.0] - 0
+[1.0,1.0,1.0,2.0,1.0,2.0,2.0] - 0
+[1.0,1.0,1.0,2.0,1.0,1.0,0.0] - 2
+[1.0,1.0,1.0,2.0,2.0,1.0,0.0] - 2
+[1.0,1.0,0.0,1.0,0.0,2.0,2.0] - 0
+[1.0,1.0,0.0,1.0,0.0,1.0,2.0] - 0
+[1.0,1.0,0.0,1.0,1.0,1.0,2.0] - 0
+[1.0,1.0,0.0,1.0,2.0,1.0,2.0] - 0
+[1.0,1.0,0.0,0.0,0.0,1.0,0.0] - 2
+[1.0,1.0,0.0,0.0,1.0,0.0,3.0] - 0
+[1.0,1.0,0.0,2.0,1.0,2.0,2.0] - 0
+[1.0,1.0,0.0,2.0,1.0,1.0,0.0] - 2
+[1.0,1.0,0.0,2.0,1.0,0.0,3.0] - 0
+[1.0,2.0,2.0,1.0,0.0,2.0,2.0] - 0
+[1.0,2.0,2.0,1.0,1.0,1.0,2.0] - 0
+[1.0,2.0,2.0,1.0,2.0,2.0,2.0] - 0
+[1.0,2.0,2.0,0.0,0.0,1.0,0.0] - 2
+[1.0,2.0,2.0,0.0,2.0,1.0,1.0] - 2
+[1.0,2.0,2.0,2.0,1.0,1.0,0.0] - 2
+[1.0,2.0,3.0,1.0,0.0,1.0,2.0] - 0
+[1.0,2.0,3.0,1.0,0.0,0.0,2.0] - 0
+[1.0,2.0,3.0,1.0,1.0,2.0,2.0] - 0
+[1.0,2.0,3.0,1.0,1.0,0.0,2.0] - 0
+[1.0,2.0,3.0,1.0,2.0,1.0,2.0] - 0
+[1.0,2.0,3.0,1.0,2.0,0.0,2.0] - 0
+[1.0,2.0,3.0,0.0,0.0,0.0,1.0] - 2
+[1.0,2.0,3.0,0.0,2.0,2.0,2.0] - 0
+[1.0,2.0,3.0,2.0,1.0,2.0,2.0] - 0
+[1.0,2.0,3.0,2.0,2.0,1.0,1.0] - 0
+[1.0,2.0,1.0,1.0,0.0,1.0,2.0] - 0
+[1.0,2.0,1.0,1.0,0.0,0.0,2.0] - 0
+[1.0,2.0,1.0,1.0,1.0,0.0,2.0] - 0
+[1.0,2.0,1.0,1.0,2.0,2.0,2.0] - 0
+[1.0,2.0,1.0,0.0,1.0,0.0,3.0] - 0
+[1.0,2.0,1.0,2.0,0.0,1.0,0.0] - 2
+[1.0,2.0,1.0,2.0,1.0,2.0,2.0] - 0
+[1.0,2.0,1.0,2.0,1.0,1.0,1.0] - 0
+[1.0,2.0,0.0,1.0,0.0,2.0,2.0] - 0
+[1.0,2.0,0.0,1.0,0.0,1.0,2.0] - 0
+[1.0,2.0,0.0,1.0,1.0,0.0,2.0] - 0
+[1.0,2.0,0.0,0.0,0.0,0.0,1.0] - 2
+[1.0,2.0,0.0,0.0,1.0,2.0,2.0] - 0
+[1.0,2.0,0.0,0.0,1.0,1.0,1.0] - 2
+[1.0,2.0,0.0,2.0,0.0,1.0,0.0] - 2
+[1.0,2.0,0.0,2.0,1.0,2.0,2.0] - 0
+[1.0,2.0,0.0,2.0,2.0,2.0,2.0] - 0
+[1.0,2.0,0.0,2.0,2.0,1.0,1.0] - 2
+[2.0,3.0,2.0,1.0,2.0,2.0,2.0] - 1
+[2.0,3.0,2.0,1.0,2.0,0.0,2.0] - 1
+[2.0,3.0,2.0,0.0,2.0,0.0,0.0] - 2
+[2.0,3.0,2.0,2.0,0.0,2.0,2.0] - 1
+[2.0,3.0,2.0,2.0,1.0,2.0,2.0] - 1
+[2.0,3.0,2.0,2.0,1.0,0.0,0.0] - 2
+[2.0,3.0,3.0,1.0,0.0,0.0,2.0] - 1
+[2.0,3.0,3.0,1.0,1.0,1.0,2.0] - 1
+[2.0,3.0,3.0,1.0,2.0,2.0,2.0] - 1
+[2.0,3.0,3.0,0.0,2.0,1.0,0.0] - 2
+[2.0,3.0,3.0,2.0,1.0,2.0,2.0] - 1
+[2.0,3.0,3.0,2.0,1.0,1.0,0.0] - 2
+[2.0,3.0,1.0,1.0,0.0,1.0,2.0] - 1
+[2.0,3.0,1.0,0.0,0.0,1.0,2.0] - 1
+[2.0,3.0,1.0,0.0,1.0,2.0,2.0] - 1
+[2.0,3.0,1.0,0.0,2.0,1.0,0.0] - 2
+[2.0,3.0,1.0,2.0,0.0,0.0,0.0] - 2
+[2.0,3.0,1.0,2.0,1.0,0.0,0.0] - 2
+[2.0,3.0,0.0,1.0,0.0,1.0,2.0] - 1
+[2.0,3.0,0.0,1.0,0.0,0.0,2.0] - 1
+[2.0,3.0,0.0,1.0,2.0,0.0,2.0] - 1
+[2.0,3.0,0.0,0.0,0.0,2.0,2.0] - 1
+[2.0,3.0,0.0,0.0,1.0,2.0,2.0] - 1
+[2.0,3.0,0.0,0.0,2.0,2.0,2.0] - 1
+[2.0,3.0,0.0,2.0,0.0,2.0,2.0] - 1
+[2.0,3.0,0.0,2.0,0.0,1.0,2.0] - 1
+[2.0,3.0,0.0,2.0,0.0,0.0,0.0] - 2
+[2.0,3.0,0.0,2.0,1.0,0.0,0.0] - 2
+[2.0,0.0,2.0,1.0,2.0,2.0,2.0] - 1
+[2.0,0.0,2.0,1.0,2.0,1.0,2.0] - 1
+[2.0,0.0,2.0,0.0,0.0,2.0,2.0] - 1
+[2.0,0.0,2.0,0.0,2.0,1.0,0.0] - 2
+[2.0,0.0,2.0,0.0,2.0,0.0,3.0] - 1
+[2.0,0.0,2.0,2.0,0.0,2.0,2.0] - 1
+[2.0,0.0,2.0,2.0,2.0,0.0,3.0] - 1
+[2.0,0.0,3.0,1.0,0.0,2.0,2.0] - 1
+[2.0,0.0,3.0,1.0,1.0,2.0,2.0] - 1
+[2.0,0.0,3.0,0.0,0.0,2.0,2.0] - 1
+[2.0,0.0,3.0,2.0,0.0,2.0,2.0] - 1
+[2.0,0.0,3.0,2.0,0.0,0.0,0.0] - 2
+[2.0,0.0,3.0,2.0,2.0,1.0,0.0] - 2
+[2.0,0.0,3.0,2.0,2.0,0.0,3.0] - 1
+[2.0,0.0,1.0,1.0,0.0,1.0,2.0] - 1
+[2.0,0.0,1.0,1.0,2.0,1.0,2.0] - 1
+[2.0,0.0,1.0,1.0,2.0,0.0,2.0] - 1
+[2.0,0.0,1.0,0.0,0.0,1.0,0.0] - 2
+[2.0,0.0,1.0,0.0,0.0,0.0,0.0] - 2
+[2.0,0.0,1.0,0.0,1.0,2.0,2.0] - 1
+[2.0,0.0,1.0,0.0,2.0,2.0,2.0] - 1
+[2.0,0.0,1.0,0.0,2.0,0.0,3.0] - 1
+[2.0,0.0,1.0,2.0,0.0,2.0,2.0] - 1
+[2.0,0.0,1.0,2.0,0.0,1.0,0.0] - 2
+[2.0,0.0,1.0,2.0,0.0,0.0,0.0] - 2
+[2.0,0.0,1.0,2.0,1.0,1.0,0.0] - 2
+[2.0,0.0,1.0,2.0,1.0,0.0,3.0] - 1
+[2.0,0.0,1.0,2.0,2.0,2.0,2.0] - 1
+[2.0,0.0,1.0,2.0,2.0,0.0,3.0] - 1
+[2.0,0.0,0.0,1.0,0.0,0.0,2.0] - 1
+[2.0,0.0,0.0,1.0,1.0,0.0,2.0] - 1
+[2.0,0.0,0.0,1.0,2.0,2.0,2.0] - 1
+[2.0,0.0,0.0,0.0,0.0,2.0,2.0] - 1
+[2.0,0.0,0.0,0.0,0.0,0.0,0.0] - 2
+[2.0,0.0,0.0,0.0,1.0,0.0,3.0] - 1
+[2.0,0.0,0.0,2.0,0.0,2.0,2.0] - 1
+[2.0,0.0,0.0,2.0,2.0,1.0,0.0] - 2
+[2.0,1.0,2.0,1.0,1.0,2.0,2.0] - 1
+[2.0,1.0,2.0,1.0,1.0,1.0,2.0] - 1
+[2.0,1.0,2.0,1.0,2.0,2.0,2.0] - 1
+[2.0,1.0,2.0,1.0,2.0,1.0,2.0] - 1
+[2.0,1.0,2.0,0.0,1.0,2.0,2.0] - 1
+[2.0,1.0,2.0,2.0,1.0,2.0,2.0] - 1
+[2.0,1.0,2.0,2.0,2.0,0.0,3.0] - 1
+[2.0,1.0,3.0,1.0,1.0,1.0,2.0] - 1
+[2.0,1.0,3.0,1.0,2.0,2.0,2.0] - 1
+[2.0,1.0,3.0,0.0,0.0,2.0,2.0] - 1
+[2.0,1.0,3.0,0.0,1.0,2.0,2.0] - 1
+[2.0,1.0,3.0,0.0,1.0,1.0,0.0] - 2
+[2.0,1.0,3.0,0.0,2.0,0.0,3.0] - 1
+[2.0,1.0,3.0,2.0,0.0,2.0,2.0] - 1
+[2.0,1.0,3.0,2.0,1.0,0.0,3.0] - 1
+[2.0,1.0,1.0,1.0,1.0,1.0,2.0] - 1
+[2.0,1.0,1.0,1.0,2.0,0.0,2.0] - 1
+[2.0,1.0,1.0,0.0,1.0,1.0,1.0] - 2
+[2.0,1.0,1.0,0.0,2.0,2.0,2.0] - 1
+[2.0,1.0,1.0,0.0,2.0,1.0,1.0] - 2
+[2.0,1.0,1.0,2.0,1.0,1.0,1.0] - 1
+[2.0,1.0,1.0,2.0,2.0,0.0,3.0] - 1
+[2.0,1.0,0.0,1.0,0.0,0.0,2.0] - 1
+[2.0,1.0,0.0,1.0,1.0,2.0,2.0] - 1
+[2.0,1.0,0.0,1.0,2.0,1.0,2.0] - 1
+[2.0,1.0,0.0,1.0,2.0,0.0,2.0] - 1
+[2.0,1.0,0.0,0.0,0.0,2.0,2.0] - 1
+[2.0,1.0,0.0,0.0,0.0,1.0,0.0] - 2
+[2.0,1.0,0.0,0.0,0.0,0.0,1.0] - 2
+[2.0,1.0,0.0,2.0,0.0,1.0,0.0] - 2
+[2.0,1.0,0.0,2.0,2.0,1.0,1.0] - 1
+[2.0,2.0,2.0,1.0,1.0,0.0,2.0] - 1
+[2.0,2.0,2.0,1.0,2.0,1.0,2.0] - 1
+[2.0,2.0,2.0,0.0,0.0,1.0,0.0] - 2
+[2.0,2.0,2.0,0.0,1.0,2.0,2.0] - 1
+[2.0,2.0,2.0,0.0,1.0,1.0,0.0] - 2
+[2.0,2.0,2.0,0.0,1.0,0.0,1.0] - 2
+[2.0,2.0,2.0,2.0,1.0,0.0,1.0] - 2
+[2.0,2.0,2.0,2.0,2.0,0.0,3.0] - 1
+[2.0,2.0,3.0,1.0,0.0,2.0,2.0] - 1
+[2.0,2.0,3.0,1.0,0.0,1.0,2.0] - 1
+[2.0,2.0,3.0,1.0,0.0,0.0,2.0] - 1
+[2.0,2.0,3.0,0.0,0.0,0.0,1.0] - 2
+[2.0,2.0,3.0,0.0,1.0,2.0,2.0] - 1
+[2.0,2.0,3.0,0.0,2.0,2.0,2.0] - 1
+[2.0,2.0,3.0,2.0,2.0,2.0,2.0] - 1
+[2.0,2.0,3.0,2.0,2.0,1.0,1.0] - 1
+[2.0,2.0,1.0,1.0,0.0,0.0,2.0] - 1
+[2.0,2.0,1.0,0.0,0.0,2.0,2.0] - 1
+[2.0,2.0,1.0,0.0,1.0,1.0,1.0] - 2
+[2.0,2.0,1.0,0.0,2.0,2.0,2.0] - 1
+[2.0,2.0,1.0,2.0,0.0,2.0,2.0] - 1
+[2.0,2.0,1.0,2.0,1.0,0.0,3.0] - 1
+[2.0,2.0,0.0,1.0,0.0,2.0,2.0] - 1
+[2.0,2.0,0.0,1.0,0.0,0.0,2.0] - 1
+[2.0,2.0,0.0,1.0,2.0,1.0,2.0] - 1
+[2.0,2.0,0.0,0.0,2.0,2.0,2.0] - 1
+[2.0,2.0,0.0,2.0,0.0,0.0,1.0] - 2
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 846
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 836
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 862
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 880
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 856
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 825
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 874
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 817
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 807
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 805
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 852
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 876
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 851
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 875
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 879
+19/04/14 14:04:22 INFO BlockManagerInfo: Removed broadcast_42_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 4.3 KB, free: 423.8 MB)
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 812
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 865
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 858
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 829
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 873
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 857
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 872
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 866
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 831
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 864
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 867
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 826
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 809
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 806
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 854
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 819
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 828
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 827
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 848
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 822
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 838
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 855
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 832
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 815
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 818
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 824
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 845
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 844
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 808
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 869
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 839
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 860
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 814
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 868
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 859
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 816
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 835
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 853
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 823
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 830
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 870
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 821
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 842
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 850
+19/04/14 14:04:22 INFO BlockManagerInfo: Removed broadcast_43_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 1721.0 B, free: 423.8 MB)
+19/04/14 14:04:22 INFO BlockManagerInfo: Removed broadcast_44_piece0 on ip-172-31-1-165.us-east-2.compute.internal:37525 in memory (size: 3.7 KB, free: 423.8 MB)
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 840
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 877
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 834
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 841
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 863
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 849
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned shuffle 13
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 810
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 820
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 811
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 861
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 843
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 878
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 833
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 871
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 847
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 813
+19/04/14 14:04:22 INFO ContextCleaner: Cleaned accumulator 837
+19/04/14 14:04:22 INFO deprecation: mapred.output.dir is deprecated. Instead, use mapreduce.output.fileoutputformat.outputdir
+19/04/14 14:04:22 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.DirectFileOutputCommitter
+19/04/14 14:04:22 INFO DirectFileOutputCommitter: Nothing to setup since the outputs are written directly.
+19/04/14 14:04:22 INFO SparkContext: Starting job: runJob at SparkHadoopWriter.scala:78
+19/04/14 14:04:22 INFO DAGScheduler: Got job 21 (runJob at SparkHadoopWriter.scala:78) with 1 output partitions
+19/04/14 14:04:22 INFO DAGScheduler: Final stage: ResultStage 35 (runJob at SparkHadoopWriter.scala:78)
+19/04/14 14:04:22 INFO DAGScheduler: Parents of final stage: List()
+19/04/14 14:04:22 INFO DAGScheduler: Missing parents: List()
+19/04/14 14:04:22 INFO DAGScheduler: Submitting ResultStage 35 (MapPartitionsRDD[66] at saveAsTextFile at KMeansDriver.scala:99), which has no missing parents
+19/04/14 14:04:22 INFO MemoryStore: Block broadcast_45 stored as values in memory (estimated size 76.5 KB, free 423.5 MB)
+19/04/14 14:04:22 INFO MemoryStore: Block broadcast_45_piece0 stored as bytes in memory (estimated size 29.1 KB, free 423.4 MB)
+19/04/14 14:04:22 INFO BlockManagerInfo: Added broadcast_45_piece0 in memory on ip-172-31-1-165.us-east-2.compute.internal:37525 (size: 29.1 KB, free: 423.7 MB)
+19/04/14 14:04:22 INFO SparkContext: Created broadcast 45 from broadcast at DAGScheduler.scala:1201
+19/04/14 14:04:22 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 35 (MapPartitionsRDD[66] at saveAsTextFile at KMeansDriver.scala:99) (first 15 tasks are for partitions Vector(0))
+19/04/14 14:04:22 INFO TaskSchedulerImpl: Adding task set 35.0 with 1 tasks
+19/04/14 14:04:22 INFO TaskSetManager: Starting task 0.0 in stage 35.0 (TID 35, localhost, executor driver, partition 0, PROCESS_LOCAL, 7890 bytes)
+19/04/14 14:04:22 INFO Executor: Running task 0.0 in stage 35.0 (TID 35)
+19/04/14 14:04:22 INFO BlockManager: Found block rdd_2_0 locally
+19/04/14 14:04:22 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.DirectFileOutputCommitter
+19/04/14 14:04:22 INFO MultipartUploadOutputStream: close closed:false s3://801075504bucket2/KMeansOutput/part-00000
+19/04/14 14:04:23 INFO SparkHadoopMapRedUtil: No need to commit output of task because needsTaskCommit=false: attempt_20190414140422_0066_m_000000_0
+19/04/14 14:04:23 INFO Executor: Finished task 0.0 in stage 35.0 (TID 35). 1201 bytes result sent to driver
+19/04/14 14:04:23 INFO TaskSetManager: Finished task 0.0 in stage 35.0 (TID 35) in 332 ms on localhost (executor driver) (1/1)
+19/04/14 14:04:23 INFO TaskSchedulerImpl: Removed TaskSet 35.0, whose tasks have all completed, from pool 
+19/04/14 14:04:23 INFO DAGScheduler: ResultStage 35 (runJob at SparkHadoopWriter.scala:78) finished in 0.375 s
+19/04/14 14:04:23 INFO DAGScheduler: Job 21 finished: runJob at SparkHadoopWriter.scala:78, took 0.379736 s
+19/04/14 14:04:23 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+19/04/14 14:04:23 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: true
+19/04/14 14:04:23 INFO DirectFileOutputCommitter: Direct Write: ENABLED
+19/04/14 14:04:23 INFO DirectFileOutputCommitter: Nothing to clean up since no temporary files were written.
+19/04/14 14:04:23 INFO MultipartUploadOutputStream: close closed:false s3://801075504bucket2/KMeansOutput/_SUCCESS
+19/04/14 14:04:23 INFO SparkHadoopWriter: Job job_20190414140422_0066 committed.
+19/04/14 14:04:23 INFO SparkContext: Invoking stop() from shutdown hook
+19/04/14 14:04:23 INFO SparkUI: Stopped Spark web UI at http://ip-172-31-1-165.us-east-2.compute.internal:4040
+19/04/14 14:04:23 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+19/04/14 14:04:23 INFO MemoryStore: MemoryStore cleared
+19/04/14 14:04:23 INFO BlockManager: BlockManager stopped
+19/04/14 14:04:23 INFO BlockManagerMaster: BlockManagerMaster stopped
+19/04/14 14:04:23 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+19/04/14 14:04:23 INFO SparkContext: Successfully stopped SparkContext
+19/04/14 14:04:23 INFO ShutdownHookManager: Shutdown hook called
+19/04/14 14:04:23 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-2ff67ee5-29ec-471a-98ab-972dc60bd45d
+19/04/14 14:04:23 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-67c51838-6ea4-4f4d-b90d-83f94dc775a8
+[hadoop@ip-172-31-1-165 ~]$ 

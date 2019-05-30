@@ -1,0 +1,11 @@
+1. Find instructions for implementing programs in Cloudera - https://webpages.uncc.edu/aatzache/ITCS6190/Exercises/02_Exercise_ExampleMapReduceProgram.txt 
+
+2. Find instructions for implementing algorithms without Cloudera(using DSBA cluster) - https://webpages.uncc.edu/aatzache/ITCS6190/Exercises/02_ExampleMapReduceProgram_WithoutCloudera.txt
+
+3. Find instructions for implementing algorithms without Cloudera(using AWS EMR cluster) - https://webpages.uncc.edu/aatzache/ITCS6190/Exercises/02_ExampleMapReduceProgram_UsingAWS.txt
+
+4. Write your answers in a text or word file. Include your name and student ID
+
+5. E-mailed Exercises are not accepted.
+
+6. This is an Individual Assignment - everyone in the group has to make a submission

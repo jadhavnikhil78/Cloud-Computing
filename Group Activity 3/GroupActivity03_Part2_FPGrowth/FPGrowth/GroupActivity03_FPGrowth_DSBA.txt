@@ -1,0 +1,27 @@
+Cloud Computing for Data Analysis
+
+Group Activity 03 - Part 2 in DSBA-Hadoop cluster
+
+1. Download package from https://webpages.uncc.edu/aatzache/ITCS6190/Exercises/GroupActivity03_Part2_FPGrowth.zip
+
+2. This .zip file contains source code (.zip file), Data (in the Data folder) and an executable .jar file
+
+3. Extract GroupActivity03_FPGrowth.zip file and copy .jar file and data files to the DSBA-cluster using WinSCP or CyberDuck or SSH
+
+4. Login to the DSBA-cluster using Putty (Windows) or Terminal (Linux/MAC)
+
+5. Copy the data files to HDFS using following commands:
+	hadoop fs -put FILEPATH/FILENAME /user/UNCC_USERNAME/
+	
+6. To execute the program, use following command:
+	spark2-submit --class org.FP.Driver --master yarn --deploy-mode client JAR_FILEPATH /user/UNCC_USERNAME/FILENAME MINIMUM_SUPPORT MINIMUM_CONFIDENCE OUTPUT_PATH
+	
+	***NOTE:
+		Give MINIMUM_SUPPORT MINIMUM_CONFIDENCE values as DOUBLE values (eg) 0.4 or 0.75
+		
+7. Get output uisng following commands:
+	hadoop fs -get OUTPUT_PATH/part-00000 /users/UNCC_USERNAME/FP_growth_Output.txt
+	
+8. Execute the program for both data (SampleData.txt and ExerciseData.txt attached in the .zip file)
+
+9. Upload all output files, all commands, results and errors, if any, from the terminal window to Canvas

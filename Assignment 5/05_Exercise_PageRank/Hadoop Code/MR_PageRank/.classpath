@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/avro.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/commons-beanutils-core.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/commons-cli.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/commons-codec.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/commons-collections.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/commons-compress.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/commons-configuration.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/commons-digester.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/commons-httpclient.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/commons-io.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/commons-lang.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/commons-math3.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/commons-net.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/guava.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/hadoop-annotations.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/hadoop-auth.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/hadoop-common.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/hadoop-hdfs.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/hadoop-mapreduce-client-app.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/hadoop-mapreduce-client-common.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/hadoop-mapreduce-client-core.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/hadoop-mapreduce-client-jobclient.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/hadoop-mapreduce-client-shuffle.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/hadoop-yarn-api.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/hadoop-yarn-client.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/hadoop-yarn-common.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/hadoop-yarn-server-common.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/hamcrest-all-1.1.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/jackson-core-asl.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/jackson-mapper-asl.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/jetty-util.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/jsr305.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/junit-4.11.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/log4j.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/mrunit-0.9.0-incubating-hadoop2.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/paranamer.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/protobuf-java.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/slf4j-api.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/snappy-java.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/xmlenc.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/xz.jar"/>
+	<classpathentry kind="lib" path="/home/cloudera/Desktop/Hadoop jars/zookeeper.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

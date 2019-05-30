@@ -1,0 +1,36 @@
+Cloud Computing for Data Analysis:
+
+Spark Apriori Algorithm Execution Steps using DSBA-HADOOP Cluster:
+
+1. Download the .zip file from http://webpages.uncc.edu/aatzache/ITCS6190/Exercises/07_Exercise_SparkAssociationRules.zip
+
+2. Extract the .zip file
+
+3. This .zip file contains the source code(SparkAssociationRules.zip), the executable 'SparkAssociationRules.jar' file and data files inside the 'Data' folder
+
+4. Copy the 'SparkAssociationRules.jar' file to the cluster using WinSCP or CyberDuck or SSH
+
+5. Similarly, copy the Data CarData.txt to the cluster using WinSCP or CyberDuck or SSH
+
+6. Login to the DSBA-cluster using Putty(Windows) or Terminal(Linux/MAC)
+
+7. Copy the data file 'CarData.txt' into HDFS using the following command:
+	hadoop fs -put /users/UNCC_USERNAME/CarData.txt /user/UNCC_USERNAME/
+
+8. To execute the program, use the following command:
+	spark2-submit --class org.Apriori.Driver --master yarn --deploy-mode client /users/UNCC_USERNAME/SparkAssociationRules.jar /user/UNCC_USERNAME/CarData.txt MINIMUM_SUPPORT_VALUE MINIMUM_CONFIDENCE_VALUE /user/UNCC_USERNAME/Apriori_Output
+***NOTE: 
+	Give MINIMUM_SUPPORT_VALUE as an integer value
+	Give MINIMUM_CONFIDENCE_VALUE as an integer or a float value
+
+9. Get the output using the following command:
+	IF THE OUTPUT IS IN SINGLE FILE, USE:
+	hadoop fs -get /user/UNCC_USERNAME/Apriori_Output/part-00000 /users/UNCC_USERNAME/Apriori_Output.txt
+
+	IF THE OUTPUT IS IN MULTIPLE FILES, USE:
+	hadoop fs -getmerge /user/UNCC_USERNAME/Apriori_Output/ /users/UNCC_USERNAME/Apriori_Output.txt
+	
+10. Execute the program for both CarData.txt and SampleData.txt
+	
+11. Upload Apriori_Output.txt along with all commands, results and errors if any from the terminal windows in Canvas
+

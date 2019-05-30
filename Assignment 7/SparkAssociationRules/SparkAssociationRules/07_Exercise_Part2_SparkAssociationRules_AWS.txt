@@ -1,0 +1,25 @@
+Cloud Computing for Data Analysis
+
+Spark Apriori Algorithm Execution Steps using AWS EMR Cluster:
+
+1. Download the .zip file from 1. Download the .zip file from http://webpages.uncc.edu/aatzache/ITCS6190/Exercises/07_Exercise_SparkAssociationRules.zip
+
+2. Extract the .zip file
+
+3. This .zip file contains the source code(SparkAssociationRules.zip), the executable 'SparkAssociationRules.jar' file and data files inside the 'Data' folder 
+
+4. Create a cluster with Hadoop and Spark in AWS and start the cluster. Once the cluster is running, log-in to the master node using Putty(Windows) or SSH(MAC or Linux)
+
+5. Create a data bucket in AWS S3. Upload SampleData.txt, CarData.txt and SparkAssociationRules.jar files to S3
+
+6. From the master node download SparkAssociationRules.jar using the command:
+	aws s3 cp s3://BUCKET_NAME/SparkAssociationRules.jar .
+
+7. Run the program using the command: 
+	spark-submit --class org.Apriori.Driver ./SparkAssociationRules.jar s3://BUCKET_NAME/CarData.txt MINIMUM_SUPPORT_VALUE MINIMUM_CONFIDENCE_VALUE s3://BUCKET_NAME/SparkAssociationRulesOutput
+
+8. Download the output folder(SparkSQLOutput) from S3 to your local machine
+
+9. Execute the program for both CarData.txt and SampleData.txt
+
+9. Upload the downloaded folder along with all commands, results and errors if any from the terminal window to Canvas

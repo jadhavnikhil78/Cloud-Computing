@@ -1,0 +1,178 @@
+[buyinglow, doors2, safetymed, persons4, maintmed, lug_bootbig] ==> classgood	
+[buyinglow, doors5more, safetymed, lug_bootmed, maintmed, persons4] ==> classgood	
+[buyinglow, doors5more, safetymed, personsmore, maintmed, lug_bootbig] ==> classgood	
+[buyinglow, lug_bootsmall, safetymed, doors3, maintmed, persons4] ==> classacc	
+[buyinglow, mainthigh, safetyhigh, doors2, persons4, lug_bootbig] ==> classvgood	
+[buyinglow, mainthigh, safetyhigh, doors5more, personsmore, lug_bootbig] ==> classvgood	
+[buyinglow, mainthigh, safetymed, doors3, personsmore, lug_bootbig] ==> classacc	
+[buyinglow, maintlow, doors3, safetymed, lug_bootsmall, persons4] ==> classacc	
+[buyinglow, maintlow, doors3, safetymed, persons4, lug_bootbig] ==> classgood	
+[buyinglow, maintlow, doors5more, lug_bootsmall, safetymed, persons4] ==> classacc	
+[buyinglow, maintlow, doors5more, lug_bootsmall, safetymed, personsmore] ==> classacc	
+[buyinglow, maintlow, safetymed, lug_bootsmall, personsmore, doors4] ==> classacc	
+[buyinglow, maintlow, safetymed, personsmore, doors4, lug_bootbig] ==> classgood	
+[buyinglow, maintlow, safetymed, personsmore, lug_bootbig] ==> classgood	
+[buyinglow, safetyhigh, doors3, lug_bootmed, personsmore, maintmed] ==> classvgood	
+[buyinglow, safetyhigh, doors3, persons4, maintmed, lug_bootbig] ==> classvgood	
+[buyinglow, safetyhigh, lug_bootmed, doors4, maintmed, persons4] ==> classvgood	
+[buyinglow, safetyhigh, maintlow, doors2, persons4, lug_bootbig] ==> classvgood	
+[buyinglow, safetyhigh, maintlow, doors2, personsmore, lug_bootbig] ==> classvgood	
+[buyinglow, safetyhigh, maintlow, doors3, lug_bootmed, personsmore] ==> classvgood	
+[buyinglow, safetyhigh, maintlow, doors3, personsmore, lug_bootbig] ==> classvgood	
+[buyinglow, safetyhigh, maintlow, lug_bootmed, personsmore, doors4] ==> classvgood	
+[buyinglow, safetymed, doors4, persons4, maintmed, lug_bootbig] ==> classgood	
+[buyinglow, safetymed, personsmore, doors4, maintmed, lug_bootbig] ==> classgood	
+[buyingmed, doors2, lug_bootmed, safetymed, personsmore, maintmed] ==> classacc	
+[buyingmed, doors3, safetymed, personsmore, maintmed, lug_bootbig] ==> classacc	
+[buyingmed, lug_bootsmall, safetymed, doors3, personsmore, maintmed] ==> classacc	
+[buyingmed, safetymed, doors4, personsmore, maintmed, lug_bootbig] ==> classacc	
+[buyingmed, safetymed, personsmore, maintmed, lug_bootbig] ==> classacc	
+[doors2, buyingmed, lug_bootsmall, personsmore] ==> classunacc	
+[doors2, lug_bootsmall, personsmore, buyingvhigh] ==> classunacc	
+[doors2, lug_bootsmall, safetymed, buyingvhigh] ==> classunacc	
+[doors2, safetymed, persons4, maintmed, lug_bootbig, buyinghigh] ==> classacc	
+[doors2, safetymed, personsmore, maintmed, buyingvhigh, lug_bootbig] ==> classacc	
+[doors2, safetymed, personsmore, maintmed, lug_bootbig, buyinghigh] ==> classacc	
+[doors3, lug_bootmed, safetymed, maintmed, persons4, buyinghigh] ==> classunacc	
+[doors3, safetymed, persons4, maintmed, lug_bootbig, buyinghigh] ==> classacc	
+[doors5more, buyingmed, lug_bootmed, safetymed, personsmore, maintmed] ==> classacc	
+[doors5more, lug_bootmed, safetymed, maintmed, persons4, buyinghigh] ==> classacc	
+[doors5more, safetymed, persons4, maintmed, buyingvhigh, lug_bootbig] ==> classacc	
+[doors5more, safetymed, persons4, maintmed, lug_bootbig, buyinghigh] ==> classacc	
+[doors5more, safetymed, personsmore, maintmed, lug_bootbig, buyinghigh] ==> classacc	
+[lug_bootsmall, safetymed, buyinghigh] ==> classunacc	
+[lug_bootsmall, safetymed, buyingvhigh] ==> classunacc	
+[lug_bootsmall, safetymed, doors3, buyingvhigh] ==> classunacc	
+[lug_bootsmall, safetymed, maintmed, buyingvhigh] ==> classunacc	
+[lug_bootsmall, safetymed, persons4, buyingvhigh] ==> classunacc	
+[mainthigh, buyinglow, doors5more, safetymed, lug_bootmed, personsmore] ==> classacc	
+[mainthigh, buyinglow, doors5more, safetymed, personsmore] ==> classacc	
+[mainthigh, buyinglow, lug_bootsmall, safetymed, doors3, personsmore] ==> classacc	
+[mainthigh, buyinglow, safetyhigh, lug_bootmed, personsmore, doors4] ==> classvgood	
+[mainthigh, buyingmed, doors2, safetymed, lug_bootmed] ==> classunacc	
+[mainthigh, buyingmed, safetymed, doors3, lug_bootmed, persons4] ==> classunacc	
+[mainthigh, buyingmed, safetymed, doors3, persons4, lug_bootbig] ==> classacc	
+[mainthigh, buyingmed, safetymed, lug_bootmed, doors4, persons4] ==> classacc	
+[mainthigh, buyingmed, safetymed, lug_bootsmall] ==> classunacc	
+[mainthigh, buyingvhigh] ==> classunacc	
+[mainthigh, doors2, lug_bootsmall, personsmore] ==> classunacc	
+[mainthigh, doors3, safetymed, persons4, lug_bootbig, buyinghigh] ==> classacc	
+[mainthigh, doors5more, buyingmed, safetymed, lug_bootmed, personsmore] ==> classacc	
+[mainthigh, doors5more, buyingmed, safetymed, personsmore, lug_bootbig] ==> classacc	
+[mainthigh, doors5more, safetymed, personsmore, lug_bootbig, buyinghigh] ==> classacc	
+[mainthigh, safetyhigh, buyingmed, doors2, lug_bootmed, personsmore] ==> classacc	
+[mainthigh, safetyhigh, buyingmed, doors2, personsmore, lug_bootbig] ==> classacc	
+[mainthigh, safetyhigh, buyingmed, doors3, personsmore] ==> classacc	
+[mainthigh, safetyhigh, buyingmed, lug_bootmed, personsmore] ==> classacc	
+[mainthigh, safetyhigh, buyingmed, lug_bootsmall, doors3, personsmore] ==> classacc	
+[mainthigh, safetyhigh, buyingmed, personsmore, doors4, lug_bootbig] ==> classacc	
+[mainthigh, safetyhigh, buyingmed, personsmore, lug_bootbig] ==> classacc	
+[mainthigh, safetyhigh, doors2, lug_bootmed, personsmore, buyinghigh] ==> classacc	
+[mainthigh, safetyhigh, doors3, personsmore, lug_bootbig, buyinghigh] ==> classacc	
+[mainthigh, safetyhigh, doors5more, lug_bootmed, personsmore, buyinghigh] ==> classacc	
+[mainthigh, safetyhigh, lug_bootsmall, personsmore, doors4, buyinghigh] ==> classacc	
+[maintlow, buyingmed, doors2, lug_bootmed, safetymed, persons4] ==> classacc	
+[maintlow, buyingmed, doors2, lug_bootsmall, safetymed, persons4] ==> classacc	
+[maintlow, buyingmed, doors2, safetymed, persons4, lug_bootbig] ==> classgood	
+[maintlow, buyingmed, doors3, safetymed, lug_bootmed, personsmore] ==> classgood	
+[maintlow, buyingmed, doors3, safetymed, personsmore, lug_bootbig] ==> classgood	
+[maintlow, buyingmed, lug_bootsmall, safetymed, doors4, persons4] ==> classacc	
+[maintlow, buyingmed, lug_bootsmall, safetymed, persons4] ==> classacc	
+[maintlow, buyingmed, safetymed, doors4, persons4, lug_bootbig] ==> classgood	
+[maintlow, buyingmed, safetymed, lug_bootmed, doors4, personsmore] ==> classgood	
+[maintlow, doors2, lug_bootsmall, personsmore] ==> classunacc	
+[maintlow, doors2, safetymed, persons4, buyingvhigh, lug_bootbig] ==> classacc	
+[maintlow, doors2, safetymed, persons4, lug_bootbig, buyinghigh] ==> classacc	
+[maintlow, doors2, safetymed, personsmore, lug_bootbig, buyinghigh] ==> classacc	
+[maintlow, doors3, safetymed, persons4, buyingvhigh, lug_bootbig] ==> classacc	
+[maintlow, doors3, safetymed, personsmore, lug_bootbig, buyinghigh] ==> classacc	
+[maintlow, doors5more, lug_bootmed, safetymed, personsmore, buyinghigh] ==> classacc	
+[maintlow, lug_bootmed, safetymed, doors3, persons4, buyinghigh] ==> classunacc	
+[maintlow, lug_bootsmall, safetymed, buyinghigh] ==> classunacc	
+[maintlow, safetymed, doors3, personsmore, buyingvhigh, lug_bootbig] ==> classacc	
+[maintlow, safetymed, doors4, persons4, buyingvhigh, lug_bootbig] ==> classacc	
+[maintlow, safetymed, lug_bootmed, personsmore, doors4, buyinghigh] ==> classacc	
+[maintlow, safetymed, persons4, lug_bootbig, buyinghigh] ==> classacc	
+[maintlow, safetymed, personsmore, buyingvhigh, lug_bootbig] ==> classacc	
+[maintlow, safetymed, personsmore, lug_bootbig, buyinghigh] ==> classacc	
+[maintvhigh, buyinghigh] ==> classunacc	
+[maintvhigh, buyinglow, doors2, safetymed, personsmore, lug_bootbig] ==> classacc	
+[maintvhigh, buyinglow, doors3, safetymed, persons4, lug_bootbig] ==> classacc	
+[maintvhigh, buyinglow, doors5more, safetymed, lug_bootmed, persons4] ==> classacc	
+[maintvhigh, buyinglow, doors5more, safetymed, persons4, lug_bootbig] ==> classacc	
+[maintvhigh, buyinglow, safetyhigh, doors2, personsmore, lug_bootbig] ==> classacc	
+[maintvhigh, buyingmed, lug_bootsmall, safetymed] ==> classunacc	
+[maintvhigh, buyingmed, safetymed, doors4, personsmore, lug_bootbig] ==> classacc	
+[maintvhigh, buyingmed, safetymed, persons4, lug_bootbig] ==> classacc	
+[maintvhigh, buyingmed, safetymed, personsmore, lug_bootbig] ==> classacc	
+[maintvhigh, buyingvhigh] ==> classunacc	
+[maintvhigh, doors3, safetymed, lug_bootmed, persons4] ==> classunacc	
+[maintvhigh, doors5more, buyingmed, lug_bootmed, safetymed, persons4] ==> classacc	
+[maintvhigh, doors5more, buyingmed, safetymed, persons4, lug_bootbig] ==> classacc	
+[maintvhigh, doors5more, lug_bootsmall, safetymed] ==> classunacc	
+[maintvhigh, lug_bootsmall, safetymed, personsmore] ==> classunacc	
+[maintvhigh, safetyhigh, buyinglow, doors2, lug_bootmed, personsmore] ==> classacc	
+[maintvhigh, safetyhigh, buyinglow, doors3, personsmore] ==> classacc	
+[maintvhigh, safetyhigh, buyinglow, doors5more, personsmore] ==> classacc	
+[maintvhigh, safetyhigh, buyinglow, lug_bootsmall, personsmore, doors4] ==> classacc	
+[maintvhigh, safetyhigh, buyingmed, doors3, lug_bootsmall, personsmore] ==> classacc	
+[maintvhigh, safetyhigh, buyingmed, doors4, personsmore, lug_bootbig] ==> classacc	
+[maintvhigh, safetyhigh, buyingmed, lug_bootmed, personsmore] ==> classacc	
+[maintvhigh, safetyhigh, buyingmed, persons4] ==> classacc	
+[maintvhigh, safetyhigh, buyingmed, personsmore, lug_bootbig] ==> classacc	
+[persons2] ==> classunacc	
+[safetyhigh, buyinglow, doors2, personsmore, maintmed, lug_bootbig] ==> classvgood	
+[safetyhigh, buyinglow, doors3, lug_bootmed, maintmed, persons4] ==> classgood	
+[safetyhigh, buyinglow, doors3, personsmore, maintmed, lug_bootbig] ==> classvgood	
+[safetyhigh, buyinglow, lug_bootsmall, doors4, maintmed, persons4] ==> classgood	
+[safetyhigh, buyinglow, lug_bootsmall, personsmore, doors4, maintmed] ==> classgood	
+[safetyhigh, buyinglow, maintlow, doors2, lug_bootmed, personsmore] ==> classgood	
+[safetyhigh, buyinglow, maintlow, doors5more, lug_bootsmall, persons4] ==> classgood	
+[safetyhigh, buyinglow, maintlow, lug_bootsmall, persons4] ==> classgood	
+[safetyhigh, buyingmed, doors3, personsmore, maintmed, lug_bootbig] ==> classvgood	
+[safetyhigh, buyingmed, doors4, persons4, maintmed, lug_bootbig] ==> classvgood	
+[safetyhigh, buyingmed, doors4, personsmore, maintmed, lug_bootbig] ==> classvgood	
+[safetyhigh, buyingmed, lug_bootmed, personsmore, doors4, maintmed] ==> classvgood	
+[safetyhigh, buyingmed, lug_bootsmall, doors4, maintmed, persons4] ==> classacc	
+[safetyhigh, buyingmed, personsmore, maintmed, lug_bootbig] ==> classvgood	
+[safetyhigh, doors2, buyingmed, lug_bootsmall, maintmed, persons4] ==> classacc	
+[safetyhigh, doors2, personsmore, maintmed, buyingvhigh, lug_bootbig] ==> classacc	
+[safetyhigh, doors2, personsmore, maintmed, lug_bootbig, buyinghigh] ==> classacc	
+[safetyhigh, doors3, personsmore, maintmed, buyingvhigh, lug_bootbig] ==> classacc	
+[safetyhigh, doors3, personsmore, maintmed, lug_bootbig, buyinghigh] ==> classacc	
+[safetyhigh, doors5more, buyingmed, lug_bootmed, maintmed, persons4] ==> classvgood	
+[safetyhigh, doors5more, buyingmed, lug_bootmed, personsmore, maintmed] ==> classvgood	
+[safetyhigh, doors5more, personsmore, maintmed, buyingvhigh, lug_bootbig] ==> classacc	
+[safetyhigh, doors5more, personsmore, maintmed, buyingvhigh] ==> classacc	
+[safetyhigh, doors5more, personsmore, maintmed, lug_bootbig, buyinghigh] ==> classacc	
+[safetyhigh, lug_bootmed, personsmore, doors4, maintmed, buyinghigh] ==> classacc	
+[safetyhigh, lug_bootmed, personsmore, maintmed, buyingvhigh] ==> classacc	
+[safetyhigh, lug_bootsmall, personsmore, doors4, maintmed, buyinghigh] ==> classacc	
+[safetyhigh, lug_bootsmall, personsmore, doors4, maintmed, buyingvhigh] ==> classacc	
+[safetyhigh, mainthigh, buyinglow, lug_bootmed, doors3, persons4] ==> classacc	
+[safetyhigh, mainthigh, buyinglow, lug_bootmed, doors4, persons4] ==> classvgood	
+[safetyhigh, maintlow, buyingmed, doors2, lug_bootsmall, persons4] ==> classgood	
+[safetyhigh, maintlow, buyingmed, doors3, lug_bootsmall, persons4] ==> classgood	
+[safetyhigh, maintlow, buyingmed, doors3, lug_bootsmall, personsmore] ==> classgood	
+[safetyhigh, maintlow, buyingmed, doors4, persons4, lug_bootbig] ==> classvgood	
+[safetyhigh, maintlow, buyingmed, doors4, personsmore, lug_bootbig] ==> classvgood	
+[safetyhigh, maintlow, buyingmed, lug_bootmed, doors4, personsmore] ==> classvgood	
+[safetyhigh, maintlow, doors2, lug_bootmed, personsmore, buyinghigh] ==> classacc	
+[safetyhigh, maintlow, doors3, personsmore, buyinghigh] ==> classacc	
+[safetyhigh, maintlow, doors3, personsmore, lug_bootbig, buyinghigh] ==> classacc	
+[safetyhigh, maintlow, doors5more, buyingmed, lug_bootmed, persons4] ==> classvgood	
+[safetyhigh, maintlow, doors5more, buyingmed, lug_bootsmall, persons4] ==> classgood	
+[safetyhigh, maintlow, doors5more, buyingmed, lug_bootsmall, personsmore] ==> classgood	
+[safetyhigh, maintlow, doors5more, buyingmed, persons4, lug_bootbig] ==> classvgood	
+[safetyhigh, maintlow, doors5more, lug_bootmed, personsmore, buyingvhigh] ==> classacc	
+[safetyhigh, maintlow, doors5more, personsmore, buyingvhigh] ==> classacc	
+[safetyhigh, maintlow, doors5more, personsmore, lug_bootbig, buyinghigh] ==> classacc	
+[safetyhigh, maintlow, lug_bootmed, personsmore, doors4, buyingvhigh] ==> classacc	
+[safetyhigh, maintmed, persons4, buyinghigh] ==> classacc	
+[safetyhigh, personsmore, doors4, maintmed, buyinghigh] ==> classacc	
+[safetyhigh, personsmore, doors4, maintmed, buyingvhigh] ==> classacc	
+[safetyhigh, personsmore, doors4, maintmed, lug_bootbig, buyinghigh] ==> classacc	
+[safetyhigh, personsmore, maintmed, lug_bootbig, buyinghigh] ==> classacc	
+[safetymed, lug_bootmed, doors4, personsmore, maintmed, buyinghigh] ==> classacc	
+[safetymed, lug_bootmed, personsmore, doors4, maintmed, buyingvhigh] ==> classacc	
+[safetymed, personsmore, doors4, maintmed, buyingvhigh, lug_bootbig] ==> classacc	
